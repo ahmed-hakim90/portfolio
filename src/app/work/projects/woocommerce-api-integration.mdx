@@ -1,0 +1,26 @@
+---
+title: "WooCommerce API Integration"
+publishedAt: "2025-07-15"
+summary: "Custom API layer on Next.js for stable catalog and order flows against WooCommerce — same commerce stack later surfaced in Store OMS (screenshot)."
+images:
+  - "/store-oms-landing.png"
+link: ""
+---
+
+## Overview
+
+Structured **Next.js API routes** sit between the frontend and **WooCommerce**, normalizing responses and reducing timeouts and flaky client-side calls.
+
+The preview above is from **Store OMS** ([workflow-management-ecommerce.vercel.app](https://workflow-management-ecommerce.vercel.app/)) — the landing highlights **WooCommerce** among integrations; the API work fed the same operational reality (orders, storefront webhooks, stable payloads).
+
+## Problems tackled
+
+- Unstable API responses and intermittent failures
+- Timeouts under load
+- Hard-to-debug data flow from theme-only Woo setups
+
+## Approach
+
+- Centralized fetch logic with consistent error handling
+- Predictable JSON for the UI layer
+- Clear separation between storefront components and WooCommerce specifics
