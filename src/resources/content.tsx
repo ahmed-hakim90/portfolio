@@ -1,11 +1,11 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Gallery, Home, LegalTerms, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Ahmed",
   lastName: "Abdulhakim",
   name: "Ahmed Abdulhakim",
-  role: "Software Engineer",
+  role: "Frontend Engineer · fast, reliable eCommerce systems",
   avatar: "/me1.jpg",
   email: "ahmedabdulhakim90@gmail.com",
   location: "Africa/Cairo",
@@ -56,8 +56,8 @@ const home: Home = {
   image: "/me1.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio of ${person.name} — ${person.role}, entrepreneur, and builder.`,
-  headline: <>Software engineer · entrepreneur · shipping real products</>,
+  description: `${person.name} — frontend engineer building fast, reliable eCommerce. Next.js, WooCommerce, OMS/ERP integrations, performance and stability.`,
+  headline: <>Frontend Engineer building fast, reliable eCommerce systems</>,
   featured: {
     display: true,
     title: (
@@ -73,9 +73,17 @@ const home: Home = {
   },
   subline: (
     <>
-      My journey started over five years ago: client work on platforms like Mostaql, urgent delivery for the Grand Egyptian
-      Museum countdown, and building products with React and Firebase. I care about commitment, precision, and results —
-      and I am working toward launching my own software company.
+      <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+        I create high-performance storefronts using Next.js and connect them with WooCommerce APIs and external systems like
+        OMS and ERP.
+      </Text>
+      <Text wrap="balance" variant="body-default-l" onBackground="neutral-weak">
+        I don&apos;t just build UI — I solve real problems like slow loading, unstable APIs (502 errors), and inefficient
+        order workflows.
+      </Text>
+      <Text wrap="balance" variant="body-default-s" onBackground="neutral-alpha-medium">
+        Focused on performance, scalability, and clean system architecture.
+      </Text>
     </>
   ),
 };
@@ -84,7 +92,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} — Helwan, Cairo.`,
+  description: `Meet ${person.name} — frontend engineer building fast, reliable eCommerce with Next.js, WooCommerce, and OMS/ERP integrations.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -101,10 +109,12 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Software engineer turned entrepreneur: I love building things and helping people. I have worked on real-life client
-        projects and founded my own business. Notable work includes the Grand Egyptian Museum countdown (delivered on a tight
-        holiday timeline) and Hakimo ERP — a production management system with RTL Arabic UI. Earlier projects were part of
-        my foundations; recent work reflects where I am today technically.
+        I create high-performance storefronts using Next.js and connect them with WooCommerce APIs and external systems like
+        OMS and ERP. I don&apos;t just build UI — I solve real problems like slow loading, unstable APIs (502 errors), and
+        inefficient order workflows. Performance, scalability, and clean system architecture are what I optimize for. I have
+        also shipped deadline-critical work (Grand Egyptian Museum countdown), RTL production tooling (Hakimo ERP), commerce
+        flows including Sokany, years of client delivery via Mostaql, and I run my own business — so I align engineering
+        with real operations and outcomes.
       </>
     ),
   },
@@ -184,8 +194,9 @@ const about: About = {
         title: "Stack & delivery",
         description: (
           <>
-            React, TypeScript, Vue.js, JavaScript, HTML, CSS, SCSS, Bootstrap, Tailwind CSS, responsive design, jQuery,
-            Flutter, Firebase, Git, Postman — production-minded delivery on real deadlines.
+            Next.js, React, TypeScript, WooCommerce, REST APIs, integrations with OMS/ERP and external systems, JavaScript,
+            HTML, CSS, SCSS, Tailwind CSS, responsive design, Firebase, Git, Postman — integrated commerce with performance,
+            scalability, and reliability in mind.
           </>
         ),
         tags: [
@@ -216,14 +227,63 @@ const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
   title: `Gallery – ${person.name}`,
-  description: `Photos`,
-  images: [
+  description: `Screenshots from portfolio projects (built from work MDX).`,
+  images: [],
+};
+
+const terms: LegalTerms = {
+  path: "/terms",
+  label: "Terms",
+  title: `شروط الموقع وسياسة الاستخدام – ${person.name}`,
+  description: `ملكية المحتوى، قواعد الاستخدام، وحقوق ${person.name} على هذا الموقع.`,
+  sections: [
     {
-      src: "/me1.jpg",
-      alt: "Ahmed Abdulhakim",
-      orientation: "horizontal",
+      title: "ملكية الموقع والمحتوى",
+      content: (
+        <>
+          هذا الموقع شخصي وتم تصميمه وتطويره بواسطة {person.name}. النصوص، الصور، والمشاريع المعروضة هنا تعبّر عن
+          عملي وتجربتي ما لم يُذكر غير ذلك. استخدام القالب والمكتبات مفتوحة المصدر لا يعني تنازلي عن حقوقي في المحتوى
+          الأصلي الذي أضيفه.
+        </>
+      ),
+    },
+    {
+      title: "استخدام الموقع",
+      content: (
+        <>
+          يُسمح بالاطلاع على الموقع للأغراض الشخصية والمهنية الطبيعية. لا يجوز إعادة إنتاج المحتوى أو نسخ أجزاء كبيرة منه
+          دون إذن كتابي، سواء لأغراض تجارية أو نشرها كأنها ملك لغيري. يُحظر أي استخدام قد يسيء إلى الموقع أو إلى طرف ثالث.
+        </>
+      ),
+    },
+    {
+      title: "الروابط الخارجية والمسؤولية",
+      content: (
+        <>
+          قد يحتوي الموقع على روابط لمواقع أو خدمات خارجية؛ أنا غير مسؤول عن محتواها أو سياسات الخصوصية الخاصة بها.
+          استخدامك لتلك الروابط يكون على مسؤوليتك.
+        </>
+      ),
+    },
+    {
+      title: "التعديلات على هذه الشروط",
+      content: (
+        <>
+          أحتفظ بحق تحديث هذه الصفحة عند الحاجة. تاريخ آخر مراجعة يُذكر أسفل النص عند التحديث. الاستمرار في استخدام الموقع
+          بعد أي تعديل يعني موافقتك على النسخة الحالية.
+        </>
+      ),
+    },
+    {
+      title: "التواصل",
+      content: (
+        <>
+          لأي استفسار بخصوص هذه الشروط أو طلب إذن لاستخدام محتوى معيّن، يمكنك التواصل عبر البريد:{" "}
+          <a href={`mailto:${person.email}`}>{person.email}</a>.
+        </>
+      ),
     },
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work, gallery, terms };

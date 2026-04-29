@@ -1,5 +1,5 @@
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
-import { person, social } from "@/resources";
+import { person, social, terms } from "@/resources";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
@@ -22,12 +22,17 @@ export const Footer = () => {
         }}
       >
         <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
+          <Text onBackground="neutral-weak">© {currentYear}</Text>
           <Text paddingX="4">{person.name}</Text>
+          <Text onBackground="neutral-weak">— Designed &amp; built by me.</Text>
+          <Text paddingX="4" onBackground="neutral-weak">
+            <SmartLink href={terms.path}>{terms.label}</SmartLink>
+          </Text>
           <Text onBackground="neutral-weak">
-            {/* Usage of this template requires attribution. Please don't remove the link to Once UI unless you have a Pro license. */}
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
+            {/* CC BY-NC 4.0: keep attribution to Once UI unless you have a Pro license. */}
+            · Based on{" "}
+            <SmartLink href="https://once-ui.com/products/magic-portfolio">Magic Portfolio</SmartLink> (
+            <SmartLink href="https://once-ui.com">Once UI</SmartLink>)
           </Text>
         </Text>
         <Row gap="16">

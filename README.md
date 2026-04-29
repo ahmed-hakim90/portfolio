@@ -1,91 +1,68 @@
-# Magic Portfolio
+# Ahmed Abdulhakim — Portfolio
 
-Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
+موقع شخصي لعرض المشاريع والمدونة وصفحة About ومعرض صور. مبني على قالب [Magic Portfolio](https://once-ui.com/products/magic-portfolio) مع [Once UI](https://once-ui.com) و [Next.js](https://nextjs.org).
 
-View the demo [here](https://demo.magic-portfolio.com).
+![Portfolio preview](public/images/og/home.jpg)
 
-![Magic Portfolio](public/images/og/home.jpg)
+## المتطلبات
 
-## Getting started
+- **Node.js** 20 أو أحدث (متوافق مع Next.js 16)
+- **npm** (أو pnpm / yarn)
 
-**1. Clone the repository**
-```
-git clone https://github.com/once-ui-system/magic-portfolio.git
-```
+## التشغيل محليًا
 
-**2. Install dependencies**
-```
+```bash
 npm install
-```
-
-**3. Run dev server**
-```
+cp .env.example .env
+# عدّل القيم في .env ثم:
 npm run dev
 ```
 
-**4. Edit config**
-```
-src/resources/once-ui.config.js
-```
+يفتح الموقع على [http://localhost:3000](http://localhost:3000).
 
-**5. Edit content**
-```
-src/resources/content.js
-```
+## السكربتات
 
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
-```
+| الأمر | الوظيفة |
+|--------|---------|
+| `npm run dev` | خادم التطوير |
+| `npm run build` | بناء الإنتاج |
+| `npm run start` | تشغيل البناء بعد `build` |
+| `npm run lint` | ESLint |
+| `npm run biome-write` | تنسيق الملفات عبر Biome |
 
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
+## أهم ملفات الإعداد والمحتوى
 
-## Documentation
+| الملف | الاستخدام |
+|--------|------------|
+| [`src/resources/content.tsx`](src/resources/content.tsx) | الاسم، السيرة، الروابط الاجتماعية، نصوص الصفحات، صفحة الشروط (`terms`) |
+| [`src/resources/once-ui.config.ts`](src/resources/once-ui.config.ts) | عنوان الموقع (`baseURL`)، الثيم، الخطوط، تفعيل المسارات، تأثيرات الخلفية، مخطط البيانات المنظمة |
+| [`src/resources/custom.css`](src/resources/custom.css) | تخصيص إضافي فوق توكنز Once UI |
 
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+## المحتوى الديناميكي
 
-## Features
+- **تدوينات:** أضف ملف `.mdx` تحت [`src/app/blog/posts`](src/app/blog/posts).
+- **مشاريع العمل:** أضف ملف `.mdx` تحت [`src/app/work/projects`](src/app/work/projects).
+- **معرض الصور:** مصفوفة الصور في [`src/resources/content.tsx`](src/resources/content.tsx) ضمن كائن `gallery`.
 
-### Once UI
-- All tokens, components & features of [Once UI](https://once-ui.com)
+يمكن تعطيل صفحات من لوحة المسارات داخل `once-ui.config.ts` (`routes`).
 
-### SEO
-- Automatic open-graph and X image generation with next/og
-- Automatic schema and metadata generation based on the content file
+## المتغيرات البيئية
 
-### Design
-- Responsive layout optimized for all screen sizes
-- Timeless design without heavy animations and motion
-- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
+ انسخ `.env.example` إلى `.env` واملأ القيم. ملخص سريع:
 
-### Content
-- Render sections conditionally based on the content file
-- Enable or disable pages for blog, work, gallery and about / CV
-- Generate and display social links automatically
-- Set up password protection for URLs
+- **`NEXT_PUBLIC_SITE_URL`** — الرابط الكامل للموقع (بدون شرطة مائية أخيرة)، للـ SEO والـ RSS والـ Open Graph.
+- **`GITHUB_USERNAME`** / **`GITHUB_TOKEN`** — اختياري لعرض مساهمات GitHub في صفحة About؛ بدون توكن قد لا يظهر الـ heatmap.
+- **`PAGE_ACCESS_PASSWORD`** — اختياري لحماية مسارات معينة عبر `protectedRoutes` في الإعداد.
 
-### Localization
-- A localized, earlier version of Magic Portfolio is available with the next-intl library
-- To use localization, switch to the 'i18n' branch
+لا ترفع ملف `.env` أو مفاتيح حقيقية إلى Git.
 
-## Creators
+## النشر
 
-Lorant One: [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://www.linkedin.com/in/lorant-one/)
+مناسب للنشر على [Vercel](https://vercel.com) أو أي استضافة تدعم Next.js. عيّن `NEXT_PUBLIC_SITE_URL` في لوحة المتغيرات البيئية للإنتاج وحدّث `baseURL` في `once-ui.config.ts` أو وحّدهما على نفس النطاق.
 
-## Get involved
+## الإسناد والترخيص
 
-- Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
-- Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
+- هذا المستودع يعتمد على قالب **Magic Portfolio** تحت ترخيص **CC BY-NC 4.0** — الإسناد للمصدر مطلوب؛ الاستخدام التجاري للقالب محظور ما لم يتوفر ترخيص موسّع من جهة Once UI. التفاصيل في [`LICENSE`](LICENSE).
+- واجهة المستخدم مبنية على حزمة **`@once-ui-system/core`**؛ يُعرض إسناد مختصر في تذييل الموقع وفق شروط القالب.
 
-## License
-
-Distributed under the CC BY-NC 4.0 License.
-- Attribution is required.
-- Commercial usage is not allowed.
-- You can extend the license to [Dopler CC](https://dopler.app/license) by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
-
-See `LICENSE.txt` for more information.
-
-## Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)
+للمزيد عن القالب الرسمي: [توثيق Magic Portfolio](https://docs.once-ui.com/docs/magic-portfolio/quick-start).

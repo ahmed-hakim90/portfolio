@@ -16,6 +16,12 @@ import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
+import {
+  loadGitHubSectionData,
+  parseGithubUsernameFromUrl,
+  resolveGithubUsername,
+} from "@/lib/github";
+import { GitHubSection } from "@/components/github/GitHubSection";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -27,7 +33,13 @@ export async function generateMetadata() {
   });
 }
 
-export default function About() {
+export default async function About() {
+  const ghSocial = social.find((s) => s.icon === "github")?.link;
+  const githubUsername = resolveGithubUsername(
+    ghSocial ? parseGithubUsernameFromUrl(ghSocial) : undefined,
+  );
+  const githubData = githubUsername ? await loadGitHubSectionData(githubUsername) : null;
+
   const structure = [
     {
       title: about.intro.title,
@@ -49,6 +61,9 @@ export default function About() {
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
     },
+    ...(githubData
+      ? [{ title: "GitHub", display: true as const, items: [] as string[] }]
+      : []),
   ];
   return (
     <Column maxWidth="m">
@@ -335,6 +350,8 @@ export default function About() {
               </Column>
             </>
           )}
+
+          {githubData && <GitHubSection data={githubData} />}
         </Column>
       </Row>
     </Column>

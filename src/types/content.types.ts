@@ -227,6 +227,16 @@ export interface Work extends BasePageConfig {}
  * Gallery page configuration.
  * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
  */
+/**
+ * Legal / terms page (site rules, ownership, acceptable use).
+ */
+export interface LegalTerms extends BasePageConfig {
+  sections: Array<{
+    title: string;
+    content: React.ReactNode;
+  }>;
+}
+
 export interface Gallery extends BasePageConfig {
   /** List of images in the gallery */
   images: Array<{

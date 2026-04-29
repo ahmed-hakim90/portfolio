@@ -10,11 +10,19 @@ import {
   Schema,
   Meta,
   Line,
+  SmartLink,
 } from "@once-ui-system/core";
-import { home, about, person, baseURL, routes } from "@/resources";
+import { home, about, person, baseURL, routes, social } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
+import { ContributionGraph } from "@/components/github/ContributionGraph";
+import { RepoGrid } from "@/components/github/RepoGrid";
+import {
+  loadGitHubSectionData,
+  parseGithubUsernameFromUrl,
+  resolveGithubUsername,
+} from "@/lib/github";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -26,7 +34,20 @@ export async function generateMetadata() {
   });
 }
 
-export default function Home() {
+export default async function Home() {
+  const ghSocial = social.find((s) => s.icon === "github")?.link;
+  const githubUsername = resolveGithubUsername(
+    ghSocial ? parseGithubUsernameFromUrl(ghSocial) : undefined,
+  );
+  const githubData = githubUsername ? await loadGitHubSectionData(githubUsername) : null;
+  const contributionCalendar =
+    githubData && !("error" in githubData) ? githubData.calendar : null;
+  /** Non-fork repos for the home preview (forks stay on About → full list). */
+  const homeGithubRepos =
+    githubData && !("error" in githubData)
+      ? githubData.repos.filter((r) => !r.fork)
+      : [];
+
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
       <Schema
@@ -71,9 +92,9 @@ export default function Home() {
             </Heading>
           </RevealFx>
           <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+            <Column maxWidth="s" horizontal="center" gap="m">
               {home.subline}
-            </Text>
+            </Column>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
             <Button
@@ -99,6 +120,28 @@ export default function Home() {
             </Button>
           </RevealFx>
         </Column>
+        {contributionCalendar && (
+          <RevealFx translateY="12" delay={0.5} fillWidth horizontal="center">
+            <Column fillWidth maxWidth="m" paddingX="l" paddingTop="16">
+              <ContributionGraph data={contributionCalendar} />
+            </Column>
+          </RevealFx>
+        )}
+        {homeGithubRepos.length > 0 && githubData && !("error" in githubData) && (
+          <RevealFx translateY="12" delay={0.52} fillWidth horizontal="center">
+            <Column fillWidth maxWidth="m" paddingX="l" paddingTop="24" gap="16">
+              <Heading as="h2" variant="display-strong-xs" wrap="balance">
+                Recent repositories
+              </Heading>
+              <RepoGrid repos={homeGithubRepos} limit={8} />
+              <Row horizontal="center" paddingTop="4">
+                <SmartLink href={`${githubData.user.html_url}?tab=repositories`}>
+                  View all on GitHub →
+                </SmartLink>
+              </Row>
+            </Column>
+          </RevealFx>
+        )}
       </Column>
       <RevealFx translateY="16" delay={0.6}>
         <Projects range={[1, 1]} />
