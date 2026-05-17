@@ -12,6 +12,13 @@ const person: Person = {
   languages: ["Arabic", "English"],
 };
 
+const contact = {
+  phoneLocal: "01069005019",
+  phoneInternational: "+201069005019",
+  whatsapp: "https://wa.me/201069005019",
+  tel: "tel:+201069005019",
+};
+
 const newsletter: Newsletter = {
   display: false,
   title: <>Newsletter</>,
@@ -40,7 +47,7 @@ const social: Social = [
   {
     name: "WhatsApp",
     icon: "whatsapp",
-    link: "https://wa.me/201552900017",
+    link: contact.whatsapp,
     essential: false,
   },
   {
@@ -102,7 +109,7 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://wa.me/201552900017",
+    link: "/schedule",
   },
   intro: {
     display: true,
@@ -426,4 +433,4 @@ const terms: LegalTerms = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery, terms };
+export { person, contact, social, newsletter, home, about, blog, work, gallery, terms };

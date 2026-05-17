@@ -1,0 +1,43 @@
+.card {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--static-space-16);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-8);
+  color: var(--neutral-on-background-weak);
+  font: inherit;
+}
+
+.field span {
+  font-size: 0.875rem;
+}
+
+.field input {
+  min-height: 48px;
+  width: 100%;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: var(--radius-m);
+  padding: 0 var(--static-space-12);
+  color: var(--neutral-on-background-strong);
+  background: var(--surface-background);
+  font: inherit;
+}
+
+.field input:focus {
+  outline: 2px solid var(--brand-alpha-medium);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
