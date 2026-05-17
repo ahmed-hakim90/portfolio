@@ -25,6 +25,7 @@ import {
 import {
   SiJavascript,
   SiNextdotjs,
+  SiReact,
   SiFigma,
   SiSupabase,
 } from "react-icons/si";
@@ -54,6 +55,7 @@ export const iconLibrary: Record<string, IconType> = {
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,
   rocket: HiOutlineRocketLaunch,
+  react: SiReact,
   javascript: SiJavascript,
   nextjs: SiNextdotjs,
   supabase: SiSupabase,

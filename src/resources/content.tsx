@@ -188,21 +188,151 @@ const about: About = {
   },
   technical: {
     display: true,
-    title: "Technical skills",
+    title: "Skills",
     skills: [
       {
-        title: "Stack & delivery",
+        title: "Front-End Development",
         description: (
           <>
-            Next.js, React, TypeScript, WooCommerce, REST APIs, integrations with OMS/ERP and external systems, JavaScript,
-            HTML, CSS, SCSS, Tailwind CSS, responsive design, Firebase, Git, Postman — integrated commerce with performance,
-            scalability, and reliability in mind.
+            Building fast, scalable, responsive interfaces with modern JavaScript frameworks and production-ready styling
+            systems.
           </>
         ),
         tags: [
-          { name: "JavaScript", icon: "javascript" },
+          { name: "React.js", icon: "react" },
           { name: "Next.js", icon: "nextjs" },
-          { name: "GitHub", icon: "github" },
+          { name: "Vue.js" },
+          { name: "TypeScript" },
+          { name: "JavaScript (ES6+)", icon: "javascript" },
+          { name: "HTML5" },
+          { name: "CSS3 / SCSS" },
+          { name: "Tailwind CSS" },
+          { name: "Bootstrap" },
+          { name: "Responsive Design" },
+          { name: "Mobile-First Development" },
+          { name: "SSR / Performance Optimization" },
+        ],
+      },
+      {
+        title: "UI / UX & Design Systems",
+        description: (
+          <>
+            Translating product requirements into polished component systems, bilingual interfaces, and SaaS-style user
+            experiences.
+          </>
+        ),
+        tags: [
+          { name: "shadcn/ui" },
+          { name: "Radix UI" },
+          { name: "Framer Motion" },
+          { name: "Component-Based Architecture" },
+          { name: "Design Systems" },
+          { name: "RTL/LTR Interfaces" },
+          { name: "Modern SaaS & Corporate UI" },
+        ],
+      },
+      {
+        title: "State Management & Data",
+        description: (
+          <>
+            Connecting front-end products to real APIs, managing client state, server data, and reliable data-processing
+            workflows.
+          </>
+        ),
+        tags: [
+          { name: "Zustand" },
+          { name: "TanStack Query" },
+          { name: "React Query" },
+          { name: "REST API Integration" },
+          { name: "Webhooks" },
+          { name: "JSON Processing" },
+        ],
+      },
+      {
+        title: "E-Commerce & Integrations",
+        description: (
+          <>
+            Building commerce systems that connect storefronts, order workflows, automation tools, payment, shipping, and
+            external APIs.
+          </>
+        ),
+        tags: [
+          { name: "WooCommerce REST API" },
+          { name: "Headless Commerce" },
+          { name: "Order Management Systems (OMS)" },
+          { name: "Payment & Shipping Integrations" },
+          { name: "Bosta API" },
+          { name: "WhatsApp Automation" },
+          { name: "API Integrations" },
+        ],
+      },
+      {
+        title: "Backend & Cloud",
+        description: (
+          <>
+            Delivering serverless backends, authentication, storage, and cloud deployments for modern web applications.
+          </>
+        ),
+        tags: [
+          { name: "Firebase (Auth / Firestore / Storage)" },
+          { name: "Supabase" },
+          { name: "Node.js" },
+          { name: "Cloudflare Workers" },
+          { name: "Vercel" },
+          { name: "Serverless Architecture" },
+        ],
+      },
+      {
+        title: "Tools & Workflow",
+        description: (
+          <>
+            Working with professional development workflows, code quality tooling, API testing, automation, and delivery
+            pipelines.
+          </>
+        ),
+        tags: [
+          { name: "Git & GitHub", icon: "github" },
+          { name: "GitHub Actions" },
+          { name: "CI/CD" },
+          { name: "Postman" },
+          { name: "VS Code / Cursor" },
+          { name: "ESLint & Prettier" },
+          { name: "Agile Workflow" },
+        ],
+      },
+      {
+        title: "ERP & Business Systems",
+        description: (
+          <>
+            Understanding operational software for factories, inventory, HR, payroll, production, costing, and business
+            automation.
+          </>
+        ),
+        tags: [
+          { name: "ERP Systems" },
+          { name: "Manufacturing Systems" },
+          { name: "Inventory Management" },
+          { name: "HR & Payroll Systems" },
+          { name: "Cost Accounting Systems" },
+          { name: "Production Management" },
+          { name: "Automation Workflows" },
+        ],
+      },
+      {
+        title: "AI & Automation",
+        description: (
+          <>
+            Using AI tools and automation platforms to speed up development, connect systems, and design practical
+            business workflows.
+          </>
+        ),
+        tags: [
+          { name: "n8n" },
+          { name: "OpenRouter" },
+          { name: "Ollama" },
+          { name: "AI Workflow Automation" },
+          { name: "AI Assisted Development" },
+          { name: "Prompt Engineering" },
         ],
       },
     ],
