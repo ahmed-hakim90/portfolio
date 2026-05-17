@@ -121,6 +121,18 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
+        company: "Sokany Elmaghraby",
+        timeframe: "Jun 2025 – Present",
+        role: "Frontend Engineer",
+        achievements: [
+          <>
+            Developing the company&apos;s operational workflows across storefront, order management, internal dashboards,
+            commerce integrations, and team-facing systems — connecting frontend product work with real business operations.
+          </>,
+        ],
+        images: [],
+      },
+      {
         company: "Grand Egyptian Museum",
         timeframe: "Jul 2024 – Jul 2024",
         role: "Frontend Developer",
@@ -354,8 +366,8 @@ const work: Work = {
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Gallery – ${person.name}`,
-  description: `Screenshots from portfolio projects (built from work MDX).`,
+  title: `Systems Gallery – ${person.name}`,
+  description: `Screenshots from ERP platforms, operations software, headless commerce, and product systems by ${person.name}.`,
   images: [],
 };
 

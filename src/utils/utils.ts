@@ -78,6 +78,9 @@ export function getProjectGalleryImages(): Array<{
   src: string;
   alt: string;
   orientation: string;
+  title: string;
+  slug: string;
+  publishedAt: string;
 }> {
   const posts = getPosts(["src", "app", "work", "projects"]);
   const sorted = [...posts].sort(
@@ -87,7 +90,14 @@ export function getProjectGalleryImages(): Array<{
   );
   const seen = new Set<string>();
   const excludeSrc = new Set(["/me1.jpg"]);
-  const out: Array<{ src: string; alt: string; orientation: string }> = [];
+  const out: Array<{
+    src: string;
+    alt: string;
+    orientation: string;
+    title: string;
+    slug: string;
+    publishedAt: string;
+  }> = [];
 
   for (const post of sorted) {
     const title = post.metadata.title?.trim() || post.slug;
@@ -100,6 +110,9 @@ export function getProjectGalleryImages(): Array<{
         src,
         alt: title,
         orientation: "horizontal",
+        title,
+        slug: post.slug,
+        publishedAt: post.metadata.publishedAt,
       });
     }
   }

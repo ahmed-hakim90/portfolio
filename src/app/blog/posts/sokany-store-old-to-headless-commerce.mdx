@@ -1,0 +1,166 @@
+---
+title: "من متجر WooCommerce تقليدي إلى Headless Store — تطوير Sokany Store"
+publishedAt: "2026-05-17"
+summary: "قصة تطوير Sokany Store من تجربة WooCommerce تقليدية إلى storefront حديث مبني بـ Next.js: أداء أفضل، RTL mobile UX، تكامل REST API، وتجربة شراء أسرع وأوضح."
+image: "/sokany-store-desktop.png"
+tag: "E-Commerce"
+---
+
+في المتاجر الإلكترونية، المشكلة مش دايمًا إن المنتج مش كويس.
+
+أحيانًا المشكلة إن تجربة الشراء نفسها بطيئة، مزدحمة، أو مش مريحة على الموبايل.
+
+ده كان الاتجاه في مشروع **Sokany Store**: بناء storefront حديث فوق WooCommerce، بدل الاعتماد على شكل WooCommerce التقليدي وحدوده في الأداء وتجربة المستخدم.
+
+---
+
+## قبل التطوير
+
+النسخة التقليدية من أي WooCommerce store غالبًا بتواجه نفس المشاكل:
+
+- صفحات تقيلة ومليانة scripts
+- تحكم محدود في شكل الواجهة
+- تجربة موبايل مش دايمًا مريحة
+- صعوبة في بناء shopping flow مختلف
+- اعتماد كبير على theme و plugins
+- بطء في التحميل أو perceived performance ضعيف
+
+وفي سوق عربي mobile-first، ده بيأثر مباشرة على تجربة العميل.
+
+العميل مش هيقعد يحلل ليه الصفحة بطيئة. هو ببساطة هخرج.
+
+---
+
+## الهدف
+
+كان الهدف إننا نحافظ على WooCommerce كـ backend للمنتجات والطلبات، لكن نبني واجهة حديثة بالكامل:
+
+- أسرع
+- أوضح
+- موبايل أولًا
+- RTL بشكل طبيعي
+- قابلة للتخصيص
+- مناسبة للبراند
+- منفصلة عن قيود theme التقليدي
+
+ده بالظبط مفهوم **Headless Commerce**: WooCommerce يفضل مسؤول عن commerce data، والواجهة تبقى مبنية بتقنية حديثة ومتحكم فيها.
+
+---
+
+## الحل
+
+بنيت **Sokany Store** كـ Next.js storefront يتعامل مع WooCommerce REST API مباشرة.
+
+بدل ما الواجهة تكون مربوطة بقالب WooCommerce، بقت مبنية كـ product frontend مستقل:
+
+- Home page أسرع وأنضف
+- Navigation أوضح
+- Mobile layout مناسب للسوق العربي
+- Product sections منظمة
+- Stories-style promos
+- Bottom navigation للموبايل
+- API layer يتعامل مع WooCommerce
+- Error handling للتعامل مع مشاكل زي 502 responses
+
+![Sokany Store desktop](/sokany-store-desktop.png)
+
+![Sokany Store mobile](/sokany-store-mobile.png)
+
+---
+
+## ليه Headless؟
+
+WooCommerce ممتاز كـ commerce engine، لكنه مش دايمًا أفضل اختيار لواجهة مستخدم حديثة وسريعة.
+
+في headless setup:
+
+```text
+WooCommerce = products, orders, catalog, commerce logic
+Next.js = storefront, routing, UX, performance, rendering
+```
+
+الفصل ده بيدي حرية أكبر:
+
+- نتحكم في شكل المنتج بالكامل
+- نحسن سرعة التحميل
+- نبني mobile UX مخصوص
+- نقلل الاعتماد على plugins في الواجهة
+- نربط نفس backend بأكتر من تجربة مستقبلًا
+
+---
+
+## تجربة الموبايل
+
+أغلب مستخدمي المتاجر العربية داخلين من الموبايل.
+
+عشان كده التصميم اتبنى من الأول على mobile-first:
+
+- أقسام واضحة وسريعة المسح
+- bottom nav قريب من الإبهام
+- promo cards سهلة التصفح
+- spacing مناسب للشاشات الصغيرة
+- RTL interface طبيعي
+
+الهدف إن المستخدم يوصل للمنتج أسرع، مش يحاول يفهم الصفحة.
+
+---
+
+## الأداء والاستقرار
+
+في e-commerce، البطء مش مجرد مشكلة تقنية. البطء بيأثر على المبيعات.
+
+عشان كده اشتغلت على:
+
+- تحميل أسرع للصفحات
+- تقليل الإحساس بالانتظار
+- تنظيم API calls
+- التعامل مع WooCommerce responses غير المستقرة
+- تحسين تجربة التصفح بين الأقسام
+
+خصوصًا إن WooCommerce APIs ممكن أحيانًا ترجع أخطاء أو تبقى بطيئة، فلازم الواجهة تكون جاهزة للتعامل مع ده بشكل عملي.
+
+---
+
+## التقنية
+
+المشروع مبني على:
+
+```text
+Next.js
+TypeScript
+Tailwind CSS
+WooCommerce REST API
+RTL-first UI
+PWA-ready approach
+```
+
+الستاك ده مناسب جدًا لمتجر محتاج سرعة، تحكم في الواجهة، وإمكانية تطوير مستقبلية بدون ما كل تعديل يبقى صراع مع theme.
+
+---
+
+## بعد التطوير
+
+بعد التحويل إلى headless storefront، التجربة بقت:
+
+- أكثر حداثة بصريًا
+- أوضح في التصفح
+- أفضل على الموبايل
+- أسرع في الإحساس والاستخدام
+- قابلة للتوسع
+- منفصلة عن قيود WooCommerce theme
+
+وده مهم لأن المتجر الإلكتروني مش صفحة عرض فقط. هو product experience كامل.
+
+---
+
+## الدرس الأهم
+
+مش كل متجر WooCommerce محتاج يتساب زي ما هو.
+
+لو البراند محتاج تجربة أسرع، واجهة مخصصة، mobile UX أفضل، وتحكم كامل في الواجهة، فالـ headless approach بيكون اختيار قوي جدًا.
+
+**Sokany Store** كان مثال عملي على ده: نفس backend التجاري، لكن واجهة جديدة تعكس مستوى أفضل في الأداء والتجربة.
+
+[شاهد المشروع](/work/sokany-store)
+
+`#WooCommerce` `#HeadlessCommerce` `#Nextjs` `#Ecommerce` `#RTL` `#Frontend` `#Performance` `#ArabicUX` `#Sokany`
