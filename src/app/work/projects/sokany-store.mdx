@@ -10,15 +10,32 @@ link: "https://sokany.vercel.app/"
 
 ## Overview
 
-A **Next.js** storefront talking directly to **WooCommerce** over the REST API — optimized for performance and clearer UX than a typical WooCommerce theme.
+**Sokany Store** is a headless commerce storefront built with **Next.js**, **TypeScript**, **Tailwind CSS**, and the **WooCommerce REST API**. It replaces the limitations of a traditional WooCommerce theme with a faster, more controlled Arabic RTL shopping experience.
 
-## What I shipped
+## Problem
+
+Standard WooCommerce storefronts can be slow, visually generic, and difficult to tune for a modern mobile-first customer experience. Sokany needed a storefront that could keep WooCommerce as the commerce backend while giving the frontend more control over performance, UX, and product presentation.
+
+## Solution
+
+I built a headless storefront layer that communicates with WooCommerce through REST APIs and focuses on the customer-facing experience:
 
 - Responsive UI in Next.js
 - WooCommerce REST integration with resilient error handling (including unstable responses such as 502s)
 - Performance work on loading and perceived speed
+- Arabic RTL mobile UX
+- PWA-ready product experience
+- Modern storefront presentation including richer product viewing patterns
 
-## Live site
+## Architecture
+
+WooCommerce remains the system of record for catalog and commerce data, while the Next.js frontend handles routing, page rendering, responsive UI, and API-facing commerce flows. This split makes it easier to optimize the storefront without being blocked by theme constraints.
+
+## Impact
+
+The project shows a practical e-commerce architecture: keep WooCommerce for operations and catalog management, but build a faster, more branded shopping interface on top of it.
+
+## Live Site
 
 [Sokany Store — sokany.vercel.app](https://sokany.vercel.app/)
 

@@ -9,14 +9,41 @@ link: "https://production-line.vercel.app/"
 
 ## Overview
 
-Production-focused ERP for factories: real-time visibility into lines, costs per unit, and daily reporting — built with **React**, **TypeScript**, **Vite**, **Firebase**, **Zustand**, and **Tailwind CSS**.
+**HAKIMO ERP** is a manufacturing-focused ERP system for production teams that need clearer control over factory operations, daily reporting, HR workflows, approvals, dashboards, and cost visibility.
 
-## Scope
+The product is built as a mobile-first RTL application using **React 19**, **TypeScript**, **Vite**, **Firebase**, **Zustand**, and **Tailwind CSS**. The goal is not just to display records; it is to help a factory team understand what is happening across production lines and make faster operational decisions.
+
+## Problem
+
+Factories often depend on fragmented spreadsheets, manual daily reports, and disconnected HR or approval processes. That makes it difficult to answer practical questions quickly:
+
+- Which production lines are active, stopped, or under maintenance?
+- What happened today across worker and supervisor reports?
+- Who can approve or change sensitive operational data?
+- How much does a production unit actually cost?
+- Which KPIs should management watch every day?
+
+## Solution
+
+HAKIMO ERP brings those workflows into one structured system:
 
 - Production lines with live status (active, stopped, maintenance)
 - Daily reporting flows for workers and supervisors
 - Role-based access and approval chains
-- Cost analytics and dashboards aimed at answering “what does a unit actually cost?”
+- HR workflows connected to operational roles
+- KPI dashboards for management visibility
+- Cost analytics aimed at answering “what does a unit actually cost?”
+- Mobile-first RTL interface for teams working from different devices
+
+## Architecture
+
+The frontend is organized around operational modules rather than generic pages. State is managed with **Zustand**, cloud data and authentication run through **Firebase**, and the interface is built with **Tailwind CSS** for fast iteration and responsive layouts.
+
+The system is designed around role boundaries, production modules, reporting flows, and dashboard surfaces so each user sees tools that match their responsibility.
+
+## Impact
+
+The project demonstrates how frontend engineering can become operations software: a structured ERP product that turns production data, approvals, HR activity, and cost signals into a more usable business system.
 
 ## Source
 

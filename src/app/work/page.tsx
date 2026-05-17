@@ -1,4 +1,4 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
@@ -28,9 +28,14 @@ export default function Work() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
-      </Heading>
+      <Column maxWidth="s" horizontal="center" align="center" gap="12" marginBottom="l">
+        <Heading variant="display-strong-s" align="center" wrap="balance">
+          {work.title}
+        </Heading>
+        <Text variant="body-default-l" onBackground="neutral-weak" align="center" wrap="balance">
+          ERP platforms, operations software, headless commerce, and product systems built around real business workflows.
+        </Text>
+      </Column>
       <Projects />
     </Column>
   );

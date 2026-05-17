@@ -1,0 +1,196 @@
+---
+title: "من موقع قديم إلى Industrial B2B Hub — تطوير OIS Machinery"
+publishedAt: "2026-05-17"
+summary: "قصة إعادة بناء موقع OIS Machinery من واجهة قديمة إلى منصة B2B صناعية حديثة: كتالوج معدات، صفحات تفاصيل ديناميكية، خدمات turnkey، SEO، و lead capture عبر واتساب والإيميل."
+image: "/ois-machinery-hub.png"
+tag: "Case Study"
+---
+
+في مشاريع الـ B2B الصناعية، الموقع مش مجرد واجهة جميلة.
+
+الموقع هنا بيشتغل كأداة ثقة، كتالوج، قناة مبيعات، ونقطة بداية لمحادثة بين شركة ومشتري أو فريق procurement.
+
+ده كان التحدي في **OIS Machinery**: شركة بتشتغل في المعدات الصناعية، قطع الغيار، والخدمات المتكاملة، لكن الوجود الرقمي القديم ماكانش بيعكس قيمة الشركة ولا حجم الشغل الحقيقي.
+
+---
+
+## المشكلة
+
+النسخة القديمة كانت بسيطة جدًا:
+
+- Navigation أساسي ومش واضح كفاية
+- صور متفرقة بدون قصة أو hierarchy
+- مفيش presentation قوي للمعدات والخدمات
+- مفيش تجربة حديثة تناسب شركة B2B صناعية
+- مفيش مسار واضح من التصفح إلى التواصل أو طلب عرض سعر
+
+ودي مشكلة كبيرة لأن العميل الصناعي غالبًا بيدخل الموقع عشان يجاوب على أسئلة محددة:
+
+- الشركة بتورد إيه؟
+- هل عندها خبرة وثقة؟
+- هل أقدر أشوف أنواع المعدات؟
+- هل فيه خدمات turnkey؟
+- أتواصل إزاي بسرعة؟
+
+لو الموقع ماجاوبش بسرعة، الفرصة بتضعف.
+
+---
+
+## الهدف
+
+كان الهدف إننا نحول OIS من صفحة ويب قديمة إلى **Industrial B2B Hub** حديث:
+
+- يعرض الشركة بشكل premium
+- يوضح الخدمات والمعدات وقطع الغيار
+- يخدم المصنعين وفرق procurement
+- يفتح مسارات تواصل مباشرة
+- يحافظ على سرعة وأداء عالي
+- يبقى قابل للتوسع بمسارات وصفحات تفاصيل
+
+---
+
+## الحل
+
+بنيت تجربة جديدة حول فكرة واضحة:
+
+> OIS Machinery supplies premium machines, heavy equipment, and auxiliary parts to manufacturers across the region.
+
+الصفحة الرئيسية بقت بتقدم message قوية من أول شاشة:
+
+- Hero صناعي dark وقوي بصريًا
+- CTA واضح: Request a Quote
+- CTA ثانوي: Explore Machines
+- أرقام ومؤشرات ثقة
+- Navigation منظم: About, Services, Machines, Auxiliary Parts, Contact
+- Floating WhatsApp للتواصل السريع
+
+بدل ما المستخدم يتوه، كل حاجة بقت تقوده ناحية فهم الشركة ثم التواصل.
+
+---
+
+## كتالوج المعدات
+
+أهم جزء في المشروع كان تحويل الموقع من صفحات ثابتة إلى catalog experience.
+
+قسم **Machines** بقى مبني على categories و detail pages ديناميكية:
+
+```text
+/machines/:slug
+```
+
+ده معناه إن كل machine تقدر تبقى ليها صفحة خاصة، وصف، صور، معلومات، وسياق يساعد العميل يفهم المنتج بدل ما يشوف مجرد صورة.
+
+---
+
+## الخدمات والـ Turnkey Delivery
+
+في المشاريع الصناعية، العميل مش دايمًا بيدور على ماكينة بس.
+
+أحيانًا هو محتاج حل كامل:
+
+- Feasibility
+- Supply
+- Installation
+- Commissioning
+- Support
+
+عشان كده قسم الخدمات اتبنى حوالين فكرة turnkey delivery، مش مجرد list خدمات.
+
+---
+
+## Lead Capture
+
+في مواقع B2B، الفورم لوحده مش كفاية.
+
+العميل ممكن يكون مستعجل، أو عايز يسأل على ماكينة، أو يبعت requirement سريع.
+
+عشان كده أضفت:
+
+- Contact form
+- Email CTA
+- Floating WhatsApp
+- `wa.me` deep links برسالة جاهزة عند الحاجة
+
+الهدف إن التواصل يبقى سهل من أي نقطة في الموقع.
+
+---
+
+## التقنية
+
+المشروع اتبنى بستاك حديث ومناسب للـ performance:
+
+```text
+React 19
+TanStack Router / TanStack Start
+Vite 7
+Tailwind CSS 4
+Radix UI + shadcn-style components
+Framer Motion
+Zod + React Hook Form
+Cloudflare Workers + Wrangler
+```
+
+اختيار **TanStack Start** و **Cloudflare Workers** كان مناسب لأن المشروع محتاج:
+
+- Routing واضح وقابل للتوسع
+- Performance عالي
+- Deployment خفيف وسريع
+- تجربة frontend حديثة
+- SEO route-by-route
+
+---
+
+## SEO
+
+الموقع الجديد مش معمول عشان “يبان حلو” فقط.
+
+اتضاف له:
+
+- Per-route meta
+- Open Graph image
+- Canonical URLs
+- Structure أوضح للمحتوى
+- صفحات قابلة للفهرسة بشكل أفضل
+
+ده مهم جدًا لشركة B2B لأن العميل ممكن يوصل من بحث عن خدمة أو ماكينة، مش من الصفحة الرئيسية فقط.
+
+---
+
+## قبل وبعد
+
+قبل التطوير، الموقع كان بيقدم وجود أساسي للشركة، لكنه ماكانش يعكس قيمة business صناعي.
+
+بعد التطوير، بقى فيه:
+
+- Brand presence أقوى
+- Catalog واضح
+- Services منظمة
+- CTA مباشر
+- تجربة responsive
+- مسار lead generation عملي
+- شكل مناسب لشركة معدات صناعية
+
+![OIS Machinery after redesign](/ois-machinery-hub.png)
+
+![OIS Machinery before redesign](/ois-machinery-before.png)
+
+---
+
+## النتيجة
+
+المشروع ده مثال مهم على إن frontend مش مجرد UI.
+
+في مشروع زي OIS، الـ frontend بيبقى طبقة product strategy:
+
+- يشرح الشركة
+- ينظم catalog
+- يبني ثقة
+- يفتح قنوات تواصل
+- يخدم sales و procurement
+- ويحوّل موقع قديم إلى business tool حقيقي
+
+وده بالضبط النوع من المشاريع اللي بحب أبنيه: واجهات حديثة، لكن مربوطة بهدف تجاري وتشغيلي واضح.
+
+[شاهد المشروع](/work/ois-machinery-industrial-b2b-hub)
+
+`#B2B` `#Industrial` `#React` `#TanStackStart` `#CloudflareWorkers` `#Frontend` `#WebDevelopment` `#CaseStudy` `#Machinery` `#LeadGeneration`

@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Ahmed",
   lastName: "Abdulhakim",
   name: "Ahmed Abdulhakim",
-  role: "Frontend Engineer · fast, reliable eCommerce systems",
+  role: "Frontend Engineer · ERP & E-Commerce Systems Builder",
   avatar: "/me1.jpg",
   email: "ahmedabdulhakim90@gmail.com",
   location: "Africa/Cairo",
@@ -55,9 +55,9 @@ const home: Home = {
   path: "/",
   image: "/me1.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `${person.name} — frontend engineer building fast, reliable eCommerce. Next.js, WooCommerce, OMS/ERP integrations, performance and stability.`,
-  headline: <>Frontend Engineer building fast, reliable eCommerce systems</>,
+  title: `${person.name} — ERP & E-Commerce Systems Builder`,
+  description: `${person.name} builds ERP platforms, manufacturing systems, operational software, headless commerce, and modern web products.`,
+  headline: <>Ahmed Abdulhakim</>,
   featured: {
     display: true,
     title: (
@@ -92,7 +92,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name} — frontend engineer building fast, reliable eCommerce with Next.js, WooCommerce, and OMS/ERP integrations.`,
+  description: `Meet ${person.name} — frontend engineer, ERP systems builder, e-commerce architect, and operations software builder.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -109,12 +109,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I create high-performance storefronts using Next.js and connect them with WooCommerce APIs and external systems like
-        OMS and ERP. I don&apos;t just build UI — I solve real problems like slow loading, unstable APIs (502 errors), and
-        inefficient order workflows. Performance, scalability, and clean system architecture are what I optimize for. I have
-        also shipped deadline-critical work (Grand Egyptian Museum countdown), RTL production tooling (Hakimo ERP), commerce
-        flows including Sokany, years of client delivery via Mostaql, and I run my own business — so I align engineering
-        with real operations and outcomes.
+        I build manufacturing systems, ERP platforms, operational software, headless commerce solutions, and modern web
+        products. My work sits where frontend engineering meets real business operations: production workflows, order
+        lifecycle tools, KPI dashboards, role-based systems, integrations, and mobile-first RTL interfaces. I care about
+        fast UI, stable architecture, and software that helps teams run the business more clearly.
       </>
     ),
   },
@@ -349,8 +347,8 @@ const blog: Blog = {
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Selected projects and case studies by ${person.name}`,
+  title: `Systems & Case Studies – ${person.name}`,
+  description: `ERP platforms, operations software, headless commerce, and product systems by ${person.name}`,
 };
 
 const gallery: Gallery = {

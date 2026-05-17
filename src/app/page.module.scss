@@ -1,0 +1,64 @@
+.hero,
+.section,
+.secondarySection,
+.contactBlock {
+  width: 100%;
+  padding: var(--static-space-32) var(--static-space-24);
+}
+
+.hero {
+  min-height: 72vh;
+  justify-content: center;
+  border-bottom: 1px solid var(--neutral-alpha-weak);
+}
+
+.proofCard,
+.systemCard,
+.serviceCard,
+.contactBlock {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+.systemCard {
+  overflow: hidden;
+}
+
+.systemImage {
+  min-width: 0;
+}
+
+.serviceCard {
+  min-height: 180px;
+}
+
+.timeline {
+  position: relative;
+}
+
+.contactBlock {
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-m);
+  background: var(--surface-background);
+}
+
+.secondarySection {
+  opacity: 0.86;
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .section,
+  .secondarySection,
+  .contactBlock {
+    padding: var(--static-space-24) var(--static-space-16);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: var(--static-space-48);
+  }
+
+  .serviceCard {
+    min-height: auto;
+  }
+}

@@ -69,9 +69,12 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
     post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
+  const isRtl = /[\u0600-\u06FF]/.test(
+    `${post.metadata.title} ${post.metadata.summary} ${post.content.slice(0, 500)}`,
+  );
 
   return (
-    <Row fillWidth>
+    <Row fillWidth style={{ direction: isRtl ? "rtl" : "ltr" }}>
       <Row maxWidth={12} m={{ hide: true }} />
       <Row fillWidth horizontal="center">
         <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
@@ -93,14 +96,26 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
               image: `${baseURL}${person.avatar}`,
             }}
           />
-          <Column maxWidth="s" gap="16" horizontal="center" align="center">
+          <Column
+            maxWidth="s"
+            gap="16"
+            horizontal="center"
+            align="center"
+            style={{ direction: isRtl ? "rtl" : "ltr" }}
+          >
             <SmartLink href="/blog">
               <Text variant="label-strong-m">Blog</Text>
             </SmartLink>
             <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
               {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
             </Text>
-            <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+            <Heading
+              variant="display-strong-m"
+              align={isRtl ? "right" : "center"}
+              wrap="balance"
+            >
+              {post.metadata.title}
+            </Heading>
             {post.metadata.subtitle && (
               <Text 
                 variant="body-default-l" 
@@ -133,7 +148,14 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
               marginBottom="8"
             />
           )}
-          <Column as="article" maxWidth="s">
+          <Column
+            as="article"
+            maxWidth="s"
+            style={{
+              direction: isRtl ? "rtl" : "ltr",
+              textAlign: isRtl ? "right" : "left",
+            }}
+          >
             <CustomMDX source={post.content} />
           </Column>
           
