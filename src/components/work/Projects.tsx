@@ -1,6 +1,7 @@
 import { getPosts } from "@/utils/utils";
 import { Column } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
+import { resolveProjectLink } from "@/lib/project-links";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -35,7 +36,7 @@ export function Projects({ range, exclude }: ProjectsProps) {
           description={post.metadata.summary}
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
-          link={post.metadata.link || ""}
+          link={resolveProjectLink(post.slug, post.metadata.link)}
         />
       ))}
     </Column>

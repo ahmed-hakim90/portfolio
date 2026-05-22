@@ -20,6 +20,7 @@ import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
+import { resolveProjectLink } from "@/lib/project-links";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -73,6 +74,8 @@ export default async function Project({
       src: person.avatar,
     })) || [];
 
+  const liveDemoUrl = resolveProjectLink(post.slug, post.metadata.link);
+
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
       <Schema
@@ -100,6 +103,16 @@ export default async function Project({
           {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
         </Text>
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+        {liveDemoUrl && (
+          <Button
+            href={liveDemoUrl}
+            variant="secondary"
+            size="s"
+            suffixIcon="arrowUpRightFromSquare"
+          >
+            View live demo
+          </Button>
+        )}
       </Column>
       <Row marginBottom="32" horizontal="center">
         <Row gap="16" vertical="center">
