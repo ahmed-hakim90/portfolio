@@ -94,6 +94,42 @@ const featuredSystems = [
     ],
     stack: ["Next.js", "Firebase", "WooCommerce", "Bosta API", "WhatsApp"],
   },
+  {
+    title: "بوابة وزارة الصحة والسكان",
+    category: "GovTech · معاينة تطوير",
+    href: "/work/nile-health-portal",
+    liveUrl: "https://nile-health-portal.ois-ind.workers.dev/",
+    image: "/egypt-vision-2030-health-compare.png",
+    summary:
+      "بوابة RTL موحّدة «صحة المصريين أولوية» — بحث مركزي، خدمات رقمية، حملات قومية، وأخبار رسمية.",
+    highlights: [
+      "بحث مركزي",
+      "طوارئ 123/105/137",
+      "خدمات رقمية",
+      "حملات قومية",
+      "مركز إعلامي",
+      "mobile-first RTL",
+    ],
+    stack: ["React", "TypeScript", "RTL GovTech", "Cloudflare Workers"],
+  },
+  {
+    title: "منصة وزارة الزراعة الرقمية 2030",
+    category: "GovTech · معاينة تطوير",
+    href: "/work/agriculture-2030-platform",
+    liveUrl: "https://zra3a-2030.ois-ind.workers.dev/",
+    image: "/egypt-vision-2030-agriculture-compare.png",
+    summary:
+      "منصة لعرض مشروعات ومبادرات الوزارة مع بحث وتصفية ولوحة مؤشرات مرتبطة برؤية 2030.",
+    highlights: [
+      "قائمة مشروعات موحّدة",
+      "بحث وتصفية",
+      "صفحات تفاصيل",
+      "لوحة مؤشرات",
+      "scraper-ready",
+      "mobile-first RTL",
+    ],
+    stack: ["React 19", "TanStack Start", "Tailwind", "shadcn/ui", "Cloudflare Workers"],
+  },
 ];
 
 const services = [
@@ -314,9 +350,19 @@ export default async function Home() {
                       ))}
                     </Row>
                   </Column>
-                  <SmartLink href={system.href}>
-                    Read case study →
-                  </SmartLink>
+                  <Row gap="24" wrap>
+                    <SmartLink href={system.href}>
+                      Read case study →
+                    </SmartLink>
+                    {"liveUrl" in system && system.liveUrl && (
+                      <SmartLink
+                        href={system.liveUrl}
+                        suffixIcon="arrowUpRightFromSquare"
+                      >
+                        View live demo
+                      </SmartLink>
+                    )}
+                  </Row>
                 </Column>
                 <Column flex={index === 0 ? 7 : 6} className={styles.systemImage}>
                   <Media
