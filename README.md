@@ -53,7 +53,7 @@ npm run dev
 - **`NEXT_PUBLIC_SITE_URL`** — الرابط الكامل للموقع (بدون شرطة مائية أخيرة)، للـ SEO والـ RSS والـ Open Graph.
 - **`GITHUB_USERNAME`** / **`GITHUB_TOKEN`** — اختياري لعرض مساهمات GitHub في صفحة About؛ بدون توكن قد لا يظهر الـ heatmap.
 - **`PAGE_ACCESS_PASSWORD`** — اختياري لحماية مسارات معينة عبر `protectedRoutes` في الإعداد.
-- **`NEXT_PUBLIC_EGYPT_VISION_2030_DEMO_URL`** — رابط العرض الحي لمشروع رؤية مصر 2030 (نفس قيمة `VITE_PLATFORM_DEMO_URL` في مستودع المنصة).
+- **`NEXT_PUBLIC_EGYPT_VISION_2030_DEMO_URL`** — رابط العرض الحي على Vercel لمشروع رؤية مصر 2030 (نفس قيمة `VITE_PLATFORM_DEMO_URL` في مستودع المنصة).
 
 لا ترفع ملف `.env` أو مفاتيح حقيقية إلى Git.
 

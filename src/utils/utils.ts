@@ -21,6 +21,7 @@ type Metadata = {
   link?: string;
 };
 
+import { applyEgyptVision2030Placeholders } from "@/lib/egypt-2030-url";
 import { notFound } from "next/navigation";
 
 function getMDXFiles(dir: string) {
@@ -51,7 +52,7 @@ function readMDXFile(filePath: string) {
     link: data.link || "",
   };
 
-  return { metadata, content };
+  return { metadata, content: applyEgyptVision2030Placeholders(content) };
 }
 
 function getMDXData(dir: string) {

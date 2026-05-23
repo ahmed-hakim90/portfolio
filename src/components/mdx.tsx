@@ -77,6 +77,22 @@ function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   );
 }
 
+function getHeadingText(children: ReactNode): string {
+  if (children == null || typeof children === "boolean") {
+    return "";
+  }
+  if (typeof children === "string" || typeof children === "number") {
+    return String(children);
+  }
+  if (Array.isArray(children)) {
+    return children.map(getHeadingText).join("");
+  }
+  if (React.isValidElement<{ children?: ReactNode }>(children)) {
+    return getHeadingText(children.props.children);
+  }
+  return "";
+}
+
 function slugify(str: string): string {
   const strWithAnd = str.replace(/&/g, " and "); // Replace & with 'and'
   return transliterate(strWithAnd, {
@@ -90,7 +106,7 @@ function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
     children,
     ...props
   }: Omit<React.ComponentProps<typeof HeadingLink>, "as" | "id">) => {
-    const slug = slugify(children as string);
+    const slug = slugify(getHeadingText(children));
     return (
       <HeadingLink marginTop="24" marginBottom="12" as={as} id={slug} {...props}>
         {children}
