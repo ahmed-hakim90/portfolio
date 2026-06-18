@@ -98,7 +98,7 @@ const featuredSystems = [
     title: "بوابة وزارة الصحة والسكان",
     category: "GovTech · معاينة تطوير",
     href: "/work/nile-health-portal",
-    liveUrl: "https://nile-health-portal.ois-ind.workers.dev/",
+    liveUrl: "https://nile-health-portal.hakim90.workers.dev/",
     image: "/egypt-vision-2030-health-compare.png",
     summary:
       "بوابة RTL موحّدة «صحة المصريين أولوية» — بحث مركزي، خدمات رقمية، حملات قومية، وأخبار رسمية.",
@@ -116,7 +116,7 @@ const featuredSystems = [
     title: "منصة وزارة الزراعة الرقمية 2030",
     category: "GovTech · معاينة تطوير",
     href: "/work/agriculture-2030-platform",
-    liveUrl: "https://zra3a-2030.ois-ind.workers.dev/",
+    liveUrl: "https://zra3a-2030.hakim90.workers.dev/",
     image: "/egypt-vision-2030-agriculture-compare.png",
     summary:
       "منصة لعرض مشروعات ومبادرات الوزارة مع بحث وتصفية ولوحة مؤشرات مرتبطة برؤية 2030.",
