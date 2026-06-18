@@ -64,8 +64,8 @@ const featuredSystems = [
   {
     title: "Sokany Store",
     category: "Headless Commerce",
-    href: "/work/sokany-store",
-    image: "/sokany-store-desktop.png",
+    href: "/work/sokany",
+    image: "/sokany-desktop.png",
     summary:
       "A fast Arabic storefront powered by WooCommerce REST APIs, tuned for mobile UX, performance, and modern shopping flows.",
     highlights: [

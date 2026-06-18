@@ -139,14 +139,14 @@
   "projects": [
     {
       "title": "Sokany Store",
-      "href": "https://sokany-store.vercel.app/",
+      "href": "https://sokany.vercel.app/",
       "dates": "2025",
       "active": true,
       "description": "Headless WooCommerce store built with Next.js. A fast and scalable eCommerce storefront connected to WooCommerce API.",
       "technologies": ["Next.js", "React", "WooCommerce API"],
       "links": [
-        { "type": "Website", "href": "https://sokany-store.vercel.app/", "icon": "globe" },
-        { "type": "Case study", "href": "/hakimo/case-studies/sokany-store", "icon": "globe" }
+        { "type": "Website", "href": "https://sokany.vercel.app/", "icon": "globe" },
+        { "type": "Case study", "href": "/hakimo/case-studies/sokany", "icon": "globe" }
       ],
       "image": "/hakimoerp.png",
       "video": ""
