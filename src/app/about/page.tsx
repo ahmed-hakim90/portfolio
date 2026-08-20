@@ -149,7 +149,7 @@ export default async function About() {
                 }}
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Schedule a call</Row>
+                <Row paddingX="8">Book a remote call</Row>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
@@ -355,9 +355,9 @@ export default async function About() {
           {githubData && <GitHubSection data={githubData} />}
 
           <ContactCTA
-            eyebrow="Work with me"
-            title="Building something operational? Let's talk."
-            description="From Sokany-style commerce stacks to ERP and GovTech RTL portals — I can help ship the frontend your operators need."
+            eyebrow="Remote · open brief"
+            title="Got a task? Send it — I'll ship it."
+            description="Remote-ready from Cairo. Arabic & English. Feature, bug, rebuild, or full storefront — from brief to live, with updates you can actually follow."
           />
         </Column>
       </Row>

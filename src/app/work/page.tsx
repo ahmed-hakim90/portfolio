@@ -37,7 +37,7 @@ export default function Work() {
           Systems I ship at Sokany — and beyond
         </Heading>
         <Text variant="body-default-l" onBackground="neutral-weak" align="center" wrap="balance">
-          Flagship work first: Sokany storefront & OMS from the day job, then manufacturing ERP,
+          Flagship work first: Sokany storefront & OMS, Shams Stores rebuild, then manufacturing ERP,
           GovTech RTL portals, and industrial B2B products.
         </Text>
       </Column>

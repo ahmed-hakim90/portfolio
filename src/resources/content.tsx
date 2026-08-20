@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Ahmed",
   lastName: "Abdulhakim",
   name: "Ahmed Abdulhakim",
-  role: "Frontend Engineer at Sokany · Operational Systems Builder",
+  role: "Frontend Engineer · Remote-ready · Ships the task",
   avatar: "/me1.jpg",
   email: "ahmedabdulhakim90@gmail.com",
   location: "Africa/Cairo",
@@ -99,7 +99,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name} — Frontend Engineer at Sokany Elmaghraby building storefront, OMS, dashboards, and commerce systems, plus ERP and GovTech products.`,
+  description: `${person.name} — Cairo-based Frontend Engineer, open for remote work. Turns messy briefs into live storefronts, dashboards, and systems.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -113,14 +113,28 @@ const about: About = {
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "The short version",
     description: (
       <>
-        I am a Frontend Engineer at <strong>Sokany Elmaghraby</strong>, where I own product UI for the company&apos;s
-        commerce and operations stack: headless storefront, Store OMS, internal dashboards, and integrations with
-        WooCommerce, shipping, and WhatsApp. Beyond that role I design and ship manufacturing ERP, Arabic RTL GovTech
-        portals, and industrial B2B hubs. My focus is the same everywhere — fast interfaces that make real workflows
-        clearer for operators, not just prettier marketing screens.
+        <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
+          I&apos;m Ahmed — I build the screens people actually click when money, stock, or a deadline is on the line.
+          Cairo is home base; the work travels. Arabic RTL feels native, English is day-to-day, and remote is how I
+          ship with teams anywhere.
+        </Text>
+        <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
+          By day I keep Sokany&apos;s commerce stack moving: storefront, OMS, integrations that refuse to die at 502.
+          On the side I rebuild stores like Shams — new theme, clean catalog, cross-sell that sells a full setup, not a
+          lonely product card. When a factory needs clarity, I spin ERP screens that supervisors trust on a phone.
+        </Text>
+        <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
+          I don&apos;t collect tickets to decorate a board. Give me the task — theme, bug, API, dashboard, data cleanup,
+          full rebuild — and I take it from &quot;what do we mean?&quot; to live. Async updates, clear demos, no
+          half-wired buttons pretending to be done.
+        </Text>
+        <Text as="p" variant="body-default-l" onBackground="neutral-weak">
+          Open for remote collaborations and one-off missions. WhatsApp, email, or a scheduled call — pick a channel and
+          send the brief. I&apos;ll answer with a plan, then with pixels that ship.
+        </Text>
       </>
     ),
   },
