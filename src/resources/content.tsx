@@ -165,6 +165,33 @@ const about: About = {
         ],
       },
       {
+        company: "Shams Stores",
+        timeframe: "2026",
+        role: "WooCommerce / Frontend Engineer",
+        achievements: [
+          <>
+            Led a commerce rebuild for the camera & creator-gear retailer: Blocksy child theme, catalog and stock data
+            cleanup, production-ready storefront UX (Quick View, cards, mobile sticky CTA), and cross-sell via Gear
+            Advisor + Shoppable Hero.
+          </>,
+          <>
+            Case study: <a href="/work/shams-stores">Shams Stores</a> · Live:{" "}
+            <a href="https://www.shams-stores.com/" target="_blank" rel="noopener noreferrer">
+              shams-stores.com
+            </a>
+            .
+          </>,
+        ],
+        images: [
+          {
+            src: "/shams-stores-hero.jpg",
+            alt: "Shams Stores shoppable creator setup hero",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
         company: "Grand Egyptian Museum",
         timeframe: "Jul 2024 – Jul 2024",
         role: "Frontend Developer",
@@ -392,7 +419,7 @@ const work: Work = {
   path: "/work",
   label: "Work",
   title: `Systems & Case Studies – ${person.name}`,
-  description: `Sokany storefront & OMS, manufacturing ERP, GovTech RTL portals, industrial B2B hubs, and commerce integrations by ${person.name}`,
+  description: `Sokany storefront & OMS, Shams Stores rebuild, manufacturing ERP, GovTech RTL portals, industrial B2B hubs, and commerce integrations by ${person.name}`,
 };
 
 const gallery: Gallery = {

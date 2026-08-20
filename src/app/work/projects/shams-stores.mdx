@@ -1,0 +1,67 @@
+---
+title: "Shams Stores"
+publishedAt: "2026-08-18"
+summary: "Rebuild كامل لمتجر كاميرات ومعدات تصوير — تغيير الثيم، تنظيف الكتالوج والمخزون، واجهة تجارة عربية جاهزة للشراء، وكروس سيلينج عبر Gear Advisor والـ Shoppable Hero."
+images:
+  - "/shams-stores-hero.jpg"
+  - "/shams-stores-product-mobile.png"
+  - "/shams-stores-category-cameras.jpg"
+  - "/shams-stores-home-before-mobile.png"
+link: "https://www.shams-stores.com/"
+---
+
+## Overview
+
+**Shams Stores** متجر مصري للكاميرات ومعدات الـ creator gear على **WordPress + WooCommerce**. المشروع لم يكن «تغيير لون» فقط — كان rebuild تشغيلي: إخراج المتجر من قالب Electro المثقل، تنظيف بيانات المنتجات والمخزون، وبناء واجهة شراء عربية/إنجليزية تشتغل فعليًا، مع مسارات **كروس سيلينج** تربط الكاميرا بالعدسة والإكسسوارات كـ setup كامل.
+
+## Problem
+
+الموقع القديم (قبل إعادة البناء) كان قابلًا للشراء حتى الدفع، لكنه عالي المخاطر:
+
+- قالب Electro بدون Child Theme، تحديثات متراكمة، وإضافات متكررة الوظائف
+- قاعدة بيانات متضخمة وكتالوج فيه بيانات تجريبية، صور غير مرتبطة، وعلامات مؤقتة
+- تجربة موبايل ضعيفة: بانر مضغوط، فراغات كبيرة، نصوص Lorem، وروابط بلا وجهة
+- صفحة منتج بلا ثقة قريبة من زر الشراء (ضمان، شحن، مخزون، توافق)
+- لا مسار واضح لبناء setup (كاميرا + عدسة + إضاءة + صوت) — أي كروس سيلينج حقيقي
+
+## What I shipped
+
+### 1. Theme rebuild
+
+- Child theme على **Blocksy** بهوية شمس: ألوان، خطوط عربية/لاتينية محلية، Mega Menu، drawer للموبايل، bottom bar، وhomepage pattern
+- قواعد بصرية للـ product / cart / checkout / sticky add-to-cart مع دعم RTL وsafe-area
+- فصل التصميم عن سلوك التجارة عبر plugins مستقلة حتى لا ينكسر الشراء مع أي تحديث قالب
+
+### 2. Data cleanup
+
+- مراجعة كتالوج ومطابقة مبيعات/مخزون مع منتجات الموقع (سكربتات مطابقة بالـ SKU والاسم)
+- إزالة/تصفية محتوى تجريبي وصور غير مرتبطة وتنظيف مسارات الفهرسة والتعريفات
+- تجهيز حقول قرار للمنتج: براند، موديل، بحث عربي، ضمان، توافق، تقسيط، فروع
+
+### 3. واجهة تجارة «عاملة»
+
+- بطاقة منتج موحّدة: badges، hover، wishlist، compare، حالة مخزون، CTA حسب الحالة
+- **Quick View** مملوك لشمس (بديل YITH): معرض، متغيرات، كمية، AJAX cart، دعم لوحة المفاتيح
+- فلاتر كتالوج، بحث autocomplete (عنوان / SKU / موديل / عربي)، وشريط شراء ثابت على الموبايل
+- محوّل مخزون الفروع مع cache ودائرة أمان عند فشل الـ API
+
+### 4. Cross-selling
+
+- **Shams Gear Advisor:** توصيات مبنية على قواعد توافق معتمدة (compatible / incompatible / requires_adapter) مع سلال bundle وفشل مغلق لو العلاقة ناقصة
+- **Shoppable Hero:** صورة setup تفاعلية بنقاط ساخنة تربط قطع المعدات بمنتجات WooCommerce
+- مسار «ابنِ جهازك» بدل اقتراحات عشوائية — من نية الاستخدام إلى سلة setup
+
+## Stack
+
+WordPress, WooCommerce, Blocksy child theme, custom PHP plugins (Commerce UX, Global Shell, Shoppable Hero, Gear Advisor, Multilingual SEO), REST APIs, GA4 data layer, CSV-approved product facts.
+
+## Role & timeline
+
+**Role:** Frontend / WooCommerce product engineering — theme, commerce UX, catalog cleanup, cross-sell systems  
+**Timeline:** 2026 (audit → staging packages → ongoing rollout)
+
+## Live site
+
+[www.shams-stores.com](https://www.shams-stores.com/)
+
+> أجزاء من الحزمة ما زالت تُفعَّل عبر Staging قبل الإنتاج الكامل؛ الواجهة الحية تعكس مسار التحول من Electro إلى منظومة شمس.

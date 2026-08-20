@@ -45,6 +45,24 @@ const featuredSystems = [
     stack: ["Next.js", "TypeScript", "Tailwind", "WooCommerce"],
   },
   {
+    title: "Shams Stores",
+    category: "Commerce rebuild · Theme + data + cross-sell",
+    href: "/work/shams-stores",
+    liveUrl: "https://www.shams-stores.com/",
+    image: "/shams-stores-hero.jpg",
+    summary:
+      "Full WooCommerce rebuild for a camera & creator-gear retailer — new theme system, catalog/stock cleanup, working storefront UX, and rules-based cross-selling.",
+    highlights: [
+      "Blocksy child theme",
+      "Catalog cleanup",
+      "Commerce UX",
+      "Quick View",
+      "Gear Advisor",
+      "Shoppable Hero",
+    ],
+    stack: ["WordPress", "WooCommerce", "PHP plugins", "REST", "RTL"],
+  },
+  {
     title: "Store OMS",
     category: "Day job · Operations Platform",
     href: "/work/order-management-system-oms",
@@ -192,6 +210,11 @@ const timeline = [
     title: "Sokany Elmaghraby — Frontend Engineer",
     detail:
       "Current role: storefront, Store OMS, dashboards, and WooCommerce-facing APIs for live commerce operations.",
+  },
+  {
+    title: "Shams Stores — commerce rebuild",
+    detail:
+      "Theme system, catalog/stock cleanup, working storefront UX, Gear Advisor cross-sell, and shoppable setups.",
   },
   {
     title: "HAKIMO ERP",

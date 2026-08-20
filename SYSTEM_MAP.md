@@ -13,7 +13,7 @@ Next.js App Router + Once UI + MDX case studies/posts. Static generation for con
 | ID | Name | Category |
 |----|------|----------|
 | MOD / 01 | Home | Positioning + featured systems |
-| MOD / 02 | Work | Case study listing + detail |
+| MOD / 02 | Work | Case study listing + detail (incl. Shams Stores) |
 | MOD / 03 | Blog | MDX writing + case narratives |
 | MOD / 04 | Gallery | Screenshot archive from project images |
 | MOD / 05 | About | Bio, experience, skills, GitHub |

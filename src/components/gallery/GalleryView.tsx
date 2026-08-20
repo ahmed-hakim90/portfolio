@@ -24,6 +24,7 @@ function getProjectType(title: string, slug: string) {
     value.includes("store") ||
     value.includes("woocommerce") ||
     value.includes("sokany") ||
+    value.includes("shams") ||
     value.includes("commerce")
   ) {
     return "Commerce";

@@ -13,6 +13,7 @@ interface ProjectsProps {
 /** Flagship systems shown first on /work — day-job commerce, then ERP / GovTech / industrial. */
 const FEATURED_SLUG_ORDER = [
   "sokany-store",
+  "shams-stores",
   "order-management-system-oms",
   "woocommerce-api-integration",
   "hakimo-production-system",
@@ -25,16 +26,21 @@ const FEATURED_SLUG_ORDER = [
 
 const RELATED_BY_SLUG: Record<string, string[]> = {
   "sokany-store": [
+    "shams-stores",
     "order-management-system-oms",
     "woocommerce-api-integration",
-    "hakimo-production-system",
+  ],
+  "shams-stores": [
+    "sokany-store",
+    "woocommerce-api-integration",
+    "order-management-system-oms",
   ],
   "order-management-system-oms": [
     "sokany-store",
     "woocommerce-api-integration",
-    "hakimo-production-system",
+    "shams-stores",
   ],
-  "woocommerce-api-integration": ["sokany-store", "order-management-system-oms"],
+  "woocommerce-api-integration": ["sokany-store", "shams-stores", "order-management-system-oms"],
   "hakimo-production-system": [
     "order-management-system-oms",
     "sokany-store",
