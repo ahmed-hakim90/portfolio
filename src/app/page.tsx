@@ -506,8 +506,8 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Timeline"
-          title="From client delivery to a Sokany systems role."
-          description="Selected milestones from freelance and GEM work into manufacturing ERP and the current commerce operations stack."
+          title="From client delivery to remote Shams with Sokany."
+          description="Started Aug 2026 on Shams Stores remotely with Sokany — after years of commerce, ERP, GovTech, and industrial shipping."
         />
         <Column fillWidth gap="12" className={styles.timeline}>
           {timeline.map((item) => (
