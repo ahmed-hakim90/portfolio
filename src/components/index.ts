@@ -9,3 +9,5 @@ export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { ContactCTA } from "@/components/ContactCTA";
+export { Tilt3D } from "@/components/Tilt3D";
+export { ScrollReveal } from "@/components/ScrollReveal";

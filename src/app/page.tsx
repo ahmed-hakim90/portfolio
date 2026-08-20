@@ -24,6 +24,8 @@ import {
   resolveGithubUsername,
 } from "@/lib/github";
 import styles from "./page.module.scss";
+import { Tilt3D } from "@/components/Tilt3D";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const featuredSystems = [
   {
@@ -302,7 +304,8 @@ export default async function Home() {
 
       <RevealFx translateY="8" fillWidth>
         <Column as="section" fillWidth className={styles.hero} gap="32">
-          <Column gap="20" maxWidth="s">
+          <div className={styles.heroGlow} aria-hidden />
+          <Column gap="20" maxWidth="s" className={styles.heroContent}>
             <Text variant="label-default-s" onBackground="brand-weak">
               {person.role}
             </Text>
@@ -320,6 +323,7 @@ export default async function Home() {
               padding="4"
               gap="8"
               vertical="center"
+              className={styles.heroContent}
             >
               <Row paddingX="8">{home.featured.title}</Row>
               <Button
@@ -333,7 +337,7 @@ export default async function Home() {
               </Button>
             </Row>
           )}
-          <Row gap="12" wrap>
+          <Row gap="12" wrap className={styles.heroContent}>
             <Button href="/work" size="m" variant="primary" suffixIcon="arrowRight">
               View Projects
             </Button>
@@ -341,27 +345,29 @@ export default async function Home() {
               Contact Me
             </Button>
           </Row>
-          <Grid columns="4" m={{ columns: 2 }} s={{ columns: 1 }} gap="12" fillWidth>
+          <Grid columns="4" m={{ columns: 2 }} s={{ columns: 1 }} gap="12" fillWidth className={styles.heroContent}>
             {proofPoints.map((point) => (
-              <Column
-                key={point}
-                className={styles.proofCard}
-                border="neutral-alpha-weak"
-                background="surface"
-                radius="m"
-                padding="20"
-                gap="8"
-              >
-                <Text variant="heading-strong-s">{point}</Text>
-                <Text variant="body-default-xs" onBackground="neutral-weak">
-                  Tied to real company workflows at Sokany and beyond — not template demos.
-                </Text>
-              </Column>
+              <Tilt3D key={point} maxTilt={6}>
+                <Column
+                  className={styles.proofCard}
+                  border="neutral-alpha-weak"
+                  background="surface"
+                  radius="m"
+                  padding="20"
+                  gap="8"
+                >
+                  <Text variant="heading-strong-s">{point}</Text>
+                  <Text variant="body-default-xs" onBackground="neutral-weak">
+                    Tied to real company workflows at Sokany and beyond — not template demos.
+                  </Text>
+                </Column>
+              </Tilt3D>
             ))}
           </Grid>
         </Column>
       </RevealFx>
 
+      <ScrollReveal>
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Featured systems"
@@ -370,16 +376,16 @@ export default async function Home() {
         />
         <Column fillWidth gap="24">
           {featuredSystems.map((system, index) => (
-            <Column
-              key={system.title}
-              fillWidth
-              border="neutral-alpha-weak"
-              background="surface"
-              radius="m"
-              padding="24"
-              gap="24"
-              className={styles.systemCard}
-            >
+            <Tilt3D key={system.title} maxTilt={7}>
+              <Column
+                fillWidth
+                border="neutral-alpha-weak"
+                background="surface"
+                radius="m"
+                padding="24"
+                gap="24"
+                className={styles.systemCard}
+              >
               <Row fillWidth gap="24" s={{ direction: "column" }}>
                 <Column flex={5} gap="20">
                   <Column gap="8">
@@ -427,22 +433,27 @@ export default async function Home() {
                   </Row>
                 </Column>
                 <Column flex={index === 0 ? 7 : 6} className={styles.systemImage}>
-                  <Media
-                    priority={index === 0}
-                    aspectRatio="16 / 10"
-                    radius="m"
-                    border="neutral-alpha-medium"
-                    sizes="(max-width: 960px) 100vw, 720px"
-                    alt={`${system.title} screenshot`}
-                    src={system.image}
-                  />
+                  <div className={styles.systemImageMedia}>
+                    <Media
+                      priority={index === 0}
+                      aspectRatio="16 / 10"
+                      radius="m"
+                      border="neutral-alpha-medium"
+                      sizes="(max-width: 960px) 100vw, 720px"
+                      alt={`${system.title} screenshot`}
+                      src={system.image}
+                    />
+                  </div>
                 </Column>
               </Row>
-            </Column>
+              </Column>
+            </Tilt3D>
           ))}
         </Column>
       </Column>
+      </ScrollReveal>
 
+      <ScrollReveal delayMs={60}>
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Services"
@@ -451,27 +462,30 @@ export default async function Home() {
         />
         <Grid columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="16" fillWidth>
           {services.map((service) => (
-            <Column
-              key={service}
-              border="neutral-alpha-weak"
-              background="surface"
-              radius="m"
-              padding="24"
-              gap="12"
-              className={styles.serviceCard}
-            >
-              <Heading as="h3" variant="heading-strong-l">
-                {service}
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                Practical product engineering for commerce teams, factories, and
-                internal operations — starting from the UI operators use every day.
-              </Text>
-            </Column>
+            <Tilt3D key={service} maxTilt={6}>
+              <Column
+                border="neutral-alpha-weak"
+                background="surface"
+                radius="m"
+                padding="24"
+                gap="12"
+                className={styles.serviceCard}
+              >
+                <Heading as="h3" variant="heading-strong-l">
+                  {service}
+                </Heading>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  Practical product engineering for commerce teams, factories, and
+                  internal operations — starting from the UI operators use every day.
+                </Text>
+              </Column>
+            </Tilt3D>
           ))}
         </Grid>
       </Column>
+      </ScrollReveal>
 
+      <ScrollReveal delayMs={80}>
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Technical architecture"
@@ -480,29 +494,32 @@ export default async function Home() {
         />
         <Grid columns="4" m={{ columns: 2 }} s={{ columns: 1 }} gap="16" fillWidth>
           {architecture.map((group) => (
-            <Column
-              key={group.title}
-              border="neutral-alpha-weak"
-              background="surface"
-              radius="m"
-              padding="24"
-              gap="16"
-            >
-              <Heading as="h3" variant="heading-strong-m">
-                {group.title}
-              </Heading>
-              <Row wrap gap="8">
-                {group.items.map((item) => (
-                  <Tag key={item} size="m">
-                    {item}
-                  </Tag>
-                ))}
-              </Row>
-            </Column>
+            <Tilt3D key={group.title} maxTilt={5}>
+              <Column
+                border="neutral-alpha-weak"
+                background="surface"
+                radius="m"
+                padding="24"
+                gap="16"
+              >
+                <Heading as="h3" variant="heading-strong-m">
+                  {group.title}
+                </Heading>
+                <Row wrap gap="8">
+                  {group.items.map((item) => (
+                    <Tag key={item} size="m">
+                      {item}
+                    </Tag>
+                  ))}
+                </Row>
+              </Column>
+            </Tilt3D>
           ))}
         </Grid>
       </Column>
+      </ScrollReveal>
 
+      <ScrollReveal delayMs={100}>
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Timeline"
@@ -510,28 +527,33 @@ export default async function Home() {
           description="Started Aug 2026 on Shams Stores remotely with Sokany — after years of commerce, ERP, GovTech, and industrial shipping."
         />
         <Column fillWidth gap="12" className={styles.timeline}>
-          {timeline.map((item) => (
-            <Row
-              key={item.title}
-              fillWidth
-              gap="16"
-              padding="20"
-              radius="m"
-              border="neutral-alpha-weak"
-              background="surface"
-              s={{ direction: "column" }}
-            >
-              <Heading as="h3" variant="heading-strong-m">
-                {item.title}
-              </Heading>
-              <Text variant="body-default-s" onBackground="neutral-weak">
-                {item.detail}
-              </Text>
-            </Row>
+          {timeline.map((item, index) => (
+            <ScrollReveal key={item.title} delayMs={index * 50}>
+              <Tilt3D maxTilt={4}>
+                <Row
+                  fillWidth
+                  gap="16"
+                  padding="20"
+                  radius="m"
+                  border="neutral-alpha-weak"
+                  background="surface"
+                  s={{ direction: "column" }}
+                >
+                  <Heading as="h3" variant="heading-strong-m">
+                    {item.title}
+                  </Heading>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    {item.detail}
+                  </Text>
+                </Row>
+              </Tilt3D>
+            </ScrollReveal>
           ))}
         </Column>
       </Column>
+      </ScrollReveal>
 
+      <ScrollReveal delayMs={80}>
       <Column as="section" fillWidth gap="24" className={styles.contactBlock}>
         <Column gap="12" maxWidth="s">
           <Text variant="label-default-s" onBackground="brand-weak">
@@ -568,8 +590,10 @@ export default async function Home() {
           )}
         </Row>
       </Column>
+      </ScrollReveal>
 
       {(contributionCalendar || homeGithubRepos.length > 0 || routes["/blog"]) && (
+        <ScrollReveal>
         <Column as="section" fillWidth gap="32" className={styles.secondarySection}>
           <Row fillWidth paddingRight="64">
             <Line maxWidth={48} />
@@ -606,6 +630,7 @@ export default async function Home() {
             </Column>
           )}
         </Column>
+        </ScrollReveal>
       )}
 
       <Mailchimp />

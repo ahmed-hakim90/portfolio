@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import { Column, Grid, Heading, Media, Row, SmartLink, Tag, Text } from "@once-ui-system/core";
+import { Tilt3D } from "@/components/Tilt3D";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import styles from "./GalleryView.module.scss";
 
 export type GalleryImageItem = {
@@ -136,70 +138,77 @@ export default function GalleryView({ images }: { images: GalleryImageItem[] }) 
       )}
 
       {featuredImage && (
-        <Column
-          fillWidth
-          border="neutral-alpha-weak"
-          background="surface"
-          radius="m"
-          padding="20"
-          gap="16"
-          className={styles.featuredCard}
-        >
-          <Media
-            enlarge
-            priority
-            sizes="(max-width: 960px) 100vw, 1120px"
-            radius="m"
-            aspectRatio="16 / 9"
-            src={featuredImage.src}
-            alt={featuredImage.alt}
-          />
-          <Row fillWidth horizontal="between" vertical="center" gap="16" wrap>
-            <Column gap="8">
-              <Row gap="8" wrap>
-                <Tag size="s">{getProjectType(featuredImage.title, featuredImage.slug)}</Tag>
-                <Tag size="s">{featuredImage.publishedAt}</Tag>
+        <ScrollReveal>
+          <Tilt3D maxTilt={5}>
+            <Column
+              fillWidth
+              border="neutral-alpha-weak"
+              background="surface"
+              radius="m"
+              padding="20"
+              gap="16"
+              className={styles.featuredCard}
+            >
+              <Media
+                enlarge
+                priority
+                sizes="(max-width: 960px) 100vw, 1120px"
+                radius="m"
+                aspectRatio="16 / 9"
+                src={featuredImage.src}
+                alt={featuredImage.alt}
+              />
+              <Row fillWidth horizontal="between" vertical="center" gap="16" wrap>
+                <Column gap="8">
+                  <Row gap="8" wrap>
+                    <Tag size="s">{getProjectType(featuredImage.title, featuredImage.slug)}</Tag>
+                    <Tag size="s">{featuredImage.publishedAt}</Tag>
+                  </Row>
+                  <Heading as="h2" variant="heading-strong-xl">
+                    {featuredImage.title}
+                  </Heading>
+                </Column>
+                <SmartLink href={`/work/${featuredImage.slug}`}>Open case study →</SmartLink>
               </Row>
-              <Heading as="h2" variant="heading-strong-xl">
-                {featuredImage.title}
-              </Heading>
             </Column>
-            <SmartLink href={`/work/${featuredImage.slug}`}>Open case study →</SmartLink>
-          </Row>
-        </Column>
+          </Tilt3D>
+        </ScrollReveal>
       )}
 
       {secondaryImages.length > 0 && (
         <Grid columns="2" s={{ columns: 1 }} gap="16" fillWidth>
           {secondaryImages.map((image, index) => (
-            <Column
-              key={image.src}
-              border="neutral-alpha-weak"
-              background="surface"
-              radius="m"
-              padding="12"
-              gap="12"
-              className={styles.imageCard}
-            >
-              <Media
-                enlarge
-                priority={index < 6}
-                sizes="(max-width: 560px) 100vw, 50vw"
-                radius="m"
-                aspectRatio={image.orientation === "horizontal" ? "16 / 9" : "3 / 4"}
-                src={image.src}
-                alt={image.alt}
-              />
-              <Row fillWidth horizontal="between" vertical="center" gap="12" wrap>
-                <Column gap="4">
-                  <Text variant="label-default-s" onBackground="brand-weak">
-                    {getProjectType(image.title, image.slug)}
-                  </Text>
-                  <Text variant="heading-strong-m">{image.title}</Text>
+            <ScrollReveal key={image.src} delayMs={Math.min(index * 40, 200)}>
+              <Tilt3D maxTilt={6}>
+                <Column
+                  border="neutral-alpha-weak"
+                  background="surface"
+                  radius="m"
+                  padding="12"
+                  gap="12"
+                  className={styles.imageCard}
+                >
+                  <Media
+                    enlarge
+                    priority={index < 6}
+                    sizes="(max-width: 560px) 100vw, 50vw"
+                    radius="m"
+                    aspectRatio={image.orientation === "horizontal" ? "16 / 9" : "3 / 4"}
+                    src={image.src}
+                    alt={image.alt}
+                  />
+                  <Row fillWidth horizontal="between" vertical="center" gap="12" wrap>
+                    <Column gap="4">
+                      <Text variant="label-default-s" onBackground="brand-weak">
+                        {getProjectType(image.title, image.slug)}
+                      </Text>
+                      <Text variant="heading-strong-m">{image.title}</Text>
+                    </Column>
+                    <SmartLink href={`/work/${image.slug}`}>Case study →</SmartLink>
+                  </Row>
                 </Column>
-                <SmartLink href={`/work/${image.slug}`}>Case study →</SmartLink>
-              </Row>
-            </Column>
+              </Tilt3D>
+            </ScrollReveal>
           ))}
         </Grid>
       )}
