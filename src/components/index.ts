@@ -11,3 +11,4 @@ export { CustomMDX } from "@/components/mdx";
 export { ContactCTA } from "@/components/ContactCTA";
 export { Tilt3D } from "@/components/Tilt3D";
 export { ScrollReveal } from "@/components/ScrollReveal";
+export { HeroSceneLazy } from "@/components/HeroSceneLazy";

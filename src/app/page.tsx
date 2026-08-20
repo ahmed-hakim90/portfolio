@@ -26,6 +26,7 @@ import {
 import styles from "./page.module.scss";
 import { Tilt3D } from "@/components/Tilt3D";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { HeroSceneLazy } from "@/components/HeroSceneLazy";
 
 const featuredSystems = [
   {
@@ -305,6 +306,7 @@ export default async function Home() {
       <RevealFx translateY="8" fillWidth>
         <Column as="section" fillWidth className={styles.hero} gap="32">
           <div className={styles.heroGlow} aria-hidden />
+          <HeroSceneLazy />
           <Column gap="20" maxWidth="s" className={styles.heroContent}>
             <Text variant="label-default-s" onBackground="brand-weak">
               {person.role}
