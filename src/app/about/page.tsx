@@ -22,6 +22,7 @@ import {
   resolveGithubUsername,
 } from "@/lib/github";
 import { GitHubSection } from "@/components/github/GitHubSection";
+import { ContactCTA } from "@/components/ContactCTA";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -352,6 +353,12 @@ export default async function About() {
           )}
 
           {githubData && <GitHubSection data={githubData} />}
+
+          <ContactCTA
+            eyebrow="Work with me"
+            title="Building something operational? Let's talk."
+            description="From Sokany-style commerce stacks to ERP and GovTech RTL portals — I can help ship the frontend your operators need."
+          />
         </Column>
       </Row>
     </Column>

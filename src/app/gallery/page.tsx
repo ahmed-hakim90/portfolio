@@ -1,5 +1,6 @@
 import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
 import GalleryView from "@/components/gallery/GalleryView";
+import { ContactCTA } from "@/components/ContactCTA";
 import { baseURL, gallery, person } from "@/resources";
 import { getProjectGalleryImages } from "@/utils/utils";
 
@@ -39,11 +40,17 @@ export default function Gallery() {
           Systems gallery
         </Heading>
         <Text variant="body-default-l" onBackground="neutral-weak" wrap="balance">
-          A visual archive of ERP platforms, commerce systems, operations dashboards,
-          public-service portals, and industrial B2B products.
+          Visual proof from Sokany commerce systems, manufacturing ERP, GovTech RTL portals,
+          industrial B2B hubs, and public-service products — filter by project and open the case study.
         </Text>
       </Column>
       <GalleryView images={images} />
+      <Column paddingX="l">
+        <ContactCTA
+          title="Want screens like these for your product?"
+          description="I ship production UIs with clear workflows, Arabic RTL where it matters, and demos you can click."
+        />
+      </Column>
     </Column>
   );
 }

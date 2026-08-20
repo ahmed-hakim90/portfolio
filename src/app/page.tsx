@@ -27,29 +27,49 @@ import styles from "./page.module.scss";
 
 const featuredSystems = [
   {
-    title: "OIS Machinery",
-    category: "Industrial B2B Hub",
-    href: "/work/ois-machinery-industrial-b2b-hub",
-    image: "/ois-machinery-hub.png",
+    title: "Sokany Store",
+    category: "Day job · Headless Commerce",
+    href: "/work/sokany-store",
+    liveUrl: "https://sokany.vercel.app/",
+    image: "/sokany-store-desktop.png",
     summary:
-      "A premium B2B industrial machinery hub with catalog routes, auxiliary parts, turnkey services, SEO, and lead capture.",
+      "Arabic RTL storefront for Sokany Elmaghraby — Next.js on WooCommerce REST APIs, tuned for mobile shopping, performance, and modern product flows.",
     highlights: [
-      "Machine catalog",
-      "Dynamic detail pages",
-      "Auxiliary parts",
-      "Turnkey services",
-      "WhatsApp leads",
-      "Cloudflare Workers",
+      "WooCommerce headless",
+      "Arabic RTL",
+      "PWA",
+      "Performance",
+      "Mobile UX",
+      "Production storefront",
     ],
-    stack: ["React 19", "TanStack Start", "Vite 7", "Tailwind CSS 4", "Framer Motion"],
+    stack: ["Next.js", "TypeScript", "Tailwind", "WooCommerce"],
+  },
+  {
+    title: "Store OMS",
+    category: "Day job · Operations Platform",
+    href: "/work/order-management-system-oms",
+    liveUrl: "https://workflow-management-ecommerce.vercel.app/",
+    image: "/store-oms-orders.png",
+    summary:
+      "The operations workspace behind Sokany commerce — order confirmation, warehouse handoff, shipments, returns, roles, and analytics in one UI.",
+    highlights: [
+      "Order lifecycle",
+      "Warehouse workflows",
+      "Bosta shipping",
+      "WhatsApp",
+      "Role workflows",
+      "Analytics",
+    ],
+    stack: ["Next.js", "Firebase", "WooCommerce", "Bosta API"],
   },
   {
     title: "HAKIMO ERP",
     category: "Manufacturing ERP",
     href: "/work/hakimo-production-system",
+    liveUrl: "https://production-line.vercel.app/",
     image: "/hakimoerp.png",
     summary:
-      "A mobile-first RTL ERP for production teams, daily reporting, approvals, KPI dashboards, HR workflows, and cost analytics.",
+      "Mobile-first RTL ERP for production teams — daily reporting, approvals, KPI dashboards, HR workflows, RBAC, and cost analytics.",
     highlights: [
       "Production management",
       "HR workflows",
@@ -57,42 +77,42 @@ const featuredSystems = [
       "Cost analytics",
       "RBAC",
       "Mobile-first RTL",
-      "PWA",
     ],
     stack: ["React 19", "TypeScript", "Vite", "Firebase", "Zustand", "Tailwind"],
   },
   {
-    title: "Sokany Store",
-    category: "Headless Commerce",
-    href: "/work/sokany",
-    image: "/sokany-desktop.png",
+    title: "رؤية مصر 2030",
+    category: "GovTech · National narrative platform",
+    href: "/work/egypt-vision-2030-digital-platform",
+    image: "/egypt-vision-2030-hero.png",
     summary:
-      "A fast Arabic storefront powered by WooCommerce REST APIs, tuned for mobile UX, performance, and modern shopping flows.",
+      "Arabic RTL platform that compares legacy government portals with modern previews — ministry routes, project studies, gallery, and insights on Vercel.",
     highlights: [
-      "WooCommerce headless",
-      "PWA",
-      "3D product viewer",
-      "Performance optimization",
-      "Mobile UX",
-      "Modern storefront",
+      "Before/after ministries",
+      "Project detail routes",
+      "Insights articles",
+      "Live gallery",
+      "TanStack Start",
+      "Vercel",
     ],
-    stack: ["Next.js", "WooCommerce", "Tailwind", "TypeScript"],
+    stack: ["React 19", "TanStack Start", "TypeScript", "Tailwind", "Vercel"],
   },
   {
-    title: "OMS Platform",
-    category: "Operations Platform",
-    href: "/work/order-management-system-oms",
-    image: "/store-oms-orders.png",
+    title: "OIS Machinery",
+    category: "Industrial B2B Hub",
+    href: "/work/ois-machinery-industrial-b2b-hub",
+    liveUrl: "https://oismachinery.com",
+    image: "/ois-machinery-hub.png",
     summary:
-      "A commerce operations workspace for orders, warehouse handoff, shipments, returns, role workflows, and analytics.",
+      "Premium B2B industrial machinery hub — catalog routes, auxiliary parts, turnkey services, SEO, and WhatsApp lead capture.",
     highlights: [
-      "Order lifecycle",
-      "Warehouse workflows",
-      "Shipping integrations",
-      "Returns management",
-      "Role workflows",
+      "Machine catalog",
+      "Dynamic detail pages",
+      "Auxiliary parts",
+      "Turnkey services",
+      "WhatsApp leads",
     ],
-    stack: ["Next.js", "Firebase", "WooCommerce", "Bosta API", "WhatsApp"],
+    stack: ["React 19", "TanStack Start", "Vite 7", "Tailwind CSS 4", "Framer Motion"],
   },
   {
     title: "بوابة وزارة الصحة والسكان",
@@ -110,7 +130,7 @@ const featuredSystems = [
       "مركز إعلامي",
       "mobile-first RTL",
     ],
-    stack: ["React", "TypeScript", "RTL GovTech", "Cloudflare Workers"],
+    stack: ["React", "TypeScript", "RTL GovTech"],
   },
   {
     title: "منصة وزارة الزراعة الرقمية 2030",
@@ -128,65 +148,66 @@ const featuredSystems = [
       "scraper-ready",
       "mobile-first RTL",
     ],
-    stack: ["React 19", "TanStack Start", "Tailwind", "shadcn/ui", "Cloudflare Workers"],
+    stack: ["React 19", "TanStack Start", "Tailwind", "shadcn/ui"],
   },
 ];
 
 const services = [
-  "ERP Systems",
-  "Industrial Platforms",
   "Headless Commerce",
-  "OMS Systems",
-  "AI Automation",
-  "Internal Dashboards",
+  "OMS & Order Workflows",
+  "ERP & Factory Dashboards",
+  "GovTech RTL Portals",
+  "Industrial B2B Sites",
+  "API Integrations",
 ];
 
 const architecture = [
   {
     title: "Frontend",
-    items: ["React", "Next.js", "Vue", "TypeScript", "Tailwind"],
+    items: ["React", "Next.js", "TypeScript", "TanStack Start", "Tailwind"],
   },
   {
     title: "Cloud",
-    items: ["Firebase", "Supabase", "Cloudflare", "Vercel"],
+    items: ["Firebase", "Supabase", "Vercel", "Cloudflare"],
   },
   {
     title: "Commerce",
-    items: ["WooCommerce", "OMS", "Webhooks"],
+    items: ["WooCommerce", "OMS", "Bosta", "Webhooks"],
   },
   {
     title: "Automation",
-    items: ["n8n", "OpenRouter", "Ollama"],
+    items: ["n8n", "WhatsApp", "OpenRouter", "Ollama"],
   },
 ];
 
 const proofPoints = [
-  "ERP Modules Built",
-  "Commerce Integrations",
-  "Production Workflows",
-  "Operational Systems",
+  "Sokany day-job systems",
+  "Commerce integrations",
+  "ERP & factory workflows",
+  "GovTech RTL products",
 ];
 
 const timeline = [
   {
-    title: "Grand Egyptian Museum",
-    detail: "Deadline-critical bilingual launch page with responsive UI and custom animations.",
-  },
-  {
-    title: "Mostaql",
-    detail: "Years of client delivery across frontend builds, responsive websites, and production work.",
+    title: "Sokany Elmaghraby — Frontend Engineer",
+    detail:
+      "Current role: storefront, Store OMS, dashboards, and WooCommerce-facing APIs for live commerce operations.",
   },
   {
     title: "HAKIMO ERP",
     detail: "Manufacturing ERP for production, HR, approvals, dashboards, RBAC, and cost analytics.",
   },
   {
-    title: "Sokany Store",
-    detail: "Headless WooCommerce storefront with fast Arabic RTL shopping experiences.",
+    title: "رؤية مصر 2030 + ministry previews",
+    detail: "National narrative platform and RTL GovTech previews for health and agriculture.",
   },
   {
-    title: "OMS Platform",
-    detail: "Operations platform for order lifecycle, warehouse workflows, shipping, and returns.",
+    title: "OIS Machinery",
+    detail: "Industrial B2B hub with catalog, services, and lead capture for manufacturers.",
+  },
+  {
+    title: "Grand Egyptian Museum",
+    detail: "Deadline-critical bilingual countdown with responsive UI and custom animations.",
   },
 ];
 
@@ -261,16 +282,35 @@ export default async function Home() {
         <Column as="section" fillWidth className={styles.hero} gap="32">
           <Column gap="20" maxWidth="s">
             <Text variant="label-default-s" onBackground="brand-weak">
-              Frontend Engineer | ERP & E-Commerce Systems Builder
+              {person.role}
             </Text>
             <Heading as="h1" variant="display-strong-xl" wrap="balance">
               {home.headline}
             </Heading>
-            <Text variant="heading-default-xl" onBackground="neutral-weak" wrap="balance">
-              I build manufacturing systems, ERP platforms, operational software,
-              headless commerce solutions, and modern web products.
-            </Text>
+            <Column gap="12">{home.subline}</Column>
           </Column>
+          {home.featured.display && (
+            <Row
+              fitWidth
+              border="brand-alpha-medium"
+              background="brand-alpha-weak"
+              radius="full"
+              padding="4"
+              gap="8"
+              vertical="center"
+            >
+              <Row paddingX="8">{home.featured.title}</Row>
+              <Button
+                href={home.featured.href}
+                data-border="rounded"
+                variant="secondary"
+                size="s"
+                suffixIcon="arrowRight"
+              >
+                Open
+              </Button>
+            </Row>
+          )}
           <Row gap="12" wrap>
             <Button href="/work" size="m" variant="primary" suffixIcon="arrowRight">
               View Projects
@@ -292,7 +332,7 @@ export default async function Home() {
               >
                 <Text variant="heading-strong-s">{point}</Text>
                 <Text variant="body-default-xs" onBackground="neutral-weak">
-                  Built around real operational workflows, not template demos.
+                  Tied to real company workflows at Sokany and beyond — not template demos.
                 </Text>
               </Column>
             ))}
@@ -303,8 +343,8 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Featured systems"
-          title="Products built around business operations."
-          description="Case studies across manufacturing, commerce, and operations software."
+          title="What I ship at work — and what I build beyond it."
+          description="Sokany commerce systems first, then ERP, GovTech, and industrial products that use the same production mindset."
         />
         <Column fillWidth gap="24">
           {featuredSystems.map((system, index) => (
@@ -384,8 +424,8 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Services"
-          title="Systems I can design and ship."
-          description="Focused software for companies that need reliable internal tools, commerce flows, and operational clarity."
+          title="Systems I design and ship for operators."
+          description="Frontend engineering for teams that need reliable commerce flows, internal tools, and clear Arabic RTL products."
         />
         <Grid columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="16" fillWidth>
           {services.map((service) => (
@@ -402,8 +442,8 @@ export default async function Home() {
                 {service}
               </Heading>
               <Text variant="body-default-s" onBackground="neutral-weak">
-                Structured product engineering for production teams, commerce teams,
-                and internal operations.
+                Practical product engineering for commerce teams, factories, and
+                internal operations — starting from the UI operators use every day.
               </Text>
             </Column>
           ))}
@@ -444,8 +484,8 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Timeline"
-          title="A path from frontend delivery to systems engineering."
-          description="Selected milestones that shaped how I build products for operations, commerce, and manufacturing."
+          title="From client delivery to a Sokany systems role."
+          description="Selected milestones from freelance and GEM work into manufacturing ERP and the current commerce operations stack."
         />
         <Column fillWidth gap="12" className={styles.timeline}>
           {timeline.map((item) => (
@@ -476,11 +516,11 @@ export default async function Home() {
             Contact
           </Text>
           <Heading as="h2" variant="display-strong-xs" wrap="balance">
-            Need a serious product system built around real operations?
+            Need a frontend engineer for commerce ops or internal systems?
           </Heading>
           <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
-            I can help design, build, and ship ERP modules, dashboards, commerce
-            workflows, integrations, and internal tools.
+            I build storefronts, OMS workflows, ERP dashboards, Arabic RTL portals,
+            and integrations that match how teams actually work.
           </Text>
         </Column>
         <Row gap="12" wrap>

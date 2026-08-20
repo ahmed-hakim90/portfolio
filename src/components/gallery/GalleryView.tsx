@@ -13,14 +13,33 @@ export type GalleryImageItem = {
   publishedAt: string;
 };
 
-function getProjectType(title: string) {
-  const value = title.toLowerCase();
+function getProjectType(title: string, slug: string) {
+  const value = `${title} ${slug}`.toLowerCase();
 
-  if (value.includes("erp") || value.includes("production")) return "ERP";
-  if (value.includes("oms")) return "Operations";
-  if (value.includes("store") || value.includes("woocommerce")) return "Commerce";
+  if (value.includes("erp") || value.includes("production") || value.includes("hakimo")) {
+    return "ERP";
+  }
+  if (value.includes("oms") || value.includes("order-management")) return "Operations";
+  if (
+    value.includes("store") ||
+    value.includes("woocommerce") ||
+    value.includes("sokany") ||
+    value.includes("commerce")
+  ) {
+    return "Commerce";
+  }
+  if (
+    value.includes("egypt-vision") ||
+    value.includes("nile-health") ||
+    value.includes("agriculture") ||
+    value.includes("صحة") ||
+    value.includes("زراعة") ||
+    value.includes("رؤية")
+  ) {
+    return "GovTech";
+  }
   if (value.includes("quarantine")) return "Public services";
-  if (value.includes("machinery")) return "Industrial";
+  if (value.includes("machinery") || value.includes("ois")) return "Industrial";
   return "Product";
 }
 
@@ -74,7 +93,7 @@ export default function GalleryView({ images }: { images: GalleryImageItem[] }) 
         >
           <Text variant="heading-strong-l">Systems</Text>
           <Text variant="body-default-s" onBackground="neutral-weak">
-            ERP, commerce, operations, industrial, and public-service work
+            Commerce, OMS, ERP, GovTech, industrial, and public-service work
           </Text>
         </Column>
       </Grid>
@@ -99,6 +118,22 @@ export default function GalleryView({ images }: { images: GalleryImageItem[] }) 
         ))}
       </Row>
 
+      {!featuredImage && (
+        <Column
+          fillWidth
+          border="neutral-alpha-weak"
+          background="surface"
+          radius="m"
+          padding="32"
+          gap="8"
+        >
+          <Text variant="heading-strong-m">No screenshots in this filter</Text>
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            Choose another project or reset to All projects.
+          </Text>
+        </Column>
+      )}
+
       {featuredImage && (
         <Column
           fillWidth
@@ -121,7 +156,7 @@ export default function GalleryView({ images }: { images: GalleryImageItem[] }) 
           <Row fillWidth horizontal="between" vertical="center" gap="16" wrap>
             <Column gap="8">
               <Row gap="8" wrap>
-                <Tag size="s">{getProjectType(featuredImage.title)}</Tag>
+                <Tag size="s">{getProjectType(featuredImage.title, featuredImage.slug)}</Tag>
                 <Tag size="s">{featuredImage.publishedAt}</Tag>
               </Row>
               <Heading as="h2" variant="heading-strong-xl">
@@ -157,7 +192,7 @@ export default function GalleryView({ images }: { images: GalleryImageItem[] }) 
               <Row fillWidth horizontal="between" vertical="center" gap="12" wrap>
                 <Column gap="4">
                   <Text variant="label-default-s" onBackground="brand-weak">
-                    {getProjectType(image.title)}
+                    {getProjectType(image.title, image.slug)}
                   </Text>
                   <Text variant="heading-strong-m">{image.title}</Text>
                 </Column>

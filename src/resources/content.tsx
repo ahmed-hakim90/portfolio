@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Ahmed",
   lastName: "Abdulhakim",
   name: "Ahmed Abdulhakim",
-  role: "Frontend Engineer · ERP & E-Commerce Systems Builder",
+  role: "Frontend Engineer at Sokany · Operational Systems Builder",
   avatar: "/me1.jpg",
   email: "ahmedabdulhakim90@gmail.com",
   location: "Africa/Cairo",
@@ -62,8 +62,8 @@ const home: Home = {
   path: "/",
   image: "/me1.jpg",
   label: "Home",
-  title: `${person.name} — ERP & E-Commerce Systems Builder`,
-  description: `${person.name} builds ERP platforms, manufacturing systems, operational software, headless commerce, and modern web products.`,
+  title: `${person.name} — Frontend Engineer · Sokany Operational Systems`,
+  description: `${person.name} is a Frontend Engineer at Sokany Elmaghraby building storefronts, OMS workflows, internal dashboards, and commerce integrations — plus ERP, GovTech, and industrial web products.`,
   headline: <>Ahmed Abdulhakim</>,
   featured: {
     display: true,
@@ -72,24 +72,24 @@ const home: Home = {
         <strong className="ml-4">Featured</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Hakimo Production System
+          Sokany Store + OMS
         </Text>
       </Row>
     ),
-    href: "/work/hakimo-production-system",
+    href: "/work/sokany-store",
   },
   subline: (
     <>
       <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-        I create high-performance storefronts using Next.js and connect them with WooCommerce APIs and external systems like
-        OMS and ERP.
+        Frontend Engineer at Sokany Elmaghraby — I build the company&apos;s digital operations stack: Arabic storefront,
+        order management, internal dashboards, and live commerce integrations.
       </Text>
       <Text wrap="balance" variant="body-default-l" onBackground="neutral-weak">
-        I don&apos;t just build UI — I solve real problems like slow loading, unstable APIs (502 errors), and inefficient
-        order workflows.
+        Day to day I connect Next.js products to WooCommerce, shipping, WhatsApp, and team workflows — so orders move
+        from checkout to warehouse without spreadsheet chaos.
       </Text>
       <Text wrap="balance" variant="body-default-s" onBackground="neutral-alpha-medium">
-        Focused on performance, scalability, and clean system architecture.
+        Outside the day job I ship ERP, GovTech RTL portals, and industrial B2B platforms with the same ops-first mindset.
       </Text>
     </>
   ),
@@ -99,7 +99,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name} — frontend engineer, ERP systems builder, e-commerce architect, and operations software builder.`,
+  description: `Meet ${person.name} — Frontend Engineer at Sokany Elmaghraby building storefront, OMS, dashboards, and commerce systems, plus ERP and GovTech products.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -116,10 +116,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I build manufacturing systems, ERP platforms, operational software, headless commerce solutions, and modern web
-        products. My work sits where frontend engineering meets real business operations: production workflows, order
-        lifecycle tools, KPI dashboards, role-based systems, integrations, and mobile-first RTL interfaces. I care about
-        fast UI, stable architecture, and software that helps teams run the business more clearly.
+        I am a Frontend Engineer at <strong>Sokany Elmaghraby</strong>, where I own product UI for the company&apos;s
+        commerce and operations stack: headless storefront, Store OMS, internal dashboards, and integrations with
+        WooCommerce, shipping, and WhatsApp. Beyond that role I design and ship manufacturing ERP, Arabic RTL GovTech
+        portals, and industrial B2B hubs. My focus is the same everywhere — fast interfaces that make real workflows
+        clearer for operators, not just prettier marketing screens.
       </>
     ),
   },
@@ -133,11 +134,35 @@ const about: About = {
         role: "Frontend Engineer",
         achievements: [
           <>
-            Developing the company&apos;s operational workflows across storefront, order management, internal dashboards,
-            commerce integrations, and team-facing systems — connecting frontend product work with real business operations.
+            Building and evolving the company&apos;s digital operations stack: Next.js Arabic storefront (Sokany Store),
+            Store OMS for order confirmation / warehouse / shipping / returns, internal dashboards, and stable WooCommerce
+            API layers used by day-to-day commerce teams.
+          </>,
+          <>
+            Connecting frontend product work to live business operations — reducing fragile theme-only flows, clarifying
+            order lifecycle UI, and shipping integration-facing screens for Bosta, WhatsApp, and Firebase-backed workflows.
+          </>,
+          <>
+            Related case studies:{" "}
+            <a href="/work/sokany-store">Sokany Store</a>,{" "}
+            <a href="/work/order-management-system-oms">Store OMS</a>,{" "}
+            <a href="/work/woocommerce-api-integration">WooCommerce API</a>.
           </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/sokany-store-desktop.png",
+            alt: "Sokany Store desktop storefront",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/store-oms-orders.png",
+            alt: "Store OMS orders workspace",
+            width: 16,
+            height: 9,
+          },
+        ],
       },
       {
         company: "Grand Egyptian Museum",
@@ -359,22 +384,22 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing on products and factories",
-  description: `Articles by ${person.name} — including Hakimo ERP and Arabic technical posts.`,
+  title: "Writing on systems and shipping",
+  description: `Case studies by ${person.name} — Sokany commerce, ERP, GovTech, and product engineering notes.`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
   title: `Systems & Case Studies – ${person.name}`,
-  description: `ERP platforms, operations software, headless commerce, and product systems by ${person.name}`,
+  description: `Sokany storefront & OMS, manufacturing ERP, GovTech RTL portals, industrial B2B hubs, and commerce integrations by ${person.name}`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
   title: `Systems Gallery – ${person.name}`,
-  description: `Screenshots from ERP platforms, operations software, headless commerce, and product systems by ${person.name}.`,
+  description: `Screens from Sokany storefront & OMS, manufacturing ERP, GovTech portals, and industrial products by ${person.name}.`,
   images: [],
 };
 

@@ -19,8 +19,9 @@ import { baseURL, about, person, work } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
-import { Projects } from "@/components/work/Projects";
+import { RelatedProjects } from "@/components/work/Projects";
 import { resolveProjectLink } from "@/lib/project-links";
+import { ContactCTA } from "@/components/ContactCTA";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -103,7 +104,7 @@ export default async function Project({
           {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
         </Text>
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
-        {liveDemoUrl && (
+        {liveDemoUrl ? (
           <Button
             href={liveDemoUrl}
             variant="secondary"
@@ -112,6 +113,12 @@ export default async function Project({
           >
             View live demo
           </Button>
+        ) : (
+          about.calendar.display && (
+            <Button href={about.calendar.link} variant="secondary" size="s" prefixIcon="calendar">
+              Schedule a walkthrough
+            </Button>
+          )
         )}
       </Column>
       <Row marginBottom="32" horizontal="center">
@@ -132,7 +139,13 @@ export default async function Project({
         </Row>
       </Row>
       {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
+        <Media
+          priority
+          aspectRatio="16 / 9"
+          radius="m"
+          alt={`${post.metadata.title} screenshot`}
+          src={post.metadata.images[0]}
+        />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />
@@ -142,7 +155,10 @@ export default async function Project({
         <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
           Related projects
         </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
+        <RelatedProjects slug={post.slug} limit={2} />
+      </Column>
+      <Column fillWidth maxWidth="m" paddingX="l">
+        <ContactCTA />
       </Column>
       <ScrollToHash />
     </Column>
