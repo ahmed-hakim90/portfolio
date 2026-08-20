@@ -23,6 +23,7 @@ import {
 } from "@/lib/github";
 import { GitHubSection } from "@/components/github/GitHubSection";
 import { ContactCTA } from "@/components/ContactCTA";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -126,152 +127,163 @@ export default async function About() {
           </Column>
         )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
-          <Column
-            id={about.intro.title}
-            fillWidth
-            minHeight="160"
-            vertical="center"
-            marginBottom="32"
-          >
-            {about.calendar.display && (
-              <Row
-                fitWidth
-                border="brand-alpha-medium"
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-                className={styles.blockAlign}
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-              >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Row paddingX="8">Book a remote call</Row>
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
-              </Row>
-            )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
-              {person.name}
-            </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
+          <ScrollReveal>
+            <Column
+              id={about.intro.title}
+              fillWidth
+              minHeight="160"
+              vertical="center"
+              marginBottom="32"
             >
-              {person.role}
-            </Text>
-            {social.length > 0 && (
-              <Row
-                className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="8"
-                wrap
-                horizontal="center"
-                fitWidth
-                data-border="rounded"
+              {about.calendar.display && (
+                <Row
+                  fitWidth
+                  border="brand-alpha-medium"
+                  background="brand-alpha-weak"
+                  radius="full"
+                  padding="4"
+                  gap="8"
+                  marginBottom="m"
+                  vertical="center"
+                  className={styles.blockAlign}
+                  style={{
+                    backdropFilter: "blur(var(--static-space-1))",
+                  }}
+                >
+                  <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+                  <Row paddingX="8">Book a remote call</Row>
+                  <IconButton
+                    href={about.calendar.link}
+                    data-border="rounded"
+                    variant="secondary"
+                    icon="chevronRight"
+                  />
+                </Row>
+              )}
+              <Heading className={styles.textAlign} variant="display-strong-xl">
+                {person.name}
+              </Heading>
+              <Text
+                className={styles.textAlign}
+                variant="display-default-xs"
+                onBackground="neutral-weak"
               >
-                {social
-                      .filter((item) => item.essential)
-                      .map(
-                  (item) =>
-                    item.link && (
-                      <React.Fragment key={item.name}>
-                        <Row s={{ hide: true }}>
-                          <Button
-                            key={item.name}
-                            href={item.link}
-                            prefixIcon={item.icon}
-                            label={item.name}
-                            size="s"
-                            weight="default"
-                            variant="secondary"
-                          />
-                        </Row>
-                        <Row hide s={{ hide: false }}>
-                          <IconButton
-                            size="l"
-                            key={`${item.name}-icon`}
-                            href={item.link}
-                            icon={item.icon}
-                            variant="secondary"
-                          />
-                        </Row>
-                      </React.Fragment>
-                    ),
-                )}
-              </Row>
-            )}
-          </Column>
+                {person.role}
+              </Text>
+              {social.length > 0 && (
+                <Row
+                  className={styles.blockAlign}
+                  paddingTop="20"
+                  paddingBottom="8"
+                  gap="8"
+                  wrap
+                  horizontal="center"
+                  fitWidth
+                  data-border="rounded"
+                >
+                  {social
+                        .filter((item) => item.essential)
+                        .map(
+                    (item) =>
+                      item.link && (
+                        <React.Fragment key={item.name}>
+                          <Row s={{ hide: true }}>
+                            <Button
+                              key={item.name}
+                              href={item.link}
+                              prefixIcon={item.icon}
+                              label={item.name}
+                              size="s"
+                              weight="default"
+                              variant="secondary"
+                            />
+                          </Row>
+                          <Row hide s={{ hide: false }}>
+                            <IconButton
+                              size="l"
+                              key={`${item.name}-icon`}
+                              href={item.link}
+                              icon={item.icon}
+                              variant="secondary"
+                            />
+                          </Row>
+                        </React.Fragment>
+                      ),
+                  )}
+                </Row>
+              )}
+            </Column>
+          </ScrollReveal>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-              {about.intro.description}
-            </Column>
+            <ScrollReveal delayMs={80}>
+              <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+                {about.intro.description}
+              </Column>
+            </ScrollReveal>
           )}
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
-                {about.work.title}
-              </Heading>
+              <ScrollReveal>
+                <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+                  {about.work.title}
+                </Heading>
+              </ScrollReveal>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
+                  <ScrollReveal
+                    key={`${experience.company}-${experience.role}-${index}`}
+                    delayMs={index * 60}
+                  >
+                    <Column fillWidth>
+                      <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                        <Text id={experience.company} variant="heading-strong-l">
+                          {experience.company}
+                        </Text>
+                        <Text variant="heading-default-xs" onBackground="neutral-weak">
+                          {experience.timeframe}
+                        </Text>
+                      </Row>
+                      <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                        {experience.role}
                       </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
-                      </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
+                      <Column as="ul" gap="16">
+                        {experience.achievements.map(
+                          (achievement: React.ReactNode, achievementIndex: number) => (
+                            <Text
+                              as="li"
+                              variant="body-default-m"
+                              key={`${experience.company}-${achievementIndex}`}
+                            >
+                              {achievement}
+                            </Text>
+                          ),
+                        )}
+                      </Column>
+                      {experience.images && experience.images.length > 0 && (
+                        <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                          {experience.images.map((image, imageIndex) => (
+                            <Row
+                              key={imageIndex}
+                              border="neutral-medium"
+                              radius="m"
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                          ))}
+                        </Row>
                       )}
                     </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
+                  </ScrollReveal>
                 ))}
               </Column>
             </>
@@ -279,19 +291,23 @@ export default async function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
+              <ScrollReveal>
+                <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+                  {about.studies.title}
+                </Heading>
+              </ScrollReveal>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
-                  </Column>
+                  <ScrollReveal key={`${institution.name}-${index}`} delayMs={index * 50}>
+                    <Column fillWidth gap="4">
+                      <Text id={institution.name} variant="heading-strong-l">
+                        {institution.name}
+                      </Text>
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {institution.description}
+                      </Text>
+                    </Column>
+                  </ScrollReveal>
                 ))}
               </Column>
             </>
@@ -299,66 +315,76 @@ export default async function About() {
 
           {about.technical.display && (
             <>
-              <Heading
-                as="h2"
-                id={about.technical.title}
-                variant="display-strong-s"
-                marginBottom="40"
-              >
-                {about.technical.title}
-              </Heading>
+              <ScrollReveal>
+                <Heading
+                  as="h2"
+                  id={about.technical.title}
+                  variant="display-strong-s"
+                  marginBottom="40"
+                >
+                  {about.technical.title}
+                </Heading>
+              </ScrollReveal>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
+                  <ScrollReveal key={`${skill.title}-${index}`} delayMs={index * 50}>
+                    <Column fillWidth gap="4">
+                      <Text id={skill.title} variant="heading-strong-l">
+                        {skill.title}
+                      </Text>
+                      <Text variant="body-default-m" onBackground="neutral-weak">
+                        {skill.description}
+                      </Text>
+                      {skill.tags && skill.tags.length > 0 && (
+                        <Row wrap gap="8" paddingTop="8">
+                          {skill.tags.map((tag, tagIndex) => (
+                            <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                              {tag.name}
+                            </Tag>
+                          ))}
+                        </Row>
+                      )}
+                      {skill.images && skill.images.length > 0 && (
+                        <Row fillWidth paddingTop="m" gap="12" wrap>
+                          {skill.images.map((image, imageIndex) => (
+                            <Row
+                              key={imageIndex}
+                              border="neutral-medium"
                               radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <Media
+                                enlarge
+                                radius="m"
+                                sizes={image.width.toString()}
+                                alt={image.alt}
+                                src={image.src}
+                              />
+                            </Row>
+                          ))}
+                        </Row>
+                      )}
+                    </Column>
+                  </ScrollReveal>
                 ))}
               </Column>
             </>
           )}
 
-          {githubData && <GitHubSection data={githubData} />}
+          {githubData && (
+            <ScrollReveal>
+              <GitHubSection data={githubData} />
+            </ScrollReveal>
+          )}
 
-          <ContactCTA
-            eyebrow="Remote · open brief"
-            title="Got a task? Send it — I'll ship it."
-            description="Remote with Sokany on Shams since Aug 2026 — and still open for more remote missions. Feature, bug, rebuild, or full storefront: brief → live."
-          />
+          <ScrollReveal>
+            <ContactCTA
+              eyebrow="Remote · open brief"
+              title="Got a task? Send it — I'll ship it."
+              description="Remote with Sokany on Shams since Aug 2026 — and still open for more remote missions. Feature, bug, rebuild, or full storefront: brief → live."
+            />
+          </ScrollReveal>
         </Column>
       </Row>
     </Column>

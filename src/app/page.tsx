@@ -348,186 +348,195 @@ export default async function Home() {
             </Button>
           </Row>
           <Grid columns="4" m={{ columns: 2 }} s={{ columns: 1 }} gap="12" fillWidth className={styles.heroContent}>
-            {proofPoints.map((point) => (
-              <Tilt3D key={point} maxTilt={6}>
-                <Column
-                  className={styles.proofCard}
-                  border="neutral-alpha-weak"
-                  background="surface"
-                  radius="m"
-                  padding="20"
-                  gap="8"
-                >
-                  <Text variant="heading-strong-s">{point}</Text>
-                  <Text variant="body-default-xs" onBackground="neutral-weak">
-                    Tied to real company workflows at Sokany and beyond — not template demos.
-                  </Text>
-                </Column>
-              </Tilt3D>
+            {proofPoints.map((point, index) => (
+              <ScrollReveal key={point} delayMs={index * 50}>
+                <Tilt3D maxTilt={6}>
+                  <Column
+                    className={styles.proofCard}
+                    border="neutral-alpha-weak"
+                    background="surface"
+                    radius="m"
+                    padding="20"
+                    gap="8"
+                  >
+                    <Text variant="heading-strong-s">{point}</Text>
+                    <Text variant="body-default-xs" onBackground="neutral-weak">
+                      Tied to real company workflows at Sokany and beyond — not template demos.
+                    </Text>
+                  </Column>
+                </Tilt3D>
+              </ScrollReveal>
             ))}
           </Grid>
         </Column>
       </RevealFx>
 
-      <ScrollReveal>
       <Column as="section" fillWidth gap="32" className={styles.section}>
-        <SectionHeader
-          eyebrow="Featured systems"
-          title="What I'm shipping now — and what I've already proven."
-          description="Shams Stores remote with Sokany first, then commerce, ERP, GovTech, and industrial products with the same delivery mindset."
-        />
+        <ScrollReveal>
+          <SectionHeader
+            eyebrow="Featured systems"
+            title="What I'm shipping now — and what I've already proven."
+            description="Shams Stores remote with Sokany first, then commerce, ERP, GovTech, and industrial products with the same delivery mindset."
+          />
+        </ScrollReveal>
         <Column fillWidth gap="24">
           {featuredSystems.map((system, index) => (
-            <Tilt3D key={system.title} maxTilt={7}>
-              <Column
-                fillWidth
-                border="neutral-alpha-weak"
-                background="surface"
-                radius="m"
-                padding="24"
-                gap="24"
-                className={styles.systemCard}
-              >
-              <Row fillWidth gap="24" s={{ direction: "column" }}>
-                <Column flex={5} gap="20">
-                  <Column gap="8">
-                    <Text variant="label-default-s" onBackground="brand-weak">
-                      {system.category}
-                    </Text>
-                    <Heading as="h3" variant="display-strong-xs" wrap="balance">
-                      {system.title}
-                    </Heading>
-                    <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
-                      {system.summary}
-                    </Text>
-                  </Column>
-                  <Row wrap gap="8">
-                    {system.highlights.map((highlight) => (
-                      <Tag key={highlight} size="m">
-                        {highlight}
-                      </Tag>
-                    ))}
-                  </Row>
-                  <Column gap="8">
-                    <Text variant="label-default-s" onBackground="neutral-weak">
-                      Stack
-                    </Text>
+            <ScrollReveal key={system.title} delayMs={index * 70}>
+              <Tilt3D maxTilt={7}>
+                <Column
+                  fillWidth
+                  border="neutral-alpha-weak"
+                  background="surface"
+                  radius="m"
+                  padding="24"
+                  gap="24"
+                  className={styles.systemCard}
+                >
+                <Row fillWidth gap="24" s={{ direction: "column" }}>
+                  <Column flex={5} gap="20">
+                    <Column gap="8">
+                      <Text variant="label-default-s" onBackground="brand-weak">
+                        {system.category}
+                      </Text>
+                      <Heading as="h3" variant="display-strong-xs" wrap="balance">
+                        {system.title}
+                      </Heading>
+                      <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+                        {system.summary}
+                      </Text>
+                    </Column>
                     <Row wrap gap="8">
-                      {system.stack.map((item) => (
-                        <Tag key={item} size="s">
-                          {item}
+                      {system.highlights.map((highlight) => (
+                        <Tag key={highlight} size="m">
+                          {highlight}
                         </Tag>
                       ))}
                     </Row>
-                  </Column>
-                  <Row gap="24" wrap>
-                    <SmartLink href={system.href}>
-                      Read case study →
-                    </SmartLink>
-                    {"liveUrl" in system && system.liveUrl && (
-                      <SmartLink
-                        href={system.liveUrl}
-                        suffixIcon="arrowUpRightFromSquare"
-                      >
-                        View live demo
+                    <Column gap="8">
+                      <Text variant="label-default-s" onBackground="neutral-weak">
+                        Stack
+                      </Text>
+                      <Row wrap gap="8">
+                        {system.stack.map((item) => (
+                          <Tag key={item} size="s">
+                            {item}
+                          </Tag>
+                        ))}
+                      </Row>
+                    </Column>
+                    <Row gap="24" wrap>
+                      <SmartLink href={system.href}>
+                        Read case study →
                       </SmartLink>
-                    )}
-                  </Row>
+                      {"liveUrl" in system && system.liveUrl && (
+                        <SmartLink
+                          href={system.liveUrl}
+                          suffixIcon="arrowUpRightFromSquare"
+                        >
+                          View live demo
+                        </SmartLink>
+                      )}
+                    </Row>
+                  </Column>
+                  <Column flex={index === 0 ? 7 : 6} className={styles.systemImage}>
+                    <div className={styles.systemImageMedia}>
+                      <Media
+                        priority={index === 0}
+                        aspectRatio="16 / 10"
+                        radius="m"
+                        border="neutral-alpha-medium"
+                        sizes="(max-width: 960px) 100vw, 720px"
+                        alt={`${system.title} screenshot`}
+                        src={system.image}
+                      />
+                    </div>
+                  </Column>
+                </Row>
                 </Column>
-                <Column flex={index === 0 ? 7 : 6} className={styles.systemImage}>
-                  <div className={styles.systemImageMedia}>
-                    <Media
-                      priority={index === 0}
-                      aspectRatio="16 / 10"
-                      radius="m"
-                      border="neutral-alpha-medium"
-                      sizes="(max-width: 960px) 100vw, 720px"
-                      alt={`${system.title} screenshot`}
-                      src={system.image}
-                    />
-                  </div>
-                </Column>
-              </Row>
-              </Column>
-            </Tilt3D>
+              </Tilt3D>
+            </ScrollReveal>
           ))}
         </Column>
       </Column>
-      </ScrollReveal>
 
-      <ScrollReveal delayMs={60}>
       <Column as="section" fillWidth gap="32" className={styles.section}>
-        <SectionHeader
-          eyebrow="Services"
-          title="Systems I design and ship for operators."
-          description="Frontend engineering for teams that need reliable commerce flows, internal tools, and clear Arabic RTL products."
-        />
+        <ScrollReveal>
+          <SectionHeader
+            eyebrow="Services"
+            title="Systems I design and ship for operators."
+            description="Frontend engineering for teams that need reliable commerce flows, internal tools, and clear Arabic RTL products."
+          />
+        </ScrollReveal>
         <Grid columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="16" fillWidth>
-          {services.map((service) => (
-            <Tilt3D key={service} maxTilt={6}>
-              <Column
-                border="neutral-alpha-weak"
-                background="surface"
-                radius="m"
-                padding="24"
-                gap="12"
-                className={styles.serviceCard}
-              >
-                <Heading as="h3" variant="heading-strong-l">
-                  {service}
-                </Heading>
-                <Text variant="body-default-s" onBackground="neutral-weak">
-                  Practical product engineering for commerce teams, factories, and
-                  internal operations — starting from the UI operators use every day.
-                </Text>
-              </Column>
-            </Tilt3D>
+          {services.map((service, index) => (
+            <ScrollReveal key={service} delayMs={index * 50}>
+              <Tilt3D maxTilt={6}>
+                <Column
+                  border="neutral-alpha-weak"
+                  background="surface"
+                  radius="m"
+                  padding="24"
+                  gap="12"
+                  className={styles.serviceCard}
+                >
+                  <Heading as="h3" variant="heading-strong-l">
+                    {service}
+                  </Heading>
+                  <Text variant="body-default-s" onBackground="neutral-weak">
+                    Practical product engineering for commerce teams, factories, and
+                    internal operations — starting from the UI operators use every day.
+                  </Text>
+                </Column>
+              </Tilt3D>
+            </ScrollReveal>
           ))}
         </Grid>
       </Column>
-      </ScrollReveal>
 
-      <ScrollReveal delayMs={80}>
       <Column as="section" fillWidth gap="32" className={styles.section}>
-        <SectionHeader
-          eyebrow="Technical architecture"
-          title="Modern frontend connected to real operational systems."
-          description="A practical stack for responsive products, cloud data, commerce integrations, and automation workflows."
-        />
+        <ScrollReveal>
+          <SectionHeader
+            eyebrow="Technical architecture"
+            title="Modern frontend connected to real operational systems."
+            description="A practical stack for responsive products, cloud data, commerce integrations, and automation workflows."
+          />
+        </ScrollReveal>
         <Grid columns="4" m={{ columns: 2 }} s={{ columns: 1 }} gap="16" fillWidth>
-          {architecture.map((group) => (
-            <Tilt3D key={group.title} maxTilt={5}>
-              <Column
-                border="neutral-alpha-weak"
-                background="surface"
-                radius="m"
-                padding="24"
-                gap="16"
-              >
-                <Heading as="h3" variant="heading-strong-m">
-                  {group.title}
-                </Heading>
-                <Row wrap gap="8">
-                  {group.items.map((item) => (
-                    <Tag key={item} size="m">
-                      {item}
-                    </Tag>
-                  ))}
-                </Row>
-              </Column>
-            </Tilt3D>
+          {architecture.map((group, index) => (
+            <ScrollReveal key={group.title} delayMs={index * 50}>
+              <Tilt3D maxTilt={5}>
+                <Column
+                  border="neutral-alpha-weak"
+                  background="surface"
+                  radius="m"
+                  padding="24"
+                  gap="16"
+                >
+                  <Heading as="h3" variant="heading-strong-m">
+                    {group.title}
+                  </Heading>
+                  <Row wrap gap="8">
+                    {group.items.map((item) => (
+                      <Tag key={item} size="m">
+                        {item}
+                      </Tag>
+                    ))}
+                  </Row>
+                </Column>
+              </Tilt3D>
+            </ScrollReveal>
           ))}
         </Grid>
       </Column>
-      </ScrollReveal>
 
-      <ScrollReveal delayMs={100}>
       <Column as="section" fillWidth gap="32" className={styles.section}>
-        <SectionHeader
-          eyebrow="Timeline"
-          title="From client delivery to remote Shams with Sokany."
-          description="Started Aug 2026 on Shams Stores remotely with Sokany — after years of commerce, ERP, GovTech, and industrial shipping."
-        />
+        <ScrollReveal>
+          <SectionHeader
+            eyebrow="Timeline"
+            title="From client delivery to remote Shams with Sokany."
+            description="Started Aug 2026 on Shams Stores remotely with Sokany — after years of commerce, ERP, GovTech, and industrial shipping."
+          />
+        </ScrollReveal>
         <Column fillWidth gap="12" className={styles.timeline}>
           {timeline.map((item, index) => (
             <ScrollReveal key={item.title} delayMs={index * 50}>
@@ -553,7 +562,6 @@ export default async function Home() {
           ))}
         </Column>
       </Column>
-      </ScrollReveal>
 
       <ScrollReveal delayMs={80}>
       <Column as="section" fillWidth gap="24" className={styles.contactBlock}>
