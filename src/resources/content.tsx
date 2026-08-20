@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Ahmed",
   lastName: "Abdulhakim",
   name: "Ahmed Abdulhakim",
-  role: "Frontend Engineer · Remote-ready · Ships the task",
+  role: "Frontend Engineer · Remote with Sokany · Shams Stores",
   avatar: "/me1.jpg",
   email: "ahmedabdulhakim90@gmail.com",
   location: "Africa/Cairo",
@@ -62,8 +62,8 @@ const home: Home = {
   path: "/",
   image: "/me1.jpg",
   label: "Home",
-  title: `${person.name} — Frontend Engineer · Sokany Operational Systems`,
-  description: `${person.name} is a Frontend Engineer at Sokany Elmaghraby building storefronts, OMS workflows, internal dashboards, and commerce integrations — plus ERP, GovTech, and industrial web products.`,
+  title: `${person.name} — Frontend Engineer · Shams Stores (remote with Sokany)`,
+  description: `${person.name} is a Frontend Engineer hired this month for remote work with Sokany on Shams Stores — theme, catalog, commerce UX, and cross-sell — open to ship more remote tasks.`,
   headline: <>Ahmed Abdulhakim</>,
   featured: {
     display: true,
@@ -72,24 +72,24 @@ const home: Home = {
         <strong className="ml-4">Featured</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Sokany Store + OMS
+          Shams Stores rebuild
         </Text>
       </Row>
     ),
-    href: "/work/sokany-store",
+    href: "/work/shams-stores",
   },
   subline: (
     <>
       <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-        Frontend Engineer at Sokany Elmaghraby — I build the company&apos;s digital operations stack: Arabic storefront,
-        order management, internal dashboards, and live commerce integrations.
+        Just started this month — remote Frontend Engineer with Sokany, deep in Shams Stores: new theme, clean data,
+        a storefront that actually sells, and cross-sell that builds a full creator setup.
       </Text>
       <Text wrap="balance" variant="body-default-l" onBackground="neutral-weak">
-        Day to day I connect Next.js products to WooCommerce, shipping, WhatsApp, and team workflows — so orders move
-        from checkout to warehouse without spreadsheet chaos.
+        I don&apos;t wait for perfect tickets. Theme swap, catalog cleanup, Quick View, Gear Advisor, sticky mobile
+        checkout — if it moves revenue or removes chaos, I ship it.
       </Text>
       <Text wrap="balance" variant="body-default-s" onBackground="neutral-alpha-medium">
-        Outside the day job I ship ERP, GovTech RTL portals, and industrial B2B platforms with the same ops-first mindset.
+        Cairo timezone · Arabic & English · open for more remote missions. Send the task; I&apos;ll take it live.
       </Text>
     </>
   ),
@@ -99,7 +99,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `${person.name} — Cairo-based Frontend Engineer, open for remote work. Turns messy briefs into live storefronts, dashboards, and systems.`,
+  description: `${person.name} — Frontend Engineer, remote with Sokany on Shams Stores since Aug 2026. Open for more remote work; ships briefs end to end.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -117,23 +117,22 @@ const about: About = {
     description: (
       <>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
-          I&apos;m Ahmed — I build the screens people actually click when money, stock, or a deadline is on the line.
-          Cairo is home base; the work travels. Arabic RTL feels native, English is day-to-day, and remote is how I
-          ship with teams anywhere.
+          I&apos;m Ahmed — Cairo-based, remote by default. This month I started with{" "}
+          <strong>Sokany</strong> on <strong>Shams Stores</strong>: the screens where a photographer decides to buy,
+          not just browse. New theme, honest catalog, commerce UX that works on a phone, cross-sell that builds a full
+          setup.
         </Text>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
-          By day I keep Sokany&apos;s commerce stack moving: storefront, OMS, integrations that refuse to die at 502.
-          On the side I rebuild stores like Shams — new theme, clean catalog, cross-sell that sells a full setup, not a
-          lonely product card. When a factory needs clarity, I spin ERP screens that supervisors trust on a phone.
+          Before that path I shipped Sokany-style storefronts & OMS thinking, ERP for factories, GovTech RTL portals,
+          and industrial B2B hubs. Same habit everywhere: less theater, more &quot;it&apos;s live.&quot;
         </Text>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
-          I don&apos;t collect tickets to decorate a board. Give me the task — theme, bug, API, dashboard, data cleanup,
-          full rebuild — and I take it from &quot;what do we mean?&quot; to live. Async updates, clear demos, no
-          half-wired buttons pretending to be done.
+          Give me the task — theme, bug, API, dashboard, data cleanup, full rebuild — and I own it from fuzzy brief to
+          production. Async updates, Arabic & English, no half-wired buttons.
         </Text>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak">
-          Open for remote collaborations and one-off missions. WhatsApp, email, or a scheduled call — pick a channel and
-          send the brief. I&apos;ll answer with a plan, then with pixels that ship.
+          Still open for more remote collaborations alongside Shams. WhatsApp, email, or a call — send the brief; I&apos;ll
+          answer with a plan, then with pixels that ship.
         </Text>
       </>
     ),
@@ -143,63 +142,36 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Sokany Elmaghraby",
-        timeframe: "Jun 2025 – Present",
-        role: "Frontend Engineer",
+        company: "Sokany · Shams Stores",
+        timeframe: "Aug 2026 – Present",
+        role: "Frontend Engineer (Remote)",
         achievements: [
           <>
-            Building and evolving the company&apos;s digital operations stack: Next.js Arabic storefront (Sokany Store),
-            Store OMS for order confirmation / warehouse / shipping / returns, internal dashboards, and stable WooCommerce
-            API layers used by day-to-day commerce teams.
+            Hired this month for remote work with Sokany on the Shams Stores rebuild: Blocksy child theme, catalog and
+            stock cleanup, working commerce UX (Quick View, cards, mobile sticky CTA), and cross-sell via Gear Advisor +
+            Shoppable Hero.
           </>,
           <>
-            Connecting frontend product work to live business operations — reducing fragile theme-only flows, clarifying
-            order lifecycle UI, and shipping integration-facing screens for Bosta, WhatsApp, and Firebase-backed workflows.
+            Same ops-first craft as Sokany commerce systems — storefront clarity, WooCommerce depth, and delivery that
+            survives real traffic.
           </>,
           <>
-            Related case studies:{" "}
+            Case studies:{" "}
+            <a href="/work/shams-stores">Shams Stores</a>,{" "}
             <a href="/work/sokany-store">Sokany Store</a>,{" "}
-            <a href="/work/order-management-system-oms">Store OMS</a>,{" "}
-            <a href="/work/woocommerce-api-integration">WooCommerce API</a>.
-          </>,
-        ],
-        images: [
-          {
-            src: "/sokany-store-desktop.png",
-            alt: "Sokany Store desktop storefront",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/store-oms-orders.png",
-            alt: "Store OMS orders workspace",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        company: "Shams Stores",
-        timeframe: "2026",
-        role: "WooCommerce / Frontend Engineer",
-        achievements: [
-          <>
-            Led a commerce rebuild for the camera & creator-gear retailer: Blocksy child theme, catalog and stock data
-            cleanup, production-ready storefront UX (Quick View, cards, mobile sticky CTA), and cross-sell via Gear
-            Advisor + Shoppable Hero.
-          </>,
-          <>
-            Case study: <a href="/work/shams-stores">Shams Stores</a> · Live:{" "}
-            <a href="https://www.shams-stores.com/" target="_blank" rel="noopener noreferrer">
-              shams-stores.com
-            </a>
-            .
+            <a href="/work/order-management-system-oms">Store OMS</a>.
           </>,
         ],
         images: [
           {
             src: "/shams-stores-hero.jpg",
             alt: "Shams Stores shoppable creator setup hero",
+            width: 16,
+            height: 9,
+          },
+          {
+            src: "/sokany-store-desktop.png",
+            alt: "Sokany Store desktop storefront",
             width: 16,
             height: 9,
           },

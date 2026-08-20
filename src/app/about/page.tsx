@@ -357,7 +357,7 @@ export default async function About() {
           <ContactCTA
             eyebrow="Remote · open brief"
             title="Got a task? Send it — I'll ship it."
-            description="Remote-ready from Cairo. Arabic & English. Feature, bug, rebuild, or full storefront — from brief to live, with updates you can actually follow."
+            description="Remote with Sokany on Shams since Aug 2026 — and still open for more remote missions. Feature, bug, rebuild, or full storefront: brief → live."
           />
         </Column>
       </Row>

@@ -12,8 +12,8 @@ interface ProjectsProps {
 
 /** Flagship systems shown first on /work — day-job commerce, then ERP / GovTech / industrial. */
 const FEATURED_SLUG_ORDER = [
-  "sokany-store",
   "shams-stores",
+  "sokany-store",
   "order-management-system-oms",
   "woocommerce-api-integration",
   "hakimo-production-system",

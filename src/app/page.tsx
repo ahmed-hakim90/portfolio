@@ -27,8 +27,26 @@ import styles from "./page.module.scss";
 
 const featuredSystems = [
   {
+    title: "Shams Stores",
+    category: "Remote · Sokany · Started Aug 2026",
+    href: "/work/shams-stores",
+    liveUrl: "https://www.shams-stores.com/",
+    image: "/shams-stores-hero.jpg",
+    summary:
+      "Current remote role with Sokany — WooCommerce rebuild: theme system, catalog/stock cleanup, working storefront UX, and rules-based cross-selling.",
+    highlights: [
+      "Blocksy child theme",
+      "Catalog cleanup",
+      "Commerce UX",
+      "Quick View",
+      "Gear Advisor",
+      "Shoppable Hero",
+    ],
+    stack: ["WordPress", "WooCommerce", "PHP plugins", "REST", "RTL"],
+  },
+  {
     title: "Sokany Store",
-    category: "Day job · Headless Commerce",
+    category: "Commerce · Headless",
     href: "/work/sokany-store",
     liveUrl: "https://sokany.vercel.app/",
     image: "/sokany-store-desktop.png",
@@ -45,26 +63,8 @@ const featuredSystems = [
     stack: ["Next.js", "TypeScript", "Tailwind", "WooCommerce"],
   },
   {
-    title: "Shams Stores",
-    category: "Commerce rebuild · Theme + data + cross-sell",
-    href: "/work/shams-stores",
-    liveUrl: "https://www.shams-stores.com/",
-    image: "/shams-stores-hero.jpg",
-    summary:
-      "Full WooCommerce rebuild for a camera & creator-gear retailer — new theme system, catalog/stock cleanup, working storefront UX, and rules-based cross-selling.",
-    highlights: [
-      "Blocksy child theme",
-      "Catalog cleanup",
-      "Commerce UX",
-      "Quick View",
-      "Gear Advisor",
-      "Shoppable Hero",
-    ],
-    stack: ["WordPress", "WooCommerce", "PHP plugins", "REST", "RTL"],
-  },
-  {
     title: "Store OMS",
-    category: "Day job · Operations Platform",
+    category: "Operations Platform",
     href: "/work/order-management-system-oms",
     liveUrl: "https://workflow-management-ecommerce.vercel.app/",
     image: "/store-oms-orders.png",
@@ -207,14 +207,13 @@ const proofPoints = [
 
 const timeline = [
   {
-    title: "Sokany Elmaghraby — Frontend Engineer",
+    title: "Sokany × Shams Stores — Remote Frontend Engineer",
     detail:
-      "Current role: storefront, Store OMS, dashboards, and WooCommerce-facing APIs for live commerce operations.",
+      "Started Aug 2026: remote with Sokany on Shams — theme rebuild, data cleanup, commerce UX, and cross-sell systems.",
   },
   {
-    title: "Shams Stores — commerce rebuild",
-    detail:
-      "Theme system, catalog/stock cleanup, working storefront UX, Gear Advisor cross-sell, and shoppable setups.",
+    title: "Sokany commerce systems",
+    detail: "Storefront, Store OMS, and WooCommerce-facing flows that keep orders moving without spreadsheet chaos.",
   },
   {
     title: "HAKIMO ERP",
@@ -366,8 +365,8 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <SectionHeader
           eyebrow="Featured systems"
-          title="What I ship at work — and what I build beyond it."
-          description="Sokany commerce systems first, then ERP, GovTech, and industrial products that use the same production mindset."
+          title="What I'm shipping now — and what I've already proven."
+          description="Shams Stores remote with Sokany first, then commerce, ERP, GovTech, and industrial products with the same delivery mindset."
         />
         <Column fillWidth gap="24">
           {featuredSystems.map((system, index) => (
