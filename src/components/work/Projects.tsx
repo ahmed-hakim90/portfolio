@@ -1,7 +1,7 @@
 import { getPosts } from "@/utils/utils";
 import { Column, Text } from "@once-ui-system/core";
 import { ProjectCard } from "@/components";
-import { resolveProjectLink } from "@/lib/project-links";
+import { resolveVisibleProjectLink } from "@/lib/project-links";
 
 interface ProjectsProps {
   range?: [number, number?];
@@ -12,9 +12,16 @@ interface ProjectsProps {
 
 /** Flagship systems shown first on /work — day-job commerce, then ERP / GovTech / industrial. */
 const FEATURED_SLUG_ORDER = [
+  "masar-valet",
+  "velora",
+  "souqna-local-marketplace",
   "shams-stores",
-  "sokany-store",
   "order-management-system-oms",
+  "arkan-studio",
+  "rentara-property-operations",
+  "maghrabi-lista",
+  "lin-studio-course-operations",
+  "sokany-store",
   "woocommerce-api-integration",
   "hakimo-production-system",
   "egypt-vision-2030-digital-platform",
@@ -25,6 +32,9 @@ const FEATURED_SLUG_ORDER = [
 ];
 
 const RELATED_BY_SLUG: Record<string, string[]> = {
+  "masar-valet": ["velora", "arkan-studio", "order-management-system-oms"],
+  "velora": ["masar-valet", "hakimo-production-system", "order-management-system-oms"],
+  "arkan-studio": ["masar-valet", "velora", "ois-machinery-industrial-b2b-hub"],
   "sokany-store": [
     "shams-stores",
     "order-management-system-oms",
@@ -125,7 +135,7 @@ export function Projects({ range, exclude, pinFeatured = false }: ProjectsProps)
           description={post.metadata.summary}
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
-          link={resolveProjectLink(post.slug, post.metadata.link)}
+          link={resolveVisibleProjectLink(post.slug, post.metadata.link, post.metadata.visibility)}
         />
       ))}
     </Column>
@@ -160,7 +170,7 @@ export function RelatedProjects({ slug, limit = 2 }: { slug: string; limit?: num
           description={post.metadata.summary}
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
-          link={resolveProjectLink(post.slug, post.metadata.link)}
+          link={resolveVisibleProjectLink(post.slug, post.metadata.link, post.metadata.visibility)}
         />
       ))}
     </Column>

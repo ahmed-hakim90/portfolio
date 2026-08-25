@@ -18,6 +18,13 @@ export type GalleryImageItem = {
 function getProjectType(title: string, slug: string) {
   const value = `${title} ${slug}`.toLowerCase();
 
+  if (value.includes("masar-valet") || value.includes("smart valet")) return "Operations";
+  if (value.includes("velora") || value.includes("pos")) return "Operations";
+  if (value.includes("arkan")) return "Digital studio";
+  if (value.includes("souqna") || value.includes("marketplace")) return "Commerce";
+  if (value.includes("rentara") || value.includes("rental")) return "Operations";
+  if (value.includes("maghrabi") || value.includes("catalog")) return "Operations";
+
   if (value.includes("erp") || value.includes("production") || value.includes("hakimo")) {
     return "ERP";
   }

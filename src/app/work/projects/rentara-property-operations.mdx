@@ -1,0 +1,34 @@
+---
+title: "Rentara — Rental Property Operations"
+publishedAt: "2026-08-06"
+summary: "Bilingual Saudi rental operations system for units, contracts, invoices, payments, debt aging, permissions, and controlled Odoo synchronization."
+images: ["/rentara-operations.png"]
+category: "Property operations"
+role: "Frontend & Product Engineer"
+status: "Private case study"
+year: "2026"
+visibility: "case-study"
+highlights: ["Units & contracts", "Invoices & collections", "Debt aging", "Odoo integration"]
+stack: ["Next.js 16", "TypeScript", "Supabase", "Odoo XML-RPC"]
+---
+
+## Context
+
+**Rentara** is an internal Arabic and English workspace for teams managing rental units in Saudi Arabia. It replaces disconnected sheets and manual payment follow-up with a controlled operational record.
+
+## Problem
+
+Property teams need to know which units are active, what is due, which invoices are partially paid, how debt is aging, and who changed a financial record. Those answers become unreliable when contracts, tenants, invoices, and collections live in separate tools.
+
+## My role and solution
+
+I built the frontend workflows and product structure for unit management, contracts, invoices, collections, payment history, aging reports, import review, users, and granular permissions. The bilingual interface preserves the same information hierarchy in RTL and LTR layouts.
+
+## Architecture
+
+The application uses Next.js server actions, service and repository boundaries, Supabase Auth/PostgreSQL/RLS, and optional feature-flagged Odoo XML-RPC synchronization. Import and outbound sync flows use preview and controlled commit steps so operational teams can review changes before they affect records.
+
+## Outcome
+
+Rentara gives finance and property teams a shared view of occupancy and collections while keeping sensitive integration details and customer data private.
+

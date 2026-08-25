@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Ahmed",
   lastName: "Abdulhakim",
   name: "Ahmed Abdulhakim",
-  role: "Frontend Engineer · Remote with Sokany · Shams Stores",
+  role: "Frontend Engineer · Operational Products · Remote",
   avatar: "/me1.jpg",
   email: "ahmedabdulhakim90@gmail.com",
   location: "Africa/Cairo",
@@ -62,8 +62,8 @@ const home: Home = {
   path: "/",
   image: "/me1.jpg",
   label: "Home",
-  title: `${person.name} — Frontend Engineer · Shams Stores (remote with Sokany)`,
-  description: `${person.name} is a Frontend Engineer hired this month for remote work with Sokany on Shams Stores — theme, catalog, commerce UX, and cross-sell — open to ship more remote tasks.`,
+  title: `${person.name} — Frontend Engineer building operational products`,
+  description: `${person.name} is a Cairo-based Frontend Engineer building commerce, SaaS, POS, ERP, and operational products from interface architecture through data integration and release.`,
   headline: <>Ahmed Abdulhakim</>,
   featured: {
     display: true,
@@ -72,7 +72,7 @@ const home: Home = {
         <strong className="ml-4">Featured</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Shams Stores rebuild
+          Current focus: Shams Stores
         </Text>
       </Row>
     ),
@@ -81,15 +81,13 @@ const home: Home = {
   subline: (
     <>
       <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
-        Just started this month — remote Frontend Engineer with Sokany, deep in Shams Stores: new theme, clean data,
-        a storefront that actually sells, and cross-sell that builds a full creator setup.
+        I build complete operational products — commerce platforms, SaaS tools, POS and ERP systems, and internal workflows that teams can rely on every day.
       </Text>
       <Text wrap="balance" variant="body-default-l" onBackground="neutral-weak">
-        I don&apos;t wait for perfect tickets. Theme swap, catalog cleanup, Quick View, Gear Advisor, sticky mobile
-        checkout — if it moves revenue or removes chaos, I ship it.
+        My work starts with the people and process behind the screen. I turn unclear handoffs into responsive interfaces, connect them to secure data and integrations, verify the critical journey, and take the product to a reliable release.
       </Text>
       <Text wrap="balance" variant="body-default-s" onBackground="neutral-alpha-medium">
-        Cairo timezone · Arabic & English · open for more remote missions. Send the task; I&apos;ll take it live.
+        Based in Cairo · Arabic and English · working remotely with Sokany on Shams Stores · available for selected remote products and collaborations.
       </Text>
     </>
   ),
@@ -99,7 +97,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `${person.name} — Frontend Engineer, remote with Sokany on Shams Stores since Aug 2026. Open for more remote work; ships briefs end to end.`,
+  description: `${person.name} — Frontend Engineer building operational products across commerce, SaaS, POS, ERP, and Arabic RTL experiences.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -113,26 +111,20 @@ const about: About = {
   },
   intro: {
     display: true,
-    title: "The short version",
+    title: "Professional story",
     description: (
       <>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
-          I&apos;m Ahmed — Cairo-based, remote by default. This month I started with{" "}
-          <strong>Sokany</strong> on <strong>Shams Stores</strong>: the screens where a photographer decides to buy,
-          not just browse. New theme, honest catalog, commerce UX that works on a phone, cross-sell that builds a full
-          setup.
+          I&apos;m Ahmed, a Cairo-based Frontend Engineer who builds operational products rather than isolated screens. My work spans commerce, SaaS, point of sale, ERP, marketplaces, and internal tools — products where the interface must reflect real roles, data, permissions, and business rules.
         </Text>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
-          Before that path I shipped Sokany-style storefronts & OMS thinking, ERP for factories, GovTech RTL portals,
-          and industrial B2B hubs. Same habit everywhere: less theater, more &quot;it&apos;s live.&quot;
+          I started with client websites and hands-on freelance delivery, then moved toward deeper systems: storefronts connected to WooCommerce, order operations, factory workflows, multi-tenant Supabase products, bilingual RTL platforms, and Cloudflare/Vercel deployments. That progression taught me to ask what happens before and after every button — who owns the step, what can fail, and what the next team needs to see.
         </Text>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak" marginBottom="m">
-          Give me the task — theme, bug, API, dashboard, data cleanup, full rebuild — and I own it from fuzzy brief to
-          production. Async updates, Arabic & English, no half-wired buttons.
+          Today I work remotely with <strong>Sokany</strong> on <strong>Shams Stores</strong>, rebuilding the WooCommerce theme system, cleaning catalog and stock data, improving the mobile buying journey, and creating cross-sell experiences for complete creator setups. Alongside that work, I continue building selected operational products such as Masar Valet and Velora.
         </Text>
         <Text as="p" variant="body-default-l" onBackground="neutral-weak">
-          Still open for more remote collaborations alongside Shams. WhatsApp, email, or a call — send the brief; I&apos;ll
-          answer with a plan, then with pixels that ship.
+          I am strongest when the brief is still messy but the operational problem is real. I can help clarify the workflow, model the product, build the frontend architecture, connect APIs and cloud data, test the critical path, and communicate the work through release. I work in Arabic and English, prefer clear asynchronous collaboration, and remain available for selected remote roles and product engagements.
         </Text>
       </>
     ),
@@ -419,51 +411,51 @@ const gallery: Gallery = {
 const terms: LegalTerms = {
   path: "/terms",
   label: "Terms",
-  title: `شروط الموقع وسياسة الاستخدام – ${person.name}`,
-  description: `ملكية المحتوى، قواعد الاستخدام، وحقوق ${person.name} على هذا الموقع.`,
+  title: `Site terms and usage – ${person.name}`,
+  description: `Content ownership, acceptable use, external links, and contact details for ${person.name}'s portfolio.`,
   sections: [
     {
-      title: "ملكية الموقع والمحتوى",
+      title: "Site and content ownership",
       content: (
         <>
-          هذا الموقع شخصي وتم تصميمه وتطويره بواسطة {person.name}. النصوص، الصور، والمشاريع المعروضة هنا تعبّر عن
-          عملي وتجربتي ما لم يُذكر غير ذلك. استخدام القالب والمكتبات مفتوحة المصدر لا يعني تنازلي عن حقوقي في المحتوى
-          الأصلي الذي أضيفه.
+          This personal portfolio was designed and developed by {person.name}. Unless stated otherwise, the original copy,
+          project narratives, and selected media describe my work and experience. Open-source libraries used by the site
+          do not transfer ownership of the original portfolio content.
         </>
       ),
     },
     {
-      title: "استخدام الموقع",
+      title: "Acceptable use",
       content: (
         <>
-          يُسمح بالاطلاع على الموقع للأغراض الشخصية والمهنية الطبيعية. لا يجوز إعادة إنتاج المحتوى أو نسخ أجزاء كبيرة منه
-          دون إذن كتابي، سواء لأغراض تجارية أو نشرها كأنها ملك لغيري. يُحظر أي استخدام قد يسيء إلى الموقع أو إلى طرف ثالث.
+          You may browse and share links to this site for normal personal and professional use. Do not reproduce substantial
+          parts of the content, use it commercially, or present it as someone else&apos;s work without written permission.
         </>
       ),
     },
     {
-      title: "الروابط الخارجية والمسؤولية",
+      title: "External links and responsibility",
       content: (
         <>
-          قد يحتوي الموقع على روابط لمواقع أو خدمات خارجية؛ أنا غير مسؤول عن محتواها أو سياسات الخصوصية الخاصة بها.
-          استخدامك لتلك الروابط يكون على مسؤوليتك.
+          This portfolio may link to third-party sites and services. I do not control their content, availability, or privacy
+          practices, and you use those destinations at your own discretion.
         </>
       ),
     },
     {
-      title: "التعديلات على هذه الشروط",
+      title: "Updates to these terms",
       content: (
         <>
-          أحتفظ بحق تحديث هذه الصفحة عند الحاجة. تاريخ آخر مراجعة يُذكر أسفل النص عند التحديث. الاستمرار في استخدام الموقع
-          بعد أي تعديل يعني موافقتك على النسخة الحالية.
+          I may update this page when the portfolio or its usage terms change. Continued use of the site means you accept
+          the current version.
         </>
       ),
     },
     {
-      title: "التواصل",
+      title: "Contact",
       content: (
         <>
-          لأي استفسار بخصوص هذه الشروط أو طلب إذن لاستخدام محتوى معيّن، يمكنك التواصل عبر البريد:{" "}
+          For questions about these terms or permission to use specific content, email{" "}
           <a href={`mailto:${person.email}`}>{person.email}</a>.
         </>
       ),

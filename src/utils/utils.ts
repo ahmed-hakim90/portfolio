@@ -9,7 +9,7 @@ type Team = {
   linkedIn: string;
 };
 
-type Metadata = {
+export type ProjectMetadata = {
   title: string;
   subtitle?: string;
   publishedAt: string;
@@ -19,6 +19,15 @@ type Metadata = {
   tag?: string;
   team: Team[];
   link?: string;
+  category?: string;
+  role?: string;
+  featured?: boolean;
+  featuredOrder?: number;
+  status?: string;
+  year?: string;
+  highlights?: string[];
+  stack?: string[];
+  visibility?: "public" | "case-study" | "archive";
 };
 
 import { applyEgyptVision2030Placeholders } from "@/lib/egypt-2030-url";
@@ -40,7 +49,7 @@ function readMDXFile(filePath: string) {
   const rawContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(rawContent);
 
-  const metadata: Metadata = {
+  const metadata: ProjectMetadata = {
     title: data.title || "",
     subtitle: data.subtitle || "",
     publishedAt: data.publishedAt,
@@ -50,6 +59,15 @@ function readMDXFile(filePath: string) {
     tag: data.tag || [],
     team: data.team || [],
     link: data.link || "",
+    category: data.category || "Product engineering",
+    role: data.role || "Frontend Engineer",
+    featured: data.featured === true,
+    featuredOrder: Number.isFinite(data.featuredOrder) ? data.featuredOrder : undefined,
+    status: data.status || "Shipped",
+    year: data.year || (data.publishedAt ? String(data.publishedAt).slice(0, 4) : ""),
+    highlights: data.highlights || [],
+    stack: data.stack || [],
+    visibility: data.visibility || "public",
   };
 
   return { metadata, content: applyEgyptVision2030Placeholders(content) };

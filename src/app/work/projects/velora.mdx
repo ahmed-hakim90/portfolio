@@ -1,0 +1,48 @@
+---
+title: "Velora — Multi-location POS & ERP"
+publishedAt: "2026-08-20"
+summary: "Arabic-first POS and light ERP for cafés, restaurants, and retail — sales, shifts, inventory, purchasing, recipes, loyalty, accounting, reports, online orders, RBAC, and tenant administration."
+images:
+  - "/velora-pos-hero.png"
+link: "https://github.com/ahmed-hakim90/velora"
+category: "Multi-location POS & ERP"
+role: "Frontend & Product Engineer"
+featured: true
+featuredOrder: 2
+status: "Private product"
+year: "2026"
+visibility: "case-study"
+highlights: ["Touch-first POS", "Inventory & costing", "Accounting workflows", "Tenant-grade RBAC"]
+stack: ["Next.js 16", "TypeScript", "Supabase", "PostgreSQL"]
+---
+
+## Overview
+
+**Velora** is a multi-location point-of-sale and operations platform for cafés, restaurants, and retail businesses. It combines a touch-first cashier experience with the inventory, finance, customer, and administration tools required to run more than one branch.
+
+## The challenge
+
+Small and growing operators often combine a basic cashier, spreadsheets, disconnected inventory tools, and manual end-of-day reconciliation. This hides product cost, creates stock errors, and makes it difficult to compare branches or control permissions.
+
+## What I built
+
+- **Point of sale** — fast catalog, cart, customer attachment, split payments, held carts, receipts, and manager overrides
+- **Cash sessions** — open and close shifts, cashier vault, reconciliation, and forced-close controls
+- **Inventory** — per-warehouse stock, purchasing, transfers, waste, counts, batches, and landed cost
+- **Recipes and costing** — ingredients, variants, recipe consumption, and margin visibility
+- **Customers and loyalty** — profiles, order history, points earning and redemption
+- **Finance** — sales invoices, expenses, chart of accounts, supplier payments, general ledger, and period closing
+- **Online ordering** — public QR menu and first-party online orders
+- **Administration** — organizations, branches, users, roles, feature flags, devices, audit logs, and platform console
+
+## Engineering
+
+Velora uses **Next.js 16**, React, TypeScript, Tailwind CSS, shadcn/ui, Zustand, Recharts, and Supabase PostgreSQL. Authentication, tenant boundaries, and granular permissions are enforced with row-level security and server-side guards. Zod-backed forms, automated database verification, unit tests, Playwright journeys, and a production gate support safer releases.
+
+## Outcome
+
+The result is one coherent operating system that follows a sale from the counter through stock, accounting, loyalty, and reporting—without forcing teams to stitch together separate tools.
+
+## Link
+
+- [Source](https://github.com/ahmed-hakim90/velora)

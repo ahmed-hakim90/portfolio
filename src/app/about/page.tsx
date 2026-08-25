@@ -25,6 +25,22 @@ import { GitHubSection } from "@/components/github/GitHubSection";
 import { ContactCTA } from "@/components/ContactCTA";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
+const workingPrinciples = [
+  ["Understand the operation", "I start with users, roles, handoffs, data, and the business outcome — not a preferred component library."],
+  ["Model the workflow", "I turn the real process into clear states, permissions, failure paths, and responsive product flows."],
+  ["Build the connected product", "I connect frontend architecture to APIs, Supabase or Firebase data, commerce systems, and cloud deployment."],
+  ["Verify and ship", "I test the critical journey, mobile behavior, permissions, and release path, then communicate what shipped and what comes next."],
+] as const;
+
+const coreStrengths = [
+  "Commerce and WooCommerce",
+  "OMS and internal operations",
+  "POS and ERP workflows",
+  "Supabase multi-tenant products",
+  "Arabic RTL and bilingual UI",
+  "API and cloud integrations",
+];
+
 export async function generateMetadata() {
   return Meta.generate({
     title: about.title,
@@ -48,6 +64,8 @@ export default async function About() {
       display: about.intro.display,
       items: [],
     },
+    { title: "How I work", display: true, items: [] },
+    { title: "Core strengths", display: true, items: [] },
     {
       title: about.work.title,
       display: about.work.display,
@@ -223,6 +241,30 @@ export default async function About() {
             </ScrollReveal>
           )}
 
+          <ScrollReveal delayMs={100}>
+            <Column fillWidth gap="m" marginBottom="xl">
+              <Heading as="h2" id="How I work" variant="display-strong-s">How I work</Heading>
+              {workingPrinciples.map(([title, description]) => (
+                <Column key={title} gap="4" padding="20" radius="m" border="neutral-alpha-weak">
+                  <Text variant="heading-strong-m">{title}</Text>
+                  <Text variant="body-default-m" onBackground="neutral-weak">{description}</Text>
+                </Column>
+              ))}
+            </Column>
+          </ScrollReveal>
+
+          <ScrollReveal delayMs={120}>
+            <Column fillWidth gap="m" marginBottom="xl">
+              <Heading as="h2" id="Core strengths" variant="display-strong-s">Core strengths</Heading>
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                I focus on product areas where interface quality and operational correctness must work together.
+              </Text>
+              <Row wrap gap="8">
+                {coreStrengths.map((strength) => <Tag key={strength} size="l">{strength}</Tag>)}
+              </Row>
+            </Column>
+          </ScrollReveal>
+
           {about.work.display && (
             <>
               <ScrollReveal>
@@ -380,9 +422,9 @@ export default async function About() {
 
           <ScrollReveal>
             <ContactCTA
-              eyebrow="Remote · open brief"
-              title="Got a task? Send it — I'll ship it."
-              description="Remote with Sokany on Shams since Aug 2026 — and still open for more remote missions. Feature, bug, rebuild, or full storefront: brief → live."
+              eyebrow="Remote availability"
+              title="Have an operational problem? Let's turn it into a product."
+              description="Based in Cairo and working in Arabic and English. I am available for selected remote roles and product engagements alongside my current work with Sokany on Shams Stores."
             />
           </ScrollReveal>
         </Column>

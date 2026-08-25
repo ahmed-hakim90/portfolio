@@ -20,7 +20,7 @@ import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
 import { RelatedProjects } from "@/components/work/Projects";
-import { resolveProjectLink } from "@/lib/project-links";
+import { resolveVisibleProjectLink } from "@/lib/project-links";
 import { ContactCTA } from "@/components/ContactCTA";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
@@ -75,7 +75,7 @@ export default async function Project({
       src: person.avatar,
     })) || [];
 
-  const liveDemoUrl = resolveProjectLink(post.slug, post.metadata.link);
+  const liveDemoUrl = resolveVisibleProjectLink(post.slug, post.metadata.link, post.metadata.visibility);
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">

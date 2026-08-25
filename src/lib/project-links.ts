@@ -10,3 +10,12 @@ export function resolveProjectLink(slug: string, linkFromFrontmatter = ""): stri
   }
   return linkFromFrontmatter.trim();
 }
+
+export function resolveVisibleProjectLink(
+  slug: string,
+  linkFromFrontmatter = "",
+  visibility: "public" | "case-study" | "archive" = "public",
+): string {
+  if (visibility !== "public") return "";
+  return resolveProjectLink(slug, linkFromFrontmatter);
+}

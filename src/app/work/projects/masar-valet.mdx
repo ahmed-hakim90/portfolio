@@ -1,0 +1,53 @@
+---
+title: "Masar Valet — Smart Valet Operations"
+publishedAt: "2026-08-25"
+summary: "Production valet SaaS for operators, drivers, and guests — QR/NFC tickets, live vehicle pickup, payments, ratings, AI vehicle capture, notifications, PWA, and multi-tenant control."
+images:
+  - "/masar-valet-hero.jpg"
+  - "/masar-valet-customer-request.png"
+  - "/masar-valet-ready.png"
+link: "https://masarvalet.com"
+category: "Valet operations SaaS"
+role: "Frontend & Product Engineer"
+featured: true
+featuredOrder: 1
+status: "Production"
+year: "2026"
+visibility: "public"
+highlights: ["Guest ticket journey", "QR/NFC operations", "Multi-tenant control", "Payments & ratings"]
+stack: ["TanStack Start", "TypeScript", "Supabase", "Cloudflare Workers"]
+---
+
+## Overview
+
+**Masar Valet** is a production-grade, Arabic-first platform that connects the full valet journey: the operator who manages locations, the employee who receives and prepares vehicles, and the guest who follows the ticket and requests pickup from a phone.
+
+I built the product as an operational system rather than a simple booking screen. It covers reusable QR/NFC entry points, public customer tickets, vehicle handoff, staff workflows, payments, ratings, notifications, reporting, and platform administration.
+
+## The challenge
+
+Traditional valet service depends on paper tickets, phone calls, and verbal handoffs. Guests cannot see what is happening, employees lose context between shifts, and operators have limited visibility into service speed, incidents, payments, or location performance.
+
+## The system
+
+- **Guest journey** — scan, register the vehicle, follow the live ticket, request pickup, pay, and rate the service
+- **Employee operations** — receive, park, prepare, and deliver vehicles through a controlled lifecycle
+- **QR and NFC identity** — reusable assets for parking spots, visits, tickets, and staff flows
+- **Operations control** — organizations, locations, users, roles, audit history, and live service monitoring
+- **Smart capture** — AI-assisted vehicle and plate extraction from photos
+- **Payments** — manual payments and Moyasar hosted invoices with tenant-owned credentials
+- **Communication** — operational notifications, email delivery, and customer status updates
+- **Mobile delivery** — installable PWA plus Android packaging through Capacitor
+
+## Architecture
+
+The application uses **TanStack Start**, React, TypeScript, Supabase, and Cloudflare Workers. PostgreSQL row-level security protects tenant data; private vehicle photos and indoor maps are served through signed URLs. The product also includes lifecycle database tests, end-to-end pickup tests, production canaries, secret scanning, and release health checks.
+
+## Outcome
+
+Masar Valet turns an offline, fragmented service into a traceable digital operation. Guests get a clear self-service journey, staff share one source of truth, and operators can measure and manage the business across locations.
+
+## Links
+
+- [Live platform](https://masarvalet.com)
+- [Source](https://github.com/ahmed-hakim90/smart-valet)

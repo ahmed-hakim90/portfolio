@@ -27,159 +27,17 @@ import styles from "./page.module.scss";
 import { Tilt3D } from "@/components/Tilt3D";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { HeroSceneLazy } from "@/components/HeroSceneLazy";
+import { getPosts } from "@/utils/utils";
+import { resolveVisibleProjectLink } from "@/lib/project-links";
 
-const featuredSystems = [
-  {
-    title: "Shams Stores",
-    category: "Remote · Sokany · Started Aug 2026",
-    href: "/work/shams-stores",
-    liveUrl: "https://www.shams-stores.com/",
-    image: "/shams-stores-hero.jpg",
-    summary:
-      "Current remote role with Sokany — WooCommerce rebuild: theme system, catalog/stock cleanup, working storefront UX, and rules-based cross-selling.",
-    highlights: [
-      "Blocksy child theme",
-      "Catalog cleanup",
-      "Commerce UX",
-      "Quick View",
-      "Gear Advisor",
-      "Shoppable Hero",
-    ],
-    stack: ["WordPress", "WooCommerce", "PHP plugins", "REST", "RTL"],
-  },
-  {
-    title: "Sokany Store",
-    category: "Commerce · Headless",
-    href: "/work/sokany-store",
-    liveUrl: "https://sokany.vercel.app/",
-    image: "/sokany-store-desktop.png",
-    summary:
-      "Arabic RTL storefront for Sokany Elmaghraby — Next.js on WooCommerce REST APIs, tuned for mobile shopping, performance, and modern product flows.",
-    highlights: [
-      "WooCommerce headless",
-      "Arabic RTL",
-      "PWA",
-      "Performance",
-      "Mobile UX",
-      "Production storefront",
-    ],
-    stack: ["Next.js", "TypeScript", "Tailwind", "WooCommerce"],
-  },
-  {
-    title: "Store OMS",
-    category: "Operations Platform",
-    href: "/work/order-management-system-oms",
-    liveUrl: "https://workflow-management-ecommerce.vercel.app/",
-    image: "/store-oms-orders.png",
-    summary:
-      "The operations workspace behind Sokany commerce — order confirmation, warehouse handoff, shipments, returns, roles, and analytics in one UI.",
-    highlights: [
-      "Order lifecycle",
-      "Warehouse workflows",
-      "Bosta shipping",
-      "WhatsApp",
-      "Role workflows",
-      "Analytics",
-    ],
-    stack: ["Next.js", "Firebase", "WooCommerce", "Bosta API"],
-  },
-  {
-    title: "HAKIMO ERP",
-    category: "Manufacturing ERP",
-    href: "/work/hakimo-production-system",
-    liveUrl: "https://production-line.vercel.app/",
-    image: "/hakimoerp.png",
-    summary:
-      "Mobile-first RTL ERP for production teams — daily reporting, approvals, KPI dashboards, HR workflows, RBAC, and cost analytics.",
-    highlights: [
-      "Production management",
-      "HR workflows",
-      "KPI dashboards",
-      "Cost analytics",
-      "RBAC",
-      "Mobile-first RTL",
-    ],
-    stack: ["React 19", "TypeScript", "Vite", "Firebase", "Zustand", "Tailwind"],
-  },
-  {
-    title: "رؤية مصر 2030",
-    category: "GovTech · National narrative platform",
-    href: "/work/egypt-vision-2030-digital-platform",
-    image: "/egypt-vision-2030-hero.png",
-    summary:
-      "Arabic RTL platform that compares legacy government portals with modern previews — ministry routes, project studies, gallery, and insights on Vercel.",
-    highlights: [
-      "Before/after ministries",
-      "Project detail routes",
-      "Insights articles",
-      "Live gallery",
-      "TanStack Start",
-      "Vercel",
-    ],
-    stack: ["React 19", "TanStack Start", "TypeScript", "Tailwind", "Vercel"],
-  },
-  {
-    title: "OIS Machinery",
-    category: "Industrial B2B Hub",
-    href: "/work/ois-machinery-industrial-b2b-hub",
-    liveUrl: "https://oismachinery.com",
-    image: "/ois-machinery-hub.png",
-    summary:
-      "Premium B2B industrial machinery hub — catalog routes, auxiliary parts, turnkey services, SEO, and WhatsApp lead capture.",
-    highlights: [
-      "Machine catalog",
-      "Dynamic detail pages",
-      "Auxiliary parts",
-      "Turnkey services",
-      "WhatsApp leads",
-    ],
-    stack: ["React 19", "TanStack Start", "Vite 7", "Tailwind CSS 4", "Framer Motion"],
-  },
-  {
-    title: "بوابة وزارة الصحة والسكان",
-    category: "GovTech · معاينة تطوير",
-    href: "/work/nile-health-portal",
-    liveUrl: "https://nile-health-portal.hakim90.workers.dev/",
-    image: "/egypt-vision-2030-health-compare.png",
-    summary:
-      "بوابة RTL موحّدة «صحة المصريين أولوية» — بحث مركزي، خدمات رقمية، حملات قومية، وأخبار رسمية.",
-    highlights: [
-      "بحث مركزي",
-      "طوارئ 123/105/137",
-      "خدمات رقمية",
-      "حملات قومية",
-      "مركز إعلامي",
-      "mobile-first RTL",
-    ],
-    stack: ["React", "TypeScript", "RTL GovTech"],
-  },
-  {
-    title: "منصة وزارة الزراعة الرقمية 2030",
-    category: "GovTech · معاينة تطوير",
-    href: "/work/agriculture-2030-platform",
-    liveUrl: "https://zra3a-2030.hakim90.workers.dev/",
-    image: "/egypt-vision-2030-agriculture-compare.png",
-    summary:
-      "منصة لعرض مشروعات ومبادرات الوزارة مع بحث وتصفية ولوحة مؤشرات مرتبطة برؤية 2030.",
-    highlights: [
-      "قائمة مشروعات موحّدة",
-      "بحث وتصفية",
-      "صفحات تفاصيل",
-      "لوحة مؤشرات",
-      "scraper-ready",
-      "mobile-first RTL",
-    ],
-    stack: ["React 19", "TanStack Start", "Tailwind", "shadcn/ui"],
-  },
-];
 
 const services = [
-  "Headless Commerce",
-  "OMS & Order Workflows",
-  "ERP & Factory Dashboards",
-  "GovTech RTL Portals",
-  "Industrial B2B Sites",
-  "API Integrations",
+  "Commerce platforms",
+  "Operations & OMS",
+  "POS and ERP products",
+  "Multi-tenant SaaS",
+  "Arabic RTL platforms",
+  "API integrations",
 ];
 
 const architecture = [
@@ -202,37 +60,32 @@ const architecture = [
 ];
 
 const proofPoints = [
-  "Sokany day-job systems",
-  "Commerce integrations",
-  "ERP & factory workflows",
-  "GovTech RTL products",
+  { title: "Production systems", detail: "Products connected to real users, data, permissions, and release workflows." },
+  { title: "Commerce & operations", detail: "Storefronts, order lifecycles, inventory, POS, ERP, and internal tools." },
+  { title: "Arabic + English RTL", detail: "Bilingual interfaces designed for both reading directions from the start." },
+  { title: "Remote from Cairo", detail: "Clear asynchronous collaboration across product, engineering, and operations." },
 ];
 
-const timeline = [
+const process = [
   {
-    title: "Sokany × Shams Stores — Remote Frontend Engineer",
-    detail:
-      "Started Aug 2026: remote with Sokany on Shams — theme rebuild, data cleanup, commerce UX, and cross-sell systems.",
+    title: "Discover",
+    detail: "Understand the operators, constraints, data, and business outcome before drawing screens.",
   },
   {
-    title: "Sokany commerce systems",
-    detail: "Storefront, Store OMS, and WooCommerce-facing flows that keep orders moving without spreadsheet chaos.",
+    title: "Model workflows",
+    detail: "Turn real handoffs, roles, and failure states into a product model the team can trust.",
   },
   {
-    title: "HAKIMO ERP",
-    detail: "Manufacturing ERP for production, HR, approvals, dashboards, RBAC, and cost analytics.",
+    title: "Build",
+    detail: "Ship a responsive frontend connected to secure data, integrations, and operational rules.",
   },
   {
-    title: "رؤية مصر 2030 + ministry previews",
-    detail: "National narrative platform and RTL GovTech previews for health and agriculture.",
+    title: "Verify",
+    detail: "Test the critical journey, permissions, edge cases, performance, and mobile behavior.",
   },
   {
-    title: "OIS Machinery",
-    detail: "Industrial B2B hub with catalog, services, and lead capture for manufacturers.",
-  },
-  {
-    title: "Grand Egyptian Museum",
-    detail: "Deadline-critical bilingual countdown with responsive UI and custom animations.",
+    title: "Ship",
+    detail: "Deploy, observe the live workflow, communicate clearly, and improve what matters.",
   },
 ];
 
@@ -271,6 +124,20 @@ function SectionHeader({
 }
 
 export default async function Home() {
+  const featuredSystems = getPosts(["src", "app", "work", "projects"])
+    .filter((project) => project.metadata.featured)
+    .sort((a, b) => (a.metadata.featuredOrder ?? 99) - (b.metadata.featuredOrder ?? 99))
+    .slice(0, 6)
+    .map((project) => ({
+      title: project.metadata.title,
+      category: `${project.metadata.category} · ${project.metadata.status}`,
+      href: `/work/${project.slug}`,
+      liveUrl: resolveVisibleProjectLink(project.slug, project.metadata.link, project.metadata.visibility),
+      image: project.metadata.images[0],
+      summary: project.metadata.summary,
+      highlights: project.metadata.highlights || [],
+      stack: project.metadata.stack || [],
+    }));
   const ghSocial = social.find((s) => s.icon === "github")?.link;
   const githubUsername = resolveGithubUsername(
     ghSocial ? parseGithubUsernameFromUrl(ghSocial) : undefined,
@@ -349,7 +216,7 @@ export default async function Home() {
           </Row>
           <Grid columns="4" m={{ columns: 2 }} s={{ columns: 1 }} gap="12" fillWidth className={styles.heroContent}>
             {proofPoints.map((point, index) => (
-              <ScrollReveal key={point} delayMs={index * 50}>
+              <ScrollReveal key={point.title} delayMs={index * 50}>
                 <Tilt3D maxTilt={6}>
                   <Column
                     className={styles.proofCard}
@@ -359,9 +226,9 @@ export default async function Home() {
                     padding="20"
                     gap="8"
                   >
-                    <Text variant="heading-strong-s">{point}</Text>
+                    <Text variant="heading-strong-s">{point.title}</Text>
                     <Text variant="body-default-xs" onBackground="neutral-weak">
-                      Tied to real company workflows at Sokany and beyond — not template demos.
+                      {point.detail}
                     </Text>
                   </Column>
                 </Tilt3D>
@@ -374,9 +241,9 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <ScrollReveal>
           <SectionHeader
-            eyebrow="Featured systems"
-            title="What I'm shipping now — and what I've already proven."
-            description="Shams Stores remote with Sokany first, then commerce, ERP, GovTech, and industrial products with the same delivery mindset."
+            eyebrow="Selected systems"
+            title="Products built around real operational work."
+            description="Six focused case studies across SaaS, commerce, POS, and internal operations — each framed by the problem, my role, and the system shipped."
           />
         </ScrollReveal>
         <Column fillWidth gap="24">
@@ -440,7 +307,7 @@ export default async function Home() {
                   </Column>
                   <Column flex={index === 0 ? 7 : 6} className={styles.systemImage}>
                     <div className={styles.systemImageMedia}>
-                      <Media
+                      {system.image && <Media
                         priority={index === 0}
                         aspectRatio="16 / 10"
                         radius="m"
@@ -448,7 +315,7 @@ export default async function Home() {
                         sizes="(max-width: 960px) 100vw, 720px"
                         alt={`${system.title} screenshot`}
                         src={system.image}
-                      />
+                      />}
                     </div>
                   </Column>
                 </Row>
@@ -462,9 +329,9 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <ScrollReveal>
           <SectionHeader
-            eyebrow="Services"
-            title="Systems I design and ship for operators."
-            description="Frontend engineering for teams that need reliable commerce flows, internal tools, and clear Arabic RTL products."
+            eyebrow="What I build"
+            title="Frontend engineering that reaches beyond the screen."
+            description="I connect clear interfaces to data, permissions, business rules, and integrations so teams can run the work in one product."
           />
         </ScrollReveal>
         <Grid columns="3" m={{ columns: 2 }} s={{ columns: 1 }} gap="16" fillWidth>
@@ -483,8 +350,7 @@ export default async function Home() {
                     {service}
                   </Heading>
                   <Text variant="body-default-s" onBackground="neutral-weak">
-                    Practical product engineering for commerce teams, factories, and
-                    internal operations — starting from the UI operators use every day.
+                    Product interfaces grounded in real roles, workflows, data boundaries, and the decisions operators make every day.
                   </Text>
                 </Column>
               </Tilt3D>
@@ -496,9 +362,9 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <ScrollReveal>
           <SectionHeader
-            eyebrow="Technical architecture"
-            title="Modern frontend connected to real operational systems."
-            description="A practical stack for responsive products, cloud data, commerce integrations, and automation workflows."
+            eyebrow="Engineering depth"
+            title="A frontend that respects the whole system."
+            description="Responsive product architecture connected to secure data, integrations, deployment workflows, and verification."
           />
         </ScrollReveal>
         <Grid columns="4" m={{ columns: 2 }} s={{ columns: 1 }} gap="16" fillWidth>
@@ -532,13 +398,13 @@ export default async function Home() {
       <Column as="section" fillWidth gap="32" className={styles.section}>
         <ScrollReveal>
           <SectionHeader
-            eyebrow="Timeline"
-            title="From client delivery to remote Shams with Sokany."
-            description="Started Aug 2026 on Shams Stores remotely with Sokany — after years of commerce, ERP, GovTech, and industrial shipping."
+            eyebrow="How I work"
+            title="From an unclear workflow to a product people can operate."
+            description="A practical delivery loop that keeps product thinking, engineering quality, and business reality connected."
           />
         </ScrollReveal>
         <Column fillWidth gap="12" className={styles.timeline}>
-          {timeline.map((item, index) => (
+          {process.map((item, index) => (
             <ScrollReveal key={item.title} delayMs={index * 50}>
               <Tilt3D maxTilt={4}>
                 <Row
@@ -564,17 +430,29 @@ export default async function Home() {
       </Column>
 
       <ScrollReveal delayMs={80}>
+        <Column as="section" fillWidth gap="16" className={styles.section}>
+          <Text variant="label-default-s" onBackground="brand-weak">Current focus</Text>
+          <Heading as="h2" variant="display-strong-xs" wrap="balance">
+            Rebuilding Shams Stores with Sokany.
+          </Heading>
+          <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
+            My current remote work covers the WooCommerce theme system, catalog and stock cleanup, mobile commerce UX, and cross-sell journeys that help creators build a complete setup instead of buying isolated products.
+          </Text>
+          <SmartLink href="/work/shams-stores">See the current case study →</SmartLink>
+        </Column>
+      </ScrollReveal>
+
+      <ScrollReveal delayMs={80}>
       <Column as="section" fillWidth gap="24" className={styles.contactBlock}>
         <Column gap="12" maxWidth="s">
           <Text variant="label-default-s" onBackground="brand-weak">
             Contact
           </Text>
           <Heading as="h2" variant="display-strong-xs" wrap="balance">
-            Need a frontend engineer for commerce ops or internal systems?
+            Have an operational problem? Let&apos;s turn it into a product.
           </Heading>
           <Text variant="body-default-m" onBackground="neutral-weak" wrap="balance">
-            I build storefronts, OMS workflows, ERP dashboards, Arabic RTL portals,
-            and integrations that match how teams actually work.
+            Bring me the workflow, users, and constraints. I&apos;ll help shape the product, build the interface, connect the system, and take it to a reliable release.
           </Text>
         </Column>
         <Row gap="12" wrap>

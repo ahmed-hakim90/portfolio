@@ -1,0 +1,43 @@
+---
+title: "Souqna — Local Multi-vendor Marketplace"
+publishedAt: "2026-06-22"
+summary: "Arabic-first marketplace connecting customers, merchants, couriers, and platform operators through one multi-tenant commerce system."
+images: ["/souqna-brand.png"]
+category: "Multi-vendor commerce"
+role: "Frontend & Product Engineer"
+featured: true
+featuredOrder: 3
+status: "Private case study"
+year: "2026"
+visibility: "case-study"
+highlights: ["Customer marketplace", "Merchant operations", "Courier workflows", "Tenant isolation"]
+stack: ["Next.js 16", "TypeScript", "Supabase", "PostgreSQL"]
+---
+
+## Context
+
+**Souqna** is an Arabic-first marketplace designed for local Egyptian commerce. It brings customers, independent merchants, delivery drivers, and platform operators into one system instead of treating the storefront as the whole product.
+
+## Problem
+
+Local sellers need more than a product page. They need inventory, orders, returns, delivery coordination, wallets, payouts, subscriptions, promotions, and reporting. Customers need a simple mobile journey, while the platform must keep every merchant's data and money isolated.
+
+## My role
+
+I shaped and built the product flows across the customer marketplace and operational dashboards, translating a multi-sided business model into clear Arabic RTL interfaces and protected server workflows.
+
+## Solution
+
+- Customer discovery, search, cart, checkout, favorites, order tracking, and returns
+- Merchant catalog, stock, Excel import, orders, wallet, payouts, ads, and analytics
+- Courier job assignment, delivery lifecycle, earnings, and withdrawals
+- Platform administration for merchants, customers, zones, subscriptions, content, and audit logs
+
+## Architecture
+
+Next.js App Router and TypeScript power the experience. Supabase PostgreSQL, row-level security, and transactional database operations protect tenant boundaries, price calculations, inventory changes, and order settlement. TanStack Query, Zustand, Zod, and tested service boundaries keep the frontend responsive without moving business rules into UI components.
+
+## Outcome
+
+The project demonstrates end-to-end marketplace thinking: four distinct user roles, one connected order lifecycle, and an architecture designed to grow beyond a single local market.
+
