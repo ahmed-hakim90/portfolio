@@ -14,7 +14,7 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://portfolio-1-phi-jet.vercel.app";
+const baseURL: string = "https://portfolio-hakim90.vercel.app";
 
 const routes: RoutesConfig = {
   "/": true,
