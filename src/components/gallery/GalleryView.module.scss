@@ -34,6 +34,28 @@
   overflow: hidden;
 }
 
+.caseStudyLink {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--static-space-8) var(--static-space-12);
+  border-radius: var(--radius-s);
+  color: var(--brand-on-background-strong);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.caseStudyLink:hover,
+.caseStudyLink:focus-visible {
+  background: var(--brand-alpha-weak);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 @media (max-width: 768px) {
   .filters {
     position: relative;

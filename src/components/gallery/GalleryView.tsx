@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Column, Grid, Heading, Media, Row, SmartLink, Tag, Text } from "@once-ui-system/core";
+import { Column, Grid, Heading, Media, Row, Tag, Text } from "@once-ui-system/core";
 import { Tilt3D } from "@/components/Tilt3D";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import styles from "./GalleryView.module.scss";
@@ -175,7 +175,9 @@ export default function GalleryView({ images }: { images: GalleryImageItem[] }) 
                     {featuredImage.title}
                   </Heading>
                 </Column>
-                <SmartLink href={`/work/${featuredImage.slug}`}>Open case study →</SmartLink>
+                <a className={styles.caseStudyLink} href={`/work/${featuredImage.slug}`}>
+                  Open case study →
+                </a>
               </Row>
             </Column>
           </Tilt3D>
@@ -211,7 +213,9 @@ export default function GalleryView({ images }: { images: GalleryImageItem[] }) 
                       </Text>
                       <Text variant="heading-strong-m">{image.title}</Text>
                     </Column>
-                    <SmartLink href={`/work/${image.slug}`}>Case study →</SmartLink>
+                    <a className={styles.caseStudyLink} href={`/work/${image.slug}`}>
+                      Case study →
+                    </a>
                   </Row>
                 </Column>
               </Tilt3D>
