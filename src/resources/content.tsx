@@ -72,11 +72,11 @@ const home: Home = {
         <strong className="ml-4">Featured</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Current focus: Shams Stores
+          Current focus: Masar Valet
         </Text>
       </Row>
     ),
-    href: "/work/shams-stores",
+    href: "/work/masar-valet",
   },
   subline: (
     <>
