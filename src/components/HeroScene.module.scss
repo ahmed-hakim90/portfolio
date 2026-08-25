@@ -3,12 +3,50 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: min(54%, 580px);
-  height: min(82%, 540px);
+  top: 4%;
+  width: min(53%, 640px);
+  height: min(78%, 540px);
   z-index: 0;
-  opacity: 0.95;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+  opacity: 0.98;
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.25) 18%, #000 36%, #000 100%);
   transition: opacity 400ms ease;
+}
+
+.legend {
+  position: absolute;
+  right: 6%;
+  bottom: 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  color: var(--neutral-on-background-strong, #111);
+  font-family: var(--font-family-code, monospace);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legendTitle { font-size: 10px; opacity: 0.52; }
+
+.steps {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--neutral-border-medium, #777) 38%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--page-background, #fff) 68%, transparent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.steps i {
+  width: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, #6f94f1, #e7bb39);
+  opacity: 0.62;
 }
 
 .root canvas {
@@ -42,6 +80,8 @@
     opacity: 0.6;
     mask-image: linear-gradient(180deg, #000 28%, transparent 96%);
   }
+
+  .legend { display: none; }
 }
 
 @media (max-width: 640px) {

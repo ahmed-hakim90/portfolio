@@ -1,121 +1,82 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
-import type { Group, Mesh } from "three";
+import { Line, RoundedBox } from "@react-three/drei";
+import type { Group, Mesh, MeshStandardMaterial } from "three";
 import styles from "./HeroScene.module.scss";
 
-const BRAND = "#6f94f1";
-const BRAND_SOFT = "#8db3ff";
-const BRAND_GLOW = "#b2dbff";
-
+const GOLD = "#e7bb39";
+const BLUE = "#6f94f1";
 type PointerTarget = { x: number; y: number };
+const steps = [
+  { color: BLUE, position: [-1.15, .82, -.7], rotation: [.03, .12, -.035] },
+  { color: GOLD, position: [.65, .5, -.25], rotation: [-.02, -.1, .025] },
+  { color: "#f3a94b", position: [-.62, -.38, .05], rotation: [.02, .1, -.025] },
+  { color: "#62d6a0", position: [1.02, -.72, .45], rotation: [-.025, -.12, .02] },
+] as const;
 
 function MouseParallaxCamera({ pointer }: { pointer: React.MutableRefObject<PointerTarget> }) {
   const { camera } = useThree();
-
   useFrame((_, delta) => {
-    const targetX = pointer.current.x * 0.55;
-    const targetY = pointer.current.y * 0.35;
-    camera.position.x += (targetX - camera.position.x) * Math.min(1, delta * 2.4);
-    camera.position.y += (targetY - camera.position.y) * Math.min(1, delta * 2.4);
-    camera.lookAt(0.35, -0.1, 0);
+    camera.position.x += (pointer.current.x * .28 - camera.position.x) * Math.min(1, delta * 2.2);
+    camera.position.y += (pointer.current.y * .18 - camera.position.y) * Math.min(1, delta * 2.2);
+    camera.lookAt(.05, -.05, 0);
   });
-
   return null;
 }
 
-function FloatingLattice({
-  position,
-  scale = 1,
-  speed = 0.35,
-  solid = false,
-}: {
-  position: [number, number, number];
-  scale?: number;
-  speed?: number;
-  solid?: boolean;
-}) {
-  const mesh = useRef<Mesh>(null);
-
-  useFrame((_, delta) => {
-    if (!mesh.current) return;
-    mesh.current.rotation.x += delta * speed * 0.35;
-    mesh.current.rotation.y += delta * speed * 0.55;
-  });
-
-  return (
-    <Float speed={1.15} rotationIntensity={0.4} floatIntensity={0.6}>
-      <mesh ref={mesh} position={position} scale={scale}>
-        <icosahedronGeometry args={[1, solid ? 1 : 0]} />
-        <meshStandardMaterial
-          color={solid ? BRAND : BRAND_SOFT}
-          wireframe={!solid}
-          transparent
-          opacity={solid ? 0.14 : 0.48}
-          roughness={0.3}
-          metalness={0.35}
-          emissive={BRAND}
-          emissiveIntensity={solid ? 0.08 : 0.18}
-        />
-      </mesh>
-    </Float>
-  );
+function Bar({ position, size, color, opacity = 1 }: { position: [number, number, number]; size: [number, number, number]; color: string; opacity?: number }) {
+  return <RoundedBox position={position} args={size} radius={Math.min(size[0], size[1]) * .25} smoothness={2}>
+    <meshBasicMaterial color={color} transparent opacity={opacity} />
+  </RoundedBox>;
 }
 
-function OrbitRing({
-  radius,
-  speed,
-  tilt,
-}: {
-  radius: number;
-  speed: number;
-  tilt: number;
-}) {
+function StoryCard({ index, color, position, rotation }: { index: number; color: string; position: readonly [number, number, number]; rotation: readonly [number, number, number] }) {
   const group = useRef<Group>(null);
-
-  useFrame((_, delta) => {
-    if (!group.current) return;
-    group.current.rotation.z += delta * speed;
+  const panel = useRef<MeshStandardMaterial>(null);
+  const signal = useRef<Mesh>(null);
+  useFrame(({ clock }, delta) => {
+    if (!group.current || !panel.current || !signal.current) return;
+    const distance = Math.abs(((clock.elapsedTime / 1.8 - index + 2) % 4) - 2);
+    const focus = Math.max(0, 1 - distance * 2.2);
+    const scale = 1 + focus * .075;
+    group.current.scale.lerp({ x: scale, y: scale, z: scale }, Math.min(1, delta * 5));
+    group.current.position.y = position[1] + Math.sin(clock.elapsedTime * .65 + index) * .025;
+    panel.current.emissiveIntensity = .035 + focus * .18;
+    signal.current.scale.setScalar(.85 + focus * .5);
   });
+  return <group ref={group} position={position} rotation={rotation}>
+    <RoundedBox args={[1.42, .78, .09]} radius={.075} smoothness={3}>
+      <meshStandardMaterial ref={panel} color="#080a0f" emissive={color} emissiveIntensity={.04} roughness={.32} metalness={.58} />
+    </RoundedBox>
+    <Bar position={[-.49, .25, .055]} size={[.28, .06, .018]} color={color} />
+    <Bar position={[-.14, .25, .055]} size={[.25, .035, .018]} color="#667084" opacity={.62} />
+    <Bar position={[0, .045, .055]} size={[1.13, .19, .018]} color="#151a24" />
+    <Bar position={[-.37, .045, .066]} size={[.25, .055, .012]} color={color} opacity={.78} />
+    <Bar position={[.17, .045, .066]} size={[.66, .035, .012]} color="#4d5668" opacity={.52} />
+    <Bar position={[-.18, -.2, .055]} size={[.78, .055, .018]} color="#303849" opacity={.72} />
+    <Bar position={[-.36, -.29, .055]} size={[.42, .035, .018]} color="#222938" />
+    <mesh ref={signal} position={[.57, .27, .085]}><circleGeometry args={[.045, 24]} /><meshBasicMaterial color={color} toneMapped={false} /></mesh>
+  </group>;
+}
 
-  return (
-    <group ref={group} rotation={[tilt, 0.25, 0.1]}>
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <torusGeometry args={[radius, 0.012, 10, 100]} />
-        <meshBasicMaterial color={BRAND_GLOW} transparent opacity={0.26} />
-      </mesh>
-    </group>
-  );
+function Storyboard() {
+  const group = useRef<Group>(null);
+  useFrame(({ clock }) => {
+    if (!group.current) return;
+    group.current.rotation.y = Math.sin(clock.elapsedTime * .18) * .035;
+    group.current.rotation.x = Math.cos(clock.elapsedTime * .15) * .018;
+  });
+  return <group ref={group} position={[.8, .16, 0]} scale={.72} rotation={[-.05, -.08, 0]}>
+    <Line points={steps.map(({ position }) => [...position] as [number, number, number])} color="#ffe28a" lineWidth={1.15} transparent opacity={.48} />
+    {steps.map((step, index) => <StoryCard key={index} index={index} {...step} />)}
+    <mesh position={[.05, -1.05, -.65]} rotation={[-Math.PI / 2, 0, 0]}><planeGeometry args={[4.2, 2.9, 8, 6]} /><meshBasicMaterial color={BLUE} wireframe transparent opacity={.035} /></mesh>
+  </group>;
 }
 
 function SceneContent({ pointer }: { pointer: React.MutableRefObject<PointerTarget> }) {
-  const shapes = useMemo(
-    () =>
-      [
-        { position: [1.7, 0.35, -1] as [number, number, number], scale: 0.9, speed: 0.38, solid: false },
-        { position: [2.55, -0.65, -0.35] as [number, number, number], scale: 0.42, speed: 0.58, solid: false },
-        { position: [1.15, -1.05, 0.15] as [number, number, number], scale: 0.3, speed: 0.72, solid: false },
-        { position: [2.1, 0.85, -1.4] as [number, number, number], scale: 0.55, speed: 0.28, solid: true },
-      ] as const,
-    [],
-  );
-
-  return (
-    <>
-      <MouseParallaxCamera pointer={pointer} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[4, 3, 2]} intensity={1.15} color={BRAND_GLOW} />
-      <pointLight position={[-2, 1.2, 2]} intensity={0.55} color={BRAND} />
-      {shapes.map((shape) => (
-        <FloatingLattice key={shape.position.join("-")} {...shape} />
-      ))}
-      <OrbitRing radius={1.5} speed={0.14} tilt={0.55} />
-      <OrbitRing radius={2.0} speed={-0.09} tilt={-0.32} />
-      <OrbitRing radius={2.45} speed={0.06} tilt={0.18} />
-    </>
-  );
+  return <><MouseParallaxCamera pointer={pointer} /><ambientLight intensity={.72} /><directionalLight position={[3.5, 4, 4]} intensity={1.35} color="#dce8ff" /><pointLight position={[1.8, .4, 2.4]} intensity={1.4} color={GOLD} distance={6} /><pointLight position={[-2, 1.4, 1.5]} intensity={.8} color={BLUE} distance={5} /><Storyboard /></>;
 }
 
 export function HeroScene() {
@@ -123,62 +84,16 @@ export function HeroScene() {
   const pointer = useRef<PointerTarget>({ x: 0, y: 0 });
   const [reduceMotion, setReduceMotion] = useState(false);
   const [active, setActive] = useState(true);
-
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const syncMotion = () => setReduceMotion(media.matches);
-    syncMotion();
-    media.addEventListener("change", syncMotion);
-    return () => media.removeEventListener("change", syncMotion);
-  }, []);
-
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setActive(entry.isIntersecting),
-      { threshold: 0.05 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
+  useEffect(() => { const media = matchMedia("(prefers-reduced-motion: reduce)"); const sync = () => setReduceMotion(media.matches); sync(); media.addEventListener("change", sync); return () => media.removeEventListener("change", sync); }, []);
+  useEffect(() => { const el = rootRef.current; if (!el) return; const observer = new IntersectionObserver(([entry]) => setActive(entry.isIntersecting), { threshold: .05 }); observer.observe(el); return () => observer.disconnect(); }, []);
   useEffect(() => {
     if (reduceMotion) return;
-
-    const onMove = (event: PointerEvent) => {
-      const el = rootRef.current;
-      if (!el) return;
-      if (window.matchMedia("(pointer: coarse)").matches) return;
-      const rect = el.getBoundingClientRect();
-      const nx = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      const ny = ((event.clientY - rect.top) / rect.height) * 2 - 1;
-      pointer.current.x = Math.max(-1, Math.min(1, nx));
-      pointer.current.y = Math.max(-1, Math.min(1, -ny));
-    };
-
-    window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
+    const move = (event: PointerEvent) => { const el = rootRef.current; if (!el || matchMedia("(pointer: coarse)").matches) return; const rect = el.getBoundingClientRect(); pointer.current.x = Math.max(-1, Math.min(1, (event.clientX - rect.left) / rect.width * 2 - 1)); pointer.current.y = Math.max(-1, Math.min(1, -((event.clientY - rect.top) / rect.height * 2 - 1))); };
+    addEventListener("pointermove", move, { passive: true }); return () => removeEventListener("pointermove", move);
   }, [reduceMotion]);
-
-  if (reduceMotion) {
-    return <div className={styles.fallback} aria-hidden />;
-  }
-
-  return (
-    <div ref={rootRef} className={styles.root} aria-hidden>
-      <Canvas
-        dpr={[1, 1.5]}
-        camera={{ position: [0, 0, 5.2], fov: 42 }}
-        frameloop={active ? "always" : "never"}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
-        style={{ background: "transparent" }}
-      >
-        <Suspense fallback={null}>
-          <SceneContent pointer={pointer} />
-        </Suspense>
-      </Canvas>
-    </div>
-  );
+  if (reduceMotion) return <div className={styles.fallback} aria-hidden />;
+  return <div ref={rootRef} className={styles.root} aria-hidden>
+    <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 5.4], fov: 39 }} frameloop={active ? "always" : "never"} gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }} style={{ background: "transparent" }}><Suspense fallback={null}><SceneContent pointer={pointer} /></Suspense></Canvas>
+    <div className={styles.legend}><span className={styles.legendTitle}>Operational storyboard</span><div className={styles.steps}><span>01 Scan</span><i /><span>02 Park</span><i /><span>03 Request</span><i /><span>04 Ready</span></div></div>
+  </div>;
 }
