@@ -26,7 +26,8 @@
 .meta { margin: 0; font-size: 12px; line-height: 1.5; font-weight: 560; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 34px; }
 .primaryButton, .secondaryButton { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border-radius: 12px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform .22s ease, box-shadow .22s ease, background .22s ease; }
-.primaryButton { gap: 18px; background: var(--ink); color: var(--page-background); box-shadow: 0 12px 30px rgba(0,0,0,.12); }
+.primaryButton { gap: 18px; background: #0a0a0a; color: #fff !important; box-shadow: 0 12px 30px rgba(0,0,0,.12); }
+:global([data-theme="dark"]) .primaryButton { background: #f5f5f7; color: #0a0a0a !important; }
 .secondaryButton { border: 1px solid var(--line); color: var(--ink); background: color-mix(in srgb, var(--page-background) 84%, transparent); }
 .primaryButton:hover, .secondaryButton:hover { transform: translateY(-2px); }
 .primaryButton:hover { box-shadow: 0 18px 38px rgba(0,0,0,.18); }

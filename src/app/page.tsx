@@ -42,7 +42,9 @@ export default function Home() {
       role: project.metadata.role,
       summary: project.metadata.summary,
       image: project.metadata.images[0],
-      heroImage: project.metadata.images[1] || project.metadata.images[0],
+      heroImage: project.slug === "masar-valet"
+        ? project.metadata.images[0]
+        : project.metadata.images[1] || project.metadata.images[0],
       stack: project.metadata.stack?.slice(0, 4) ?? [],
       href: `/work/${project.slug}`,
       liveUrl: resolveVisibleProjectLink(project.slug, project.metadata.link, project.metadata.visibility),
