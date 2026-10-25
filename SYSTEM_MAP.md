@@ -50,5 +50,6 @@ Astro static site with React islands and Tailwind. Content is authored in `src/d
 | `/` | `src/pages/index.astro` |
 | `/work` | `src/pages/work.astro` |
 | `/projects` | `src/pages/projects.astro` |
+| `/projects/shams-stores` | Case study for Shams Stores |
 | `/projects/haret-el-saada` | Case study for Haret El Saada |
 | `/projects/masar-valet` | Case study for Masar Valet |

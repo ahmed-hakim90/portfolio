@@ -36,16 +36,17 @@ export const projects: Project[] = [
   {
     slug: "shams-stores",
     name: "Shams Stores",
-    blurb: "Camera and creator-gear store, rebuilt for real buying",
+    blurb: "Photo and video gear, organized for a real purchase",
     description:
-      "Operational rebuild of an Egyptian WooCommerce store: theme architecture, catalog and stock cleanup, mobile commerce, and cross-sell paths that sell a camera with the lens and accessories around it.",
+      "Egyptian WooCommerce store for cameras, lenses, and creator gear. Mount-based lens categories, tighter product cards, a mobile shell, and a checkout that keeps the phone field full width.",
     featured: true,
     domains: ["commerce"],
     company: "Sokany",
-    role: "Frontend Engineer",
-    link: "https://www.shams-stores.com/",
-    favicon: "https://www.shams-stores.com/favicon.ico",
-    stack: ["WordPress", "WooCommerce", "PHP", "REST APIs"],
+    role: "E-commerce development",
+    link: "https://shams-stores.com/",
+    favicon: "/work/shams-stores/mark.png",
+    caseStudy: true,
+    stack: ["WordPress", "WooCommerce", "PHP", "CSS"],
   },
   {
     slug: "haret-el-saada",

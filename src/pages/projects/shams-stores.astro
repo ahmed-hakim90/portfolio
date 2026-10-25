@@ -1,0 +1,108 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { shamsStores as study } from "@/data/shamsStores";
+
+const liveLabel = study.liveUrl.replace("https://", "").replace(/\/$/, "");
+---
+
+<Layout title={study.pageTitle} description={study.metaDescription}>
+  <article class="space-y-8">
+    <header class="space-y-4">
+      <p class="text-[11px] text-white/35">
+        <a href="/projects" class="text-white/50 hover:text-amber-300">Projects</a>
+        <span aria-hidden="true"> / </span>
+        <span>Case study</span>
+      </p>
+      <div class="flex items-start gap-3">
+        <img
+          src={study.mark.src}
+          width={study.mark.width}
+          height={study.mark.height}
+          alt={study.mark.alt}
+          class="h-14 w-14 shrink-0 rounded-md bg-white object-contain p-1"
+        />
+        <div class="min-w-0 space-y-1">
+          <h1 class="text-xl font-semibold tracking-tight text-white/95">{study.name}</h1>
+          <p class="text-[11px] text-white/45">E-commerce platform · Egypt</p>
+          <p class="text-[11px] leading-relaxed text-white/40">{study.role}</p>
+        </div>
+      </div>
+      <a
+        href={study.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-11 items-center rounded-md border border-amber-400/40 bg-amber-400/15 px-4 text-sm font-medium text-amber-100 hover:border-amber-300 hover:bg-amber-400/25"
+      >
+        Visit Live Website
+        <span class="ml-2 text-[11px] font-normal text-amber-200/70">{liveLabel} ↗</span>
+      </a>
+    </header>
+
+    <figure class="space-y-2">
+      <img
+        src={study.screenshot.src}
+        width={study.screenshot.width}
+        height={study.screenshot.height}
+        alt={study.screenshot.alt}
+        class="w-full rounded-lg border border-white/[0.07]"
+      />
+      <figcaption class="text-[11px] leading-relaxed text-white/35">
+        Live Lenses category on shams-stores.com. Captured from the public store, not a mockup.
+      </figcaption>
+    </figure>
+
+    <section class="space-y-2" aria-labelledby="overview">
+      <h2 id="overview" class="text-sm font-semibold text-white/90">Project overview</h2>
+      {study.overview.map((paragraph) => (
+        <p class="max-w-2xl text-sm leading-relaxed text-white/60">{paragraph}</p>
+      ))}
+    </section>
+
+    <section class="space-y-2" aria-labelledby="role">
+      <h2 id="role" class="text-sm font-semibold text-white/90">Role and responsibilities</h2>
+      <ul class="max-w-2xl space-y-1.5 text-sm leading-relaxed text-white/60">
+        {study.responsibilities.map((item) => (
+          <li class="flex gap-2">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400/70" aria-hidden="true"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-2" aria-labelledby="stack">
+      <h2 id="stack" class="text-sm font-semibold text-white/90">Technologies used</h2>
+      <ul class="max-w-2xl space-y-1.5">
+        {study.stack.map((item) => (
+          <li class="text-sm leading-relaxed text-white/60">
+            <span class="text-white/85">{item.name}.</span> {item.note}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-3" aria-labelledby="improvements">
+      <h2 id="improvements" class="text-sm font-semibold text-white/90">Key improvements</h2>
+      <div class="grid gap-2 sm:grid-cols-2">
+        {study.improvements.map((item) => (
+          <article class="rounded-lg border border-white/[0.07] bg-white/[0.02] p-3">
+            <p class="text-[10px] uppercase tracking-widest text-amber-200/70">{item.kind}</p>
+            <h3 class="mt-1 text-sm text-white/90">{item.title}</h3>
+            <p class="mt-1.5 text-xs leading-relaxed text-white/55">{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <p>
+      <a
+        href={study.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-amber-200/90 hover:text-amber-100"
+      >
+        Visit Live Website — {liveLabel} ↗
+      </a>
+    </p>
+  </article>
+</Layout>
