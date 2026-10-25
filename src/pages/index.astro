@@ -1,0 +1,114 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Section from "@/components/Section.astro";
+import CareerHeatmap from "@/components/CareerHeatmap.tsx";
+import LivePulse from "@/components/LivePulse.tsx";
+import StackMap from "@/components/StackMap.tsx";
+import Impact from "@/components/Impact.tsx";
+import ProjectBoard from "@/components/ProjectBoard.tsx";
+import Contact from "@/components/Contact.tsx";
+import { profile } from "@/data/profile";
+import { roles } from "@/data/career";
+import { totalActiveMonths, overlappingMonths } from "@/lib/careerMap";
+
+const months = totalActiveMonths();
+const overlap = overlappingMonths();
+const years = (months / 12).toFixed(1);
+const current = roles.find((r) => r.end === null);
+const facts = [
+  { k: "Years shipping", v: years },
+  { k: "Roles", v: String(roles.length) },
+  { k: "Months with overlapping work", v: String(overlap) },
+  { k: "Languages", v: "AR · EN" },
+];
+---
+
+<Layout title="Home">
+  <!-- hero -->
+  <section class="space-y-4">
+    <div class="flex flex-wrap items-center gap-2">
+      <span
+        class="inline-flex items-center gap-1.5 rounded-full border border-amber-400/25 bg-amber-400/[0.07] px-2.5 py-1 text-[11px] text-amber-200/90"
+      >
+        <span class="relative flex h-1.5 w-1.5">
+          <span
+            class="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-70 motion-safe:animate-ping"
+          ></span>
+          <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+        </span>
+        {current ? `Currently at ${current.company}` : "Between roles"}
+      </span>
+      <span class="rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-white/45">
+        {profile.openTo}
+      </span>
+    </div>
+
+    <h1 class="text-2xl font-semibold leading-tight tracking-tight text-white/95 sm:text-3xl">
+      {profile.tagline}
+    </h1>
+
+    <div class="space-y-2.5">
+      {
+        profile.summary.map((p) => (
+          <p class="max-w-2xl text-sm leading-relaxed text-white/60">{p}</p>
+        ))
+      }
+    </div>
+
+    <dl class="grid grid-cols-2 gap-2 pt-1 sm:grid-cols-4">
+      {
+        facts.map((f) => (
+          <div class="rounded-lg border border-white/[0.07] bg-white/[0.02] px-2.5 py-2">
+            <dd class="text-base font-semibold tabular-nums leading-none text-white/90">{f.v}</dd>
+            <dt class="mt-1 text-[10px] leading-tight text-white/35">{f.k}</dt>
+          </div>
+        ))
+      }
+    </dl>
+
+    <p class="text-[11px] text-white/30">
+      Press <kbd class="rounded border border-white/15 px-1 font-sans">⌘K</kbd> (or
+      <kbd class="rounded border border-white/15 px-1 font-sans">/</kbd>) to jump anywhere.
+    </p>
+  </section>
+
+  <hr class="my-2 border-white/[0.06]" />
+
+  <Section
+    id="map"
+    title="Career map"
+    note="Six tracks × every month since 2018. Hover a cell, click a month, filter by employer."
+    href="/work"
+    hrefLabel="Read the detail"
+  >
+    <CareerHeatmap client:visible />
+  </Section>
+
+  <Section id="live" title="Live from GitHub" note="Fetched in your browser, not baked at build time.">
+    <LivePulse client:visible />
+  </Section>
+
+  <Section
+    id="impact"
+    title="What shipped"
+    note="Dated releases. Each one opens the role it belongs to."
+  >
+    <Impact client:visible />
+  </Section>
+
+  <Section
+    id="stack"
+    title="Domains & stack"
+    note="Pick a domain to narrow the stack, or a technology to see where it was used."
+  >
+    <StackMap client:visible />
+  </Section>
+
+  <Section id="work" title="Selected projects" href="/projects" hrefLabel="All projects">
+    <ProjectBoard client:visible compact />
+  </Section>
+
+  <Section id="contact" title="Get in touch">
+    <Contact client:visible />
+  </Section>
+</Layout>

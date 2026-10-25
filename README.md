@@ -1,69 +1,37 @@
-# Ahmed Abdulhakim — Portfolio
+# Ahmed Abdulhakim
 
-موقع شخصي لعرض المشاريع والمدونة وصفحة About ومعرض صور. مبني على قالب [Magic Portfolio](https://once-ui.com/products/magic-portfolio) مع [Once UI](https://once-ui.com) و [Next.js](https://nextjs.org).
+Personal site for **Ahmed Abdulhakim** — Frontend Engineer.
+Static [Astro](https://astro.build) build, React islands, Tailwind. The layout follows [kroking.dev](https://kroking.dev/) ([source](https://github.com/Mahmoudgalalz/kroking)); the career, projects, and contact details are Ahmed's.
 
-![Portfolio preview](public/images/og/home.jpg)
+## What's in here
 
-## المتطلبات
+| Piece | Where | What it does |
+| --- | --- | --- |
+| Career map | `src/components/CareerHeatmap.tsx` | Heat grid of six tracks × every month since 2018. Hover a cell, click a month, filter by employer, or flip to a table. |
+| Live GitHub pulse | `src/components/LivePulse.tsx` | Contribution calendar and public activity for `ahmed-hakim90`, fetched in the visitor's browser. |
+| Stack map | `src/components/StackMap.tsx` | Pick a domain or a technology to see the roles and projects that used it. |
+| Command palette | `src/components/CommandPalette.tsx` | `⌘K` / `/` — jump to a page, section, role, or project. |
+| Timeline | `src/components/Timeline.tsx` | Role-by-role detail at `/work#<role-id>`. |
+| Projects | `src/data/projects.ts` | Featured products and earlier work. Case studies without a public demo have no outbound link. |
 
-- **Node.js** 20 أو أحدث (متوافق مع Next.js 16)
-- **npm** (أو pnpm / yarn)
+## Editing content
 
-## التشغيل محليًا
+All copy lives in `src/data/`:
 
-```bash
-npm install
-cp .env.example .env
-# عدّل القيم في .env ثم:
-npm run dev
-```
+- `profile.ts` — name, links, summary, tracks, domains
+- `career.ts` — roles, per-track weights, dated milestones, education
+- `projects.ts` — featured projects and earlier work
 
-يفتح الموقع على [http://localhost:3000](http://localhost:3000).
+Adding a role to `career.ts` re-renders the heatmap, the timeline, the stack map, and the command palette.
 
-## السكربتات
+The contact form opens the visitor's email app. It does not post the message to a third-party inbox.
 
-| الأمر | الوظيفة |
-|--------|---------|
-| `npm run dev` | خادم التطوير |
-| `npm run build` | بناء الإنتاج |
-| `npm run start` | تشغيل البناء بعد `build` |
-| `npm run lint` | ESLint |
-| `npm run biome-write` | تنسيق الملفات عبر Biome |
+## Commands
 
-## أهم ملفات الإعداد والمحتوى
-
-| الملف | الاستخدام |
-|--------|------------|
-| [`src/resources/content.tsx`](src/resources/content.tsx) | الاسم، السيرة، الروابط الاجتماعية، نصوص الصفحات، صفحة الشروط (`terms`) |
-| [`src/resources/once-ui.config.ts`](src/resources/once-ui.config.ts) | عنوان الموقع (`baseURL`)، الثيم، الخطوط، تفعيل المسارات، تأثيرات الخلفية، مخطط البيانات المنظمة |
-| [`src/resources/custom.css`](src/resources/custom.css) | تخصيص إضافي فوق توكنز Once UI |
-
-## المحتوى الديناميكي
-
-- **تدوينات:** أضف ملف `.mdx` تحت [`src/app/blog/posts`](src/app/blog/posts).
-- **مشاريع العمل:** أضف ملف `.mdx` تحت [`src/app/work/projects`](src/app/work/projects).
-- **معرض الصور:** مصفوفة الصور في [`src/resources/content.tsx`](src/resources/content.tsx) ضمن كائن `gallery`.
-
-يمكن تعطيل صفحات من لوحة المسارات داخل `once-ui.config.ts` (`routes`).
-
-## المتغيرات البيئية
-
- انسخ `.env.example` إلى `.env` واملأ القيم. ملخص سريع:
-
-- **`NEXT_PUBLIC_SITE_URL`** — الرابط الكامل للموقع (بدون شرطة مائية أخيرة)، للـ SEO والـ RSS والـ Open Graph.
-- **`GITHUB_USERNAME`** / **`GITHUB_TOKEN`** — اختياري لعرض مساهمات GitHub في صفحة About؛ بدون توكن قد لا يظهر الـ heatmap.
-- **`PAGE_ACCESS_PASSWORD`** — اختياري لحماية مسارات معينة عبر `protectedRoutes` في الإعداد.
-- **`NEXT_PUBLIC_EGYPT_VISION_2030_DEMO_URL`** — رابط العرض الحي على Vercel لمشروع رؤية مصر 2030 (نفس قيمة `VITE_PLATFORM_DEMO_URL` في مستودع المنصة).
-
-لا ترفع ملف `.env` أو مفاتيح حقيقية إلى Git.
-
-## النشر
-
-مناسب للنشر على [Vercel](https://vercel.com) أو أي استضافة تدعم Next.js. عيّن `NEXT_PUBLIC_SITE_URL` في لوحة المتغيرات البيئية للإنتاج وحدّث `baseURL` في `once-ui.config.ts` أو وحّدهما على نفس النطاق.
-
-## الإسناد والترخيص
-
-- هذا المستودع يعتمد على قالب **Magic Portfolio** تحت ترخيص **CC BY-NC 4.0** — الإسناد للمصدر مطلوب؛ الاستخدام التجاري للقالب محظور ما لم يتوفر ترخيص موسّع من جهة Once UI. التفاصيل في [`LICENSE`](LICENSE).
-- واجهة المستخدم مبنية على حزمة **`@once-ui-system/core`**؛ يُعرض إسناد مختصر في تذييل الموقع وفق شروط القالب.
-
-للمزيد عن القالب الرسمي: [توثيق Magic Portfolio](https://docs.once-ui.com/docs/magic-portfolio/quick-start).
+| Command | Action |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Dev server on `localhost:4321` |
+| `npm run check` | Astro + TypeScript diagnostics |
+| `npm run build` | Typecheck, then build to `./dist/` |
+| `npm run preview` | Serve the production build locally |

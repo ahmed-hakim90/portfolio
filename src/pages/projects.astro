@@ -1,0 +1,34 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ProjectBoard from "@/components/ProjectBoard.tsx";
+import LiveRepos from "@/components/LiveRepos.tsx";
+import Section from "@/components/Section.astro";
+import { profile } from "@/data/profile";
+---
+
+<Layout
+  title="Projects"
+  description="Operational products, commerce systems, and public Arabic platforms I have shipped."
+>
+  <header class="space-y-3">
+    <h1 class="text-xl font-semibold tracking-tight text-white/95">Projects</h1>
+    <p class="max-w-2xl text-sm leading-relaxed text-white/60">
+      Selected operational products and commerce systems, then the earlier sites and public platforms
+      around them. Case studies without a public demo stay on the board without an outbound link.
+    </p>
+  </header>
+
+  <Section id="board" title="The board" note="Filter by domain.">
+    <ProjectBoard client:load />
+  </Section>
+
+  <Section
+    id="fresh"
+    title="Fresh from GitHub"
+    note="Most recently pushed public repos, live."
+    href={profile.links.github}
+    hrefLabel="Full profile"
+  >
+    <LiveRepos client:visible />
+  </Section>
+</Layout>

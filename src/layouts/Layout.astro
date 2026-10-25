@@ -1,0 +1,93 @@
+---
+import Nav from "@/components/Nav.tsx";
+import { profile } from "@/data/profile";
+import "@/styles/globals.css";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = `${profile.name} — ${profile.title}. ${profile.tagline}` } = Astro.props;
+const path = Astro.url.pathname;
+const origin = Astro.site?.href ?? `https://${profile.site}/`;
+const canonical = new URL(path, origin).href;
+const fullTitle = path === "/" ? `${profile.name} — ${profile.title}` : `${title} · ${profile.site}`;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0c0a09" />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preconnect" href="https://api.github.com" />
+    <link rel="preconnect" href="https://github-contributions-api.jogruber.de" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://github.com/${profile.github}.png`} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`https://github.com/${profile.github}.png`} />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: profile.name,
+        alternateName: profile.github,
+        jobTitle: profile.title,
+        email: `mailto:${profile.email}`,
+        url: origin,
+        address: { "@type": "PostalAddress", addressLocality: "Cairo", addressCountry: "EG" },
+        sameAs: [profile.links.github, profile.links.linkedin, profile.links.x],
+      })}
+    />
+
+    <ViewTransitions />
+  </head>
+
+  <body class="min-h-dvh bg-background text-foreground antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded focus:bg-amber-400 focus:px-3 focus:py-1.5 focus:text-xs focus:text-black"
+      >Skip to content</a
+    >
+
+    <div class="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
+      <Nav client:load path={path} />
+      <main id="main" transition:animate="fade" class="py-8">
+        <slot />
+      </main>
+      <footer
+        class="flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-white/[0.07] pt-4 text-[10px] text-white/25"
+      >
+        <span>© {new Date().getFullYear()} {profile.name}</span>
+        <span class="text-white/10">·</span>
+        <span>{profile.location} · {profile.openTo}</span>
+        <a
+          class="ml-auto hover:text-white/60"
+          href="https://github.com/Mahmoudgalalz/kroking"
+          target="_blank"
+          rel="noopener noreferrer">layout adapted from kroking.dev ↗</a
+        >
+      </footer>
+    </div>
+  </body>
+</html>

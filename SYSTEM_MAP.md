@@ -1,66 +1,52 @@
 # SYSTEM_MAP
 
 **Product:** Ahmed Abdulhakim Portfolio (`ahmed-abdulhakim-portfolio`)  
-**Purpose:** Public personal portfolio for a Frontend Engineer at Sokany — case studies, writing, gallery, and booking.  
-**Last updated:** 2026-08-20
+**Purpose:** Public personal site — career map, selected operational products, and contact.  
+**Last updated:** 2026-10-25
 
 ## Core / runtime
 
-Next.js App Router + Once UI + MDX case studies/posts. Static generation for content routes. Optional GitHub GraphQL (server token). Contact via WhatsApp / email / schedule.
+Astro static site with React islands and Tailwind. Content is authored in `src/data/`. GitHub activity is fetched in the browser from public APIs. Contact opens a mailto draft.
 
 ## Modules
 
 | ID | Name | Category |
 |----|------|----------|
-| MOD / 01 | Home | Positioning + featured systems |
-| MOD / 02 | Work | Case study listing + detail (incl. Shams Stores) |
-| MOD / 03 | Blog | MDX writing + case narratives |
-| MOD / 04 | Gallery | Screenshot archive from project images |
-| MOD / 05 | About | Bio, experience, skills, GitHub |
-| MOD / 06 | Schedule | Call booking |
-| MOD / 07 | Terms | Legal / usage |
-| MOD / 08 | Contact surfaces | WhatsApp, email, social (cross-cutting) |
+| MOD / 01 | Home | Positioning, career heat, GitHub pulse, shipped notes, stack, featured projects, contact |
+| MOD / 02 | Career | Role timeline, heatmap, education |
+| MOD / 03 | Projects | Domain-filtered board plus earlier work |
+| MOD / 04 | Contact surfaces | Email, WhatsApp, GitHub, LinkedIn, X |
 
 ## Primary path
 
-**Visitor → Home (role + Sokany systems) → Work / featured case study → Live demo or Schedule → Contact**
-
-Secondary: Blog write-up → Work slug · Gallery → Work slug · About → Schedule
+**Visitor → Home (role + current focus) → Career or a featured project → Live demo, GitHub, or contact**
 
 ## Counts
 
 - Roles: 1 (public visitor)
-- Modules: 8
-- Integrations: GitHub (optional), WhatsApp, email, Form/schedule, Egypt Vision demo URL (env), Mailchimp (off)
+- Modules: 4
+- Integrations: GitHub public API (live), WhatsApp, email
 
 ## Roles
 
 | Role | Acts where |
 |------|------------|
-| Public visitor | All marketing routes; no auth for content |
-| Site owner | Content via MDX + env vars; optional page password via `PAGE_ACCESS_PASSWORD` |
+| Public visitor | Home, career, projects, contact |
+| Site owner | Content in `src/data/` |
 
 ## Integrations
 
 | System | Status |
 |--------|--------|
-| Vercel hosting | Live |
-| GitHub API (repos + contributions) | Live when `GITHUB_TOKEN` set |
+| Vercel hosting | Expected static host |
+| GitHub REST + contribution mirror | Live, anonymous, cached in the browser |
 | WhatsApp / mailto | Live |
-| Schedule (/schedule) | Live |
-| `NEXT_PUBLIC_EGYPT_VISION_2030_DEMO_URL` | Env-gated |
-| Mailchimp | Off (`newsletter.display: false`) |
+| Third-party contact inbox | Off |
 
 ## Key routes
 
 | Route | Entry |
 |-------|--------|
-| `/` | `src/app/page.tsx` + `src/resources/content.tsx` |
-| `/work` | `src/app/work/page.tsx` · pin order in `Projects.tsx` |
-| `/work/[slug]` | `src/app/work/[slug]/page.tsx` · MDX in `src/app/work/projects/` |
-| `/blog` | `src/app/blog/page.tsx` |
-| `/blog/[slug]` | `src/app/blog/[slug]/page.tsx` · MDX in `src/app/blog/posts/` |
-| `/gallery` | `src/app/gallery/page.tsx` · `getProjectGalleryImages()` |
-| `/about` | `src/app/about/page.tsx` |
-| `/schedule` | `src/app/schedule/page.tsx` |
-| `/terms` | `src/app/terms/page.tsx` |
+| `/` | `src/pages/index.astro` |
+| `/work` | `src/pages/work.astro` |
+| `/projects` | `src/pages/projects.astro` |

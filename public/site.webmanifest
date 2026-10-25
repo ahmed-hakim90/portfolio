@@ -1,0 +1,8 @@
+{
+  "name": "Ahmed Abdulhakim",
+  "short_name": "Ahmed",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }],
+  "theme_color": "#0c0a09",
+  "background_color": "#0c0a09",
+  "display": "standalone"
+}

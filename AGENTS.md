@@ -1,7 +1,13 @@
 # Project Agent Rules
 
+Personal site for Ahmed Abdulhakim. Astro + React islands + Tailwind, laid out like kroking.dev.
+
 Read the relevant `docs/` files before product, UI, or shared architecture work.
 
+- Copy lives in `src/data/` (`profile.ts`, `career.ts`, `projects.ts`). Do not put biography in components.
+- Keep case studies that have no public demo without an outbound link.
+- Do not send contact messages to a third-party inbox. The form opens the visitor's email app.
+- Read `SYSTEM_MAP.md` before changing routes or modules.
 - Understand the affected journey, roles, permissions, data contracts, and downstream impact before coding.
 - Diagnose root causes before adding UI workarounds. Preserve business logic unless the request explicitly changes it.
 - Reuse and extend existing tokens, components, patterns, validation, and domain logic before creating alternatives.
