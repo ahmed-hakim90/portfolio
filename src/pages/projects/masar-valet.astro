@@ -1,0 +1,125 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { masarValet as study } from "@/data/masarValet";
+
+const liveLabel = study.liveUrl.replace("https://", "").replace(/\/$/, "");
+---
+
+<Layout title={study.pageTitle} description={study.metaDescription}>
+  <article class="space-y-8">
+    <header class="space-y-4">
+      <p class="text-[11px] text-white/35">
+        <a href="/projects" class="text-white/50 hover:text-[#E2C8AB]">Projects</a>
+        <span aria-hidden="true"> / </span>
+        <span>Case study</span>
+      </p>
+      <div class="flex items-start gap-3">
+        <img
+          src={study.mark.src}
+          width={study.mark.width}
+          height={study.mark.height}
+          alt={study.mark.alt}
+          class="h-14 w-14 shrink-0 rounded-md bg-[#2E0D15] object-contain"
+        />
+        <div class="min-w-0 space-y-1">
+          <h1 class="text-xl font-semibold tracking-tight text-white/95">{study.name}</h1>
+          <p class="text-[11px] text-[#E2C8AB]/80">Saudi Arabia · Valet operations</p>
+          <p class="text-[11px] leading-relaxed text-white/40">{study.role}</p>
+        </div>
+      </div>
+      <a
+        href={study.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-11 items-center rounded-md border border-[#E2C8AB]/50 bg-[#2E0D15] px-4 text-sm font-medium text-[#FBF7EE] hover:border-[#E2C8AB]"
+      >
+        Visit live website
+        <span class="ml-2 text-[11px] font-normal text-[#E2C8AB]">{liveLabel} ↗</span>
+      </a>
+    </header>
+
+    <figure class="space-y-2">
+      <img
+        src={study.screenshot.src}
+        width={study.screenshot.width}
+        height={study.screenshot.height}
+        alt={study.screenshot.alt}
+        class="w-full rounded-lg border border-[#D6CEC3]/20"
+      />
+      <figcaption class="text-[11px] leading-relaxed text-white/35">
+        Staff workspace render using a fixture ticket. It is a product screen from engineering review, not a live customer record or a business report.
+      </figcaption>
+    </figure>
+
+    <section class="space-y-2" aria-labelledby="overview">
+      <h2 id="overview" class="text-sm font-semibold text-white/90">Overview</h2>
+      {study.overview.map((paragraph) => (
+        <p class="max-w-2xl text-sm leading-relaxed text-white/60">{paragraph}</p>
+      ))}
+    </section>
+
+    <section class="space-y-2" aria-labelledby="problem">
+      <h2 id="problem" class="text-sm font-semibold text-white/90">The business problem</h2>
+      <ul class="max-w-2xl space-y-1.5 text-sm leading-relaxed text-white/60">
+        {study.problem.map((item) => (
+          <li class="flex gap-2">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#E2C8AB]" aria-hidden="true"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-3" aria-labelledby="contributions">
+      <h2 id="contributions" class="text-sm font-semibold text-white/90">Engineering contributions</h2>
+      <div class="grid gap-2 sm:grid-cols-2">
+        {study.contributions.map((item) => (
+          <article class="rounded-lg border border-white/[0.07] bg-white/[0.02] p-3">
+            <p class="text-[10px] uppercase tracking-widest text-[#E2C8AB]/80">{item.kind}</p>
+            <h3 class="mt-1 text-sm text-white/90">{item.title}</h3>
+            <p class="mt-1.5 text-xs leading-relaxed text-white/55">{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-2" aria-labelledby="architecture">
+      <h2 id="architecture" class="text-sm font-semibold text-white/90">Technical architecture</h2>
+      <ul class="max-w-2xl space-y-1.5">
+        {study.architecture.map((item) => (
+          <li class="text-sm leading-relaxed text-white/60">
+            <span class="text-white/85">{item.name}.</span> {item.note}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-2" aria-labelledby="value">
+      <h2 id="value" class="text-sm font-semibold text-white/90">Business value</h2>
+      <ul class="max-w-2xl space-y-1.5 text-sm leading-relaxed text-white/60">
+        {study.value.map((item) => (
+          <li class="flex gap-2">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-[#E2C8AB]" aria-hidden="true"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="max-w-2xl text-xs leading-relaxed text-white/35">
+        These are the intended effects of the capabilities above. No revenue, volume, or conversion figures are stated.
+      </p>
+    </section>
+
+    <section class="space-y-3 rounded-lg border border-[#E2C8AB]/25 bg-[#2E0D15] p-4" aria-labelledby="cta">
+      <h2 id="cta" class="text-sm font-semibold text-[#FBF7EE]">Custom platforms and ERP integrations</h2>
+      <p class="max-w-2xl text-sm leading-relaxed text-[#D6CEC3]">
+        If you need a SaaS workflow, a business system, or an integration between operations and accounting, start from the contact form. It opens your email app.
+      </p>
+      <a
+        href="/#contact"
+        class="inline-flex min-h-11 items-center rounded-md border border-[#E2C8AB]/60 px-4 text-sm font-medium text-[#FBF7EE] hover:bg-[#E2C8AB]/10"
+      >
+        Contact Ahmed
+      </a>
+    </section>
+  </article>
+</Layout>

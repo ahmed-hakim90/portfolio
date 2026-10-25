@@ -14,12 +14,12 @@ Astro static site with React islands and Tailwind. Content is authored in `src/d
 |----|------|----------|
 | MOD / 01 | Home | Positioning, career heat, GitHub pulse, shipped notes, stack, featured projects, contact |
 | MOD / 02 | Career | Role timeline, heatmap, education |
-| MOD / 03 | Projects | Domain-filtered board plus earlier work |
+| MOD / 03 | Projects | Domain-filtered board, earlier work, and a written case study when one exists |
 | MOD / 04 | Contact surfaces | Email, WhatsApp, GitHub, LinkedIn, X |
 
 ## Primary path
 
-**Visitor → Home (role + current focus) → Career or a featured project → Live demo, GitHub, or contact**
+**Visitor → Home (role + current focus) → Career, a featured project, or a case study → Live demo, GitHub, or contact**
 
 ## Counts
 
@@ -50,3 +50,5 @@ Astro static site with React islands and Tailwind. Content is authored in `src/d
 | `/` | `src/pages/index.astro` |
 | `/work` | `src/pages/work.astro` |
 | `/projects` | `src/pages/projects.astro` |
+| `/projects/haret-el-saada` | Case study for Haret El Saada |
+| `/projects/masar-valet` | Case study for Masar Valet |

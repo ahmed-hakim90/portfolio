@@ -12,6 +12,8 @@ export type Project = {
   link?: string;
   github?: string;
   favicon?: string;
+  /** Opens a written case study at /projects/[slug]. */
+  caseStudy?: boolean;
   stack: string[];
   metrics?: { label: string; value: string }[];
 };
@@ -22,12 +24,13 @@ export const projects: Project[] = [
     name: "Masar Valet",
     blurb: "Valet operations for operators, drivers, and guests",
     description:
-      "Production valet SaaS: QR and NFC tickets, live vehicle pickup, payments, ratings, AI vehicle capture, notifications, a PWA, and multi-tenant control. Tenant data stays behind row-level security, and private photos use signed URLs.",
+      "Saudi valet platform for zones, tickets, and guest pickup. QR and NFC intake, signed vehicle photos, and payment, wallet, and Odoo paths that stay gated until each provider is activated.",
     featured: true,
     domains: ["ops"],
-    role: "Frontend & Product Engineer",
-    link: "https://masarvalet.com",
-    favicon: "https://masarvalet.com/favicon.ico",
+    role: "Product engineering",
+    link: "https://masarvalet.com/",
+    favicon: "/work/masar-valet/mark.webp",
+    caseStudy: true,
     stack: ["TanStack Start", "TypeScript", "Supabase", "Cloudflare Workers"],
   },
   {
@@ -43,6 +46,20 @@ export const projects: Project[] = [
     link: "https://www.shams-stores.com/",
     favicon: "https://www.shams-stores.com/favicon.ico",
     stack: ["WordPress", "WooCommerce", "PHP", "REST APIs"],
+  },
+  {
+    slug: "haret-el-saada",
+    name: "Haret El Saada",
+    blurb: "Sokany appliances, shaped into a compact shop",
+    description:
+      "Egyptian WooCommerce store for Sokany kitchen, personal-care, and home appliances. Category shortcuts, tighter product cards, checkout styling, SEO pages, and mobile overflow fixes on the live theme.",
+    featured: true,
+    domains: ["commerce"],
+    role: "E-commerce development",
+    link: "https://haretalsaada.com/",
+    favicon: "/work/haret-el-saada/mark.jpg",
+    caseStudy: true,
+    stack: ["WordPress", "WooCommerce", "PHP", "CSS", "LiteSpeed Cache"],
   },
   {
     slug: "velora",

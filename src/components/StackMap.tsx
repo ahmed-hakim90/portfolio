@@ -21,7 +21,7 @@ const CATEGORIES: { label: string; match: string[] }[] = [
   },
   {
     label: "Cloud & release",
-    match: ["Vercel", "Cloudflare Workers", "GitHub Actions", "TanStack Start"],
+    match: ["Vercel", "Cloudflare Workers", "GitHub Actions", "TanStack Start", "LiteSpeed Cache"],
   },
 ];
 
@@ -199,7 +199,14 @@ export default function StackMap() {
             ))}
             {selected.projects.map((p) => (
               <li key={p.slug} className="text-white/45">
-                {p.name} <span className="text-white/25">— {p.blurb}</span>
+                {p.caseStudy ? (
+                  <a href={`/projects/${p.slug}`} className="text-white/70 hover:text-amber-300">
+                    {p.name}
+                  </a>
+                ) : (
+                  p.name
+                )}{" "}
+                <span className="text-white/25">— {p.blurb}</span>
               </li>
             ))}
           </ul>

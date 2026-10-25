@@ -31,6 +31,7 @@ export default function Contact() {
   }
 
   const channels = [
+    ["hi.new/hakimo", profile.links.hinew],
     ["GitHub", profile.links.github],
     ["LinkedIn", profile.links.linkedin],
     ["X", profile.links.x],
@@ -73,7 +74,9 @@ export default function Contact() {
       >
         <div className="flex items-baseline justify-between text-[10px] text-white/30">
           <span>Send a message</span>
-          <span>Remote · selected work</span>
+          <a href={profile.links.hinew} className="text-amber-200/70 hover:text-amber-200">
+            hi.new/hakimo
+          </a>
         </div>
         <div className="flex gap-2 max-sm:flex-col">
           <input
@@ -100,7 +103,13 @@ export default function Contact() {
           className="w-full resize-none rounded-md bg-white/5 px-2 py-1.5 text-xs text-white/80 outline-none ring-amber-400/40 placeholder:text-white/25 focus:ring-1"
         />
         <div className="flex items-center justify-between">
-          <p className="text-[10px] text-white/25">Opens your email app. Nothing is stored here.</p>
+          <p className="text-[10px] text-white/25">
+            Opens your email app. Bots use{" "}
+            <a href={profile.links.hinew} className="text-white/45 hover:text-amber-300">
+              hi.new/hakimo
+            </a>
+            .
+          </p>
           <div className="flex items-center gap-2">
             {status === "sent" && <span className="text-[10px] text-amber-300">Email draft opened.</span>}
             {status === "error" && (

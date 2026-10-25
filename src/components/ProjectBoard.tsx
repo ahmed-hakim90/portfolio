@@ -53,7 +53,13 @@ export default function ProjectBoard({ compact = false }: { compact?: boolean })
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
                 <h3 className="text-sm text-white/90">
-                  {p.name}
+                  {p.caseStudy ? (
+                    <a href={`/projects/${p.slug}`} className="hover:text-amber-200">
+                      {p.name}
+                    </a>
+                  ) : (
+                    p.name
+                  )}
                   {p.company && <span className="text-white/30"> · {p.company}</span>}
                 </h3>
                 <p className="mt-0.5 text-[10px] text-white/35">{p.role ?? p.blurb}</p>
@@ -85,8 +91,13 @@ export default function ProjectBoard({ compact = false }: { compact?: boolean })
               ))}
             </div>
 
-            {(p.link || p.github) && (
-              <div className="mt-2 flex gap-3 text-[10px]">
+            {(p.caseStudy || p.link || p.github) && (
+              <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[10px]">
+                {p.caseStudy && (
+                  <a href={`/projects/${p.slug}`} className="text-amber-200/80 hover:text-amber-200">
+                    Case study
+                  </a>
+                )}
                 {p.link && (
                   <a
                     href={p.link}
@@ -177,7 +188,7 @@ function Favicon({ src }: { src: string }) {
       alt=""
       loading="lazy"
       onError={() => setDead(true)}
-      className="h-7 w-7 shrink-0 rounded opacity-50 transition-opacity duration-200 group-hover:opacity-90"
+      className="h-7 w-7 shrink-0 rounded object-contain opacity-50 transition-opacity duration-200 group-hover:opacity-90"
     />
   );
 }

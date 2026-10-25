@@ -1,0 +1,152 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { haretElSaada as study } from "@/data/haretElSaada";
+
+const liveLabel = study.liveUrl.replace("https://", "").replace(/\/$/, "");
+---
+
+<Layout title={study.pageTitle} description={study.metaDescription}>
+  <article class="space-y-8">
+    <header class="space-y-4">
+      <p class="text-[11px] text-white/35">
+        <a href="/projects" class="text-white/50 hover:text-amber-300">Projects</a>
+        <span aria-hidden="true"> / </span>
+        <span>Case study</span>
+      </p>
+      <div class="flex items-start gap-3">
+        <img
+          src={study.mark.src}
+          width={study.mark.width}
+          height={study.mark.height}
+          alt=""
+          class="h-14 w-auto shrink-0 rounded-md bg-white"
+        />
+        <div class="min-w-0 space-y-1">
+          <h1 class="text-xl font-semibold tracking-tight text-white/95">
+            {study.name}
+            <span class="font-normal text-white/45"> · <bdi lang="ar">{study.arabicName}</bdi></span>
+          </h1>
+          <p class="text-[11px] leading-relaxed text-white/40">{study.role}</p>
+        </div>
+      </div>
+      <p class="max-w-2xl text-sm leading-relaxed text-white/60">
+        <bdi lang="ar">{study.quote}</bdi>
+      </p>
+      <a
+        href={study.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-11 items-center rounded-md border border-amber-400/40 bg-amber-400/15 px-4 text-sm font-medium text-amber-100 hover:border-amber-300 hover:bg-amber-400/25"
+      >
+        Visit Live Website
+        <span class="ml-2 text-[11px] font-normal text-amber-200/70">{liveLabel} ↗</span>
+      </a>
+    </header>
+
+    <figure class="space-y-2">
+      <img
+        src={study.cover.src}
+        width={study.cover.width}
+        height={study.cover.height}
+        alt={study.cover.alt}
+        class="w-full rounded-lg border border-white/[0.07]"
+      />
+      <figcaption class="text-[11px] leading-relaxed text-white/35">
+        Homepage banner from the live store. This is production artwork, not a screenshot of the full interface.
+      </figcaption>
+    </figure>
+
+    <section class="space-y-2" aria-labelledby="overview">
+      <h2 id="overview" class="text-sm font-semibold text-white/90">Overview</h2>
+      {study.overview.map((paragraph) => (
+        <p class="max-w-2xl text-sm leading-relaxed text-white/60">{paragraph}</p>
+      ))}
+    </section>
+
+    <section class="space-y-2" aria-labelledby="challenges">
+      <h2 id="challenges" class="text-sm font-semibold text-white/90">Challenges</h2>
+      <ul class="max-w-2xl space-y-1.5 text-sm leading-relaxed text-white/60">
+        {study.challenges.map((item) => (
+          <li class="flex gap-2">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400/70" aria-hidden="true"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-3" aria-labelledby="solutions">
+      <h2 id="solutions" class="text-sm font-semibold text-white/90">Solutions delivered</h2>
+      <div class="grid gap-2 sm:grid-cols-2">
+        {study.solutions.map((item) => (
+          <article class="rounded-lg border border-white/[0.07] bg-white/[0.02] p-3">
+            <p class="text-[10px] uppercase tracking-widest text-amber-200/70">{item.kind}</p>
+            <h3 class="mt-1 text-sm text-white/90">{item.title}</h3>
+            <p class="mt-1.5 text-xs leading-relaxed text-white/55">{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="space-y-2" aria-labelledby="from-the-store">
+      <h2 id="from-the-store" class="text-sm font-semibold text-white/90">From the live store</h2>
+      <p class="max-w-2xl text-xs leading-relaxed text-white/40">
+        Category artwork currently used on haretalsaada.com. These are the stall illustrations, not captured screenshots of the shop UI.
+      </p>
+      <ul class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {study.gallery.map((image) => (
+          <li>
+            <figure class="rounded-lg border border-white/[0.07] bg-white/[0.02] p-2">
+              <img
+                src={image.src}
+                width={image.width}
+                height={image.height}
+                alt={image.alt}
+                loading="lazy"
+                class="mx-auto h-28 w-auto object-contain"
+              />
+              <figcaption class="mt-1 text-center text-[10px] text-white/40">{image.label}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-2" aria-labelledby="stack">
+      <h2 id="stack" class="text-sm font-semibold text-white/90">Technical stack</h2>
+      <ul class="max-w-2xl space-y-1.5">
+        {study.stack.map((item) => (
+          <li class="text-sm leading-relaxed text-white/60">
+            <span class="text-white/85">{item.name}.</span> {item.note}
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="space-y-2" aria-labelledby="results">
+      <h2 id="results" class="text-sm font-semibold text-white/90">Results and validation</h2>
+      <ul class="max-w-2xl space-y-1.5 text-sm leading-relaxed text-white/60">
+        {study.results.map((item) => (
+          <li class="flex gap-2">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-amber-400/70" aria-hidden="true"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="max-w-2xl text-xs leading-relaxed text-white/35">
+        No sales, conversion, or performance scores are claimed here. The checks above are the ones that were actually run.
+      </p>
+    </section>
+
+    <p>
+      <a
+        href={study.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-amber-200/90 hover:text-amber-100"
+      >
+        Visit Live Website — {liveLabel} ↗
+      </a>
+    </p>
+  </article>
+</Layout>

@@ -30,7 +30,7 @@ export default function Nav({ path }: { path: string }) {
 
       <nav className="ml-auto flex items-center gap-1" aria-label="Primary">
         {pages.map((p) => {
-          const active = here === p.href;
+          const active = here === p.href || (p.href !== "/" && here.startsWith(`${p.href}/`));
           return (
             <a
               key={p.href}

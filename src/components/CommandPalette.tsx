@@ -35,9 +35,9 @@ function buildItems(toast: (m: string) => void): Item[] {
         id: `x-${p.slug}`,
         group: "Projects",
         label: p.name,
-        hint: p.blurb,
-        href: p.link ?? p.github ?? "/projects",
-        external: true,
+        hint: p.caseStudy ? "Case study" : p.blurb,
+        href: p.caseStudy ? `/projects/${p.slug}` : (p.link ?? p.github ?? "/projects"),
+        external: p.caseStudy ? false : Boolean(p.link || p.github),
       })),
     {
       id: "l-github",
@@ -50,6 +50,7 @@ function buildItems(toast: (m: string) => void): Item[] {
     { id: "l-in", group: "Elsewhere", label: "LinkedIn", href: profile.links.linkedin, external: true },
     { id: "l-x", group: "Elsewhere", label: "X", href: profile.links.x, external: true },
     { id: "l-wa", group: "Elsewhere", label: "WhatsApp", href: profile.links.whatsapp, external: true },
+    { id: "l-hi", group: "Elsewhere", label: "hi.new/hakimo", href: profile.links.hinew, external: true },
     {
       id: "a-mail",
       group: "Actions",

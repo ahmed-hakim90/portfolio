@@ -19,6 +19,7 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/ahmed-abdulhakim-sayed-471752174/",
     x: "https://x.com/ahmed_hakim900",
     whatsapp: "https://wa.me/201069005019",
+    hinew: "https://hi.new/hakimo",
   },
 } as const;
 
